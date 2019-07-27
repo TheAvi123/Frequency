@@ -22,7 +22,7 @@ public class MouseInputController : MonoBehaviour
     private void VerifyInputType() {
         //Uses TouchInputController if Touch is Supported
         if (Input.touchSupported) {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false);    //Disable Object
         }
     }
 
@@ -30,6 +30,7 @@ public class MouseInputController : MonoBehaviour
         player = FindObjectOfType<PlayerWave>();
         if (!player) {
             Debug.LogError("No Player Object Found");
+            gameObject.SetActive(false);    //Disable Object
         }
     }
 

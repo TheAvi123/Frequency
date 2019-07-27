@@ -7,7 +7,7 @@ public class ObstacleGenerator : MonoBehaviour
     //Reference Variables
     private PlayerWave player;
 
-    //Child Reference Variables
+    //Folder Variables for Obstacle Parent GameObjects
     private GameObject easyFolder;
     private GameObject mediumFolder;
     private GameObject hardFolder;
@@ -34,14 +34,13 @@ public class ObstacleGenerator : MonoBehaviour
     //Random Variables
     private int currentIndex;           //Random Roll for Obstacle Prefab Selection
     private float currentRoll;          //Random Roll for Obstacle Difficulty Selection
-    private float currentDistance;      //Random Spacing between Next Obstacle Spawn
 
     //State Variables
     private Difficulty currentDifficulty;
     private Obstacle[] currentObstacleList;
     private GameObject currentObstacleFolder;
     private GameObject currentObstacle;
-    private Transform lastEndPosition;
+    private Vector3 lastEndPosition;
 
     //Methods
     private void Awake() {
@@ -54,6 +53,7 @@ public class ObstacleGenerator : MonoBehaviour
         player = FindObjectOfType<PlayerWave>();
         if (!player) {
             Debug.LogError("No Player Object Found");
+            gameObject.SetActive(false);    //Disable Object
         }
     }
 
@@ -87,10 +87,10 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     private void SpawnFirstObstacle() {
-        currentIndex = Random.Range(0, easyObstacles.Length);        //Always Spawn Easy Obstacle First
+        currentIndex = Random.Range(0, easyObstacles.Length);       //Always Spawn Easy Obstacle First
         GameObject obstacle = Instantiate(easyObstacles[currentIndex].gameObject, startSpawnPostion) as GameObject;
-        obstacle.transform.parent = easyFolder.transform;
-        lastEndPosition = obstacle.transform.Find("EndPosition");
+        obstacle.transform.parent = easyFolder.transform;           //Set Parent as Easy Folder for Organization
+        lastEndPosition = obstacle.transform.Find("EndPosition").position;
     }
 
     private void Update() {
@@ -98,7 +98,7 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     private void SpawnTriggerCheck() {
-        if (lastEndPosition.position.y - player.transform.position.y <= spawnTriggerDistance) {
+        if (lastEndPosition.y - player.transform.position.y <= spawnTriggerDistance) {
             ChooseObstacleDifficulty();
             SetObstacleListAndFolder();
             AddRandomSpacing();
@@ -107,7 +107,7 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     private void ChooseObstacleDifficulty() {
-        currentRoll = Random.value;
+        currentRoll = Random.value;     //Returns Value between 0 and 1
         if (currentRoll < easyProbability) {
             currentDifficulty = Difficulty.Easy;
         } else if (currentRoll < easyProbability + mediumProbability) {
@@ -141,26 +141,25 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     private void AddRandomSpacing() {
-        currentDistance = Random.Range(minObstacleDistance, maxObstacleDistance);
-        lastEndPosition.position = new Vector2(lastEndPosition.position.x, (lastEndPosition.position.y + currentDistance));
+        lastEndPosition.y += Random.Range(minObstacleDistance, maxObstacleDistance);
     }
 
     private void SpawnRandomObstacle() {
         currentIndex = Random.Range(0, currentObstacleList.Length);
         currentObstacle = currentObstacleList[currentIndex].GetInstanceFromPool();
-        if (currentObstacle != null) {
+        if (currentObstacle != null) {  //Instance Available in Obstacle Pool
             currentObstacle.SetActive(true);
-            currentObstacle.transform.position = lastEndPosition.position;
+            currentObstacle.transform.position = lastEndPosition;
             SetObstacleProperties(currentObstacle);
-        } else {
+        } else {  //No Instance Available in Obstacle Pool
             currentObstacle = currentObstacleList[currentIndex].gameObject;
-            GameObject obstacle = Instantiate(currentObstacle, lastEndPosition) as GameObject;
+            GameObject obstacle = Instantiate(currentObstacle, lastEndPosition, Quaternion.identity) as GameObject;
             SetObstacleProperties(obstacle);
         }
     }
 
     private void SetObstacleProperties(GameObject obstacle) {
         obstacle.transform.SetParent(currentObstacleFolder.transform);
-        lastEndPosition = obstacle.transform.Find("EndPosition");
+        lastEndPosition = obstacle.transform.Find("EndPosition").position;
     }
 }

@@ -17,7 +17,8 @@ public class CameraFollow : MonoBehaviour
     private void FindPlayerObject() {
         player = FindObjectOfType<PlayerWave>();
         if (!player) {
-            Debug.LogError("No Player Object Found");
+            Debug.LogError("No Player Object Found For Camera To Follow");
+            enabled = false;        //Disable This Component
         }
     }
 

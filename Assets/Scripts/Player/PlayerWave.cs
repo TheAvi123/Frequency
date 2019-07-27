@@ -10,6 +10,7 @@ public class PlayerWave : MonoBehaviour
     [SerializeField] [Range(0, 10f)] float amplitudeMultiplier = 7.5f;
 
     [Header("Set Variables")]
+    //Saved For Reset Purpose
     private float setVerticalSpeed;
     private float setFrequencyMultiplier;
     private float setAmplitudeMultiplier;
@@ -29,12 +30,13 @@ public class PlayerWave : MonoBehaviour
     private Coroutine dashCoroutine = null;
 
     [Header("Delay Ability")]
-    [SerializeField] int delayWavelengthCount = 1;
+    [SerializeField] int delayWavelengthDuration = 1;
     [SerializeField] float delayVerticalSpeed = 0f;
     private Coroutine delayCoroutine = null;
     private bool delayInProgress = false;
     private float delayAngle;
 
+    //Regular Movement Methods
     private void Start() {
         SetupInitialOffsets();
         SaveSetVariables();
@@ -42,13 +44,14 @@ public class PlayerWave : MonoBehaviour
     }
 
     private void SetupInitialOffsets() {
-        Vector2 offsetVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, 0));
+        Vector2 offsetVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, 0));    //Percentage Coordinates
         initialOffsetX = offsetVector.x;
         initialOffsetY = offsetVector.y;
         transform.position = new Vector2(initialOffsetX, 0);
     }
 
     private void SaveSetVariables() {
+        //Saving These Variables For Reset Purpose
         setVerticalSpeed = verticalSpeed;
         setFrequencyMultiplier = frequencyMultiplier;
         setAmplitudeMultiplier = amplitudeMultiplier;
@@ -69,9 +72,9 @@ public class PlayerWave : MonoBehaviour
             currentAngle -= resetAngle;
         }
 
-        if (delayInProgress) {         //For Exiting Delay Ability
+        if (delayInProgress) {         //For Exiting Delay Ability - See Delay Coroutine
             delayAngle += Time.deltaTime * frequencyMultiplier;
-            if (delayAngle >= resetAngle * delayWavelengthCount) {
+            if (delayAngle >= resetAngle * delayWavelengthDuration) {
                 delayInProgress = false;
             }
         }
@@ -83,6 +86,7 @@ public class PlayerWave : MonoBehaviour
         transform.position = new Vector2(xPosition, yPosition);
     }
 
+    //Input Dependent Methods
     public void Flip() {
         StopAllCoroutines();                            //Cancel Dash and Delay Abilities
         ResetWaveParameters();                          //Reset Parameters to Presets
@@ -112,11 +116,11 @@ public class PlayerWave : MonoBehaviour
     }
 
     private IEnumerator DelayCoroutine() {
-        delayAngle = 0;
+        delayAngle = 0;                                         //Mark Initial Angle for Duration Check
         delayInProgress = true;
-        verticalSpeed = delayVerticalSpeed;
-        yield return new WaitWhile(() => delayInProgress);
-        verticalSpeed = setVerticalSpeed;
+        verticalSpeed = delayVerticalSpeed;                     //Set Vertical Speed to 0 = Pause Movement
+        yield return new WaitWhile(() => delayInProgress);      //Boolean Checked in UpdateAngle Method
+        verticalSpeed = setVerticalSpeed;                       //Reset Vertical Speed to Set Vertical Speed
         delayCoroutine = null;
     }
 
