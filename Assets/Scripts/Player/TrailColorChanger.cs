@@ -3,8 +3,10 @@
 public class TrailColorChanger : MonoBehaviour
 {
     ///Reference Variables
-    private TrailRenderer trailRenderer = null;
-
+    private TrailRenderer playerTrail = null;
+    private SpriteRenderer playerSprite = null;
+ 
+    //Serialized Parameters
     [Header("Gradient Parameters")]
     [SerializeField] Gradient colorGradient = null;
     [SerializeField] float gradientSpeed = 0.025f;
@@ -14,13 +16,22 @@ public class TrailColorChanger : MonoBehaviour
     private Color currentColor;
 
     private void Awake() {
+        FindPlayerSprite();
         FindPlayerTrail();
         GradientCheck();
     }
 
+    private void FindPlayerSprite() {
+        playerSprite = GetComponentInChildren<SpriteRenderer>();
+        if (!playerSprite) {
+            Debug.LogError("No Sprite Renderer Found on The Player");
+            enabled = false;        //Disable This Component
+        }
+    }
+
     private void FindPlayerTrail() {
-        trailRenderer = GetComponent<TrailRenderer>();
-        if (!trailRenderer) {
+        playerTrail = GetComponent<TrailRenderer>();
+        if (!playerTrail) {
             Debug.LogError("No Trail Renderer Found On The Player");
             enabled = false;        //Disable This Component
         }
@@ -55,6 +66,7 @@ public class TrailColorChanger : MonoBehaviour
 
     private void UpdateColor() {
         currentColor = colorGradient.Evaluate(ticker);
-        trailRenderer.startColor = currentColor;
+        playerTrail.startColor = currentColor;
+        playerSprite.color = currentColor;
     }
 }
