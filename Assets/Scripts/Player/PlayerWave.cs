@@ -44,7 +44,7 @@ public class PlayerWave : MonoBehaviour
     }
 
     private void SetupInitialOffsets() {
-        Vector2 offsetVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, 0));    //Percentage Coordinates
+        Vector2 offsetVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, 30));    //Percentage Coordinates
         initialOffsetX = offsetVector.x;
         initialOffsetY = offsetVector.y;
         transform.position = new Vector2(initialOffsetX, 0);
@@ -83,7 +83,7 @@ public class PlayerWave : MonoBehaviour
     private void SetPosition() {
         xPosition = Mathf.Sin(currentAngle) * amplitudeMultiplier + initialOffsetX;
         yPosition = transform.position.y + verticalSpeed * Time.deltaTime;
-        transform.position = new Vector2(xPosition, yPosition);
+        transform.position = new Vector3(xPosition, yPosition);
     }
 
     //Input Dependent Methods
