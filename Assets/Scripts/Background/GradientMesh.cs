@@ -1,20 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
 public class GradientMesh : MonoBehaviour
 {
-    [System.Serializable]
-    private class ColorPair     //Inner Class For Private Use
-    {
-        public Color topColor;
-        public Color botColor;
-
-        public ColorPair(Color topColor, Color botColor) {
-            this.topColor = topColor;
-            this.botColor = botColor;
-        }
-    }
-
     [Header("Mesh Components")]
     private Mesh mesh;
     private MeshFilter meshFilter;
@@ -31,18 +18,25 @@ public class GradientMesh : MonoBehaviour
     private Vector3 botLeft;
     private Vector3 botRight;
 
-    [Header("Mesh Parameters")]
+    [System.Serializable]
+    private struct ColorPair
+    {
+        public Color topColor;
+        public Color botColor;
+    }
+
+    //Parameters
     [SerializeField] Material meshMaterial = null;
-    [SerializeField] ColorPair[] colorPairs;
-    [SerializeField] float transitionSpeed = 1f;
+    private Gradient colorGradient = null;
+    private float gradientSpeed = 0f;
 
     //State Variables
-    private ColorPair oldColors;
-    private ColorPair newColors;
-    private Color currentTopColor;
-    private Color currentBotColor;
-    private bool colorsChanged = true;
-    private float lerpTimer = 1f;
+    private ColorPair currentColors;
+    private float topTicker = 0f;
+    private float botTicker = 0f;
+
+    //Color State Variables
+    private float H, S, V;
 
     //Methods
     private void Start() {
@@ -50,6 +44,7 @@ public class GradientMesh : MonoBehaviour
         AddMeshComponents();
         AssignMeshVerticesAndTriangles();
         SetMeshMaterial();
+        AssignGradientParameters();
     }
 
     private void SetScreenCornerVectors() {
@@ -79,37 +74,44 @@ public class GradientMesh : MonoBehaviour
 
     private void SetMeshMaterial() {
         meshRenderer.material = meshMaterial;
-        newColors = colorPairs[Random.Range(0, colorPairs.Length)];
-        oldColors = newColors;
-        mesh.colors = new Color[] {oldColors.topColor, oldColors.topColor, oldColors.botColor, oldColors.botColor};
     }
-    
+
+    private void AssignGradientParameters() {
+        TrailColorChanger playerTrail = FindObjectOfType<TrailColorChanger>();
+        colorGradient = playerTrail.GetColorGradient();
+        gradientSpeed = playerTrail.GetGradientSpeed();
+        topTicker = playerTrail.GetTickerValue() + 0.25f;
+    }
+
     private void Update() {
-        /*        if (lerpTimer >= 1) {
-                    SelectNewColors();
-                } else {
-                    UpdateMeshColors();
-                }*/
-
-        //Commented Out for Testing
-
-        //TestMethod
-        mesh.colors = new Color[] { colorPairs[0].topColor, colorPairs[0].topColor, colorPairs[0].botColor, colorPairs[0].botColor };
-
+        UpdateTickers();
+        UpdateCurrentColors();
+        UpdateMeshColors();
     }
 
-    private void SelectNewColors() {
-        oldColors = newColors;
-        while (newColors == oldColors) {
-            newColors = colorPairs[Random.Range(0, colorPairs.Length)];
+    private void UpdateTickers() {
+        topTicker += Time.deltaTime * gradientSpeed;   //Increase Ticker per Frame
+        if (topTicker > 1) {
+            topTicker -= 1;    //Reset to 0 to Start Back at Beginning of Gradient
         }
-        lerpTimer = 0f;
+        botTicker = topTicker + 0.25f;  //Increase Ticker per Frame Alonside topTicker
+        if (botTicker > 1) {
+            botTicker -= 1;    //Reset to 0 to Start Back at Beginning of Gradient
+        }
+    }
+
+    private void UpdateCurrentColors() {
+        currentColors.topColor = DesaturateColor(colorGradient.Evaluate(topTicker), 0.65f);
+        currentColors.botColor = DesaturateColor(colorGradient.Evaluate(botTicker), 0.35f);
+    }
+
+    private Color DesaturateColor(Color color, float saturation) {
+        Color.RGBToHSV(color, out H, out S, out V);
+        S = saturation;
+        return Color.HSVToRGB(H, S, V);
     }
 
     private void UpdateMeshColors() {
-        lerpTimer += Time.deltaTime * transitionSpeed;
-        currentTopColor = Color.Lerp(oldColors.topColor, newColors.topColor, lerpTimer);
-        currentBotColor = Color.Lerp(oldColors.botColor, newColors.botColor, lerpTimer);
-        mesh.colors = new Color[] {currentTopColor, currentTopColor, currentBotColor, currentBotColor};
+        mesh.colors = new Color[] { currentColors.topColor, currentColors.topColor, currentColors.botColor, currentColors.botColor };
     }
 }

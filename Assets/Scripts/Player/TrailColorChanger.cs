@@ -12,7 +12,7 @@ public class TrailColorChanger : MonoBehaviour
     [SerializeField] float gradientSpeed = 0.025f;
 
     //State Variables
-    private float ticker = 0f;
+    private float gradientTicker = 0f;
     private Color currentColor;
 
     private void Awake() {
@@ -49,7 +49,7 @@ public class TrailColorChanger : MonoBehaviour
     }
 
     private void SetRandomColor() {
-        ticker = Random.value;    //Set Ticker to Random Color on Gradient
+        gradientTicker = Random.value;    //Set Ticker to Random Color on Gradient
     }
 
     private void Update() {
@@ -58,15 +58,28 @@ public class TrailColorChanger : MonoBehaviour
     }
 
     private void UpdateTicker() {
-        ticker += Time.deltaTime * gradientSpeed;   //Increase Ticker per Frame
-        if (ticker > 1) {
-            ticker -= 1;    //Reset to 0 to Start Back at Beginning of Gradient
+        gradientTicker += Time.deltaTime * gradientSpeed;   //Increase Ticker per Frame
+        if (gradientTicker > 1) {
+            gradientTicker -= 1;    //Reset to 0 to Start Back at Beginning of Gradient
         }
     }
 
     private void UpdateColor() {
-        currentColor = colorGradient.Evaluate(ticker);
+        currentColor = colorGradient.Evaluate(gradientTicker);
         playerTrail.startColor = currentColor;
         playerSprite.color = currentColor;
+    }
+
+    //Public Getter Methods
+    public Gradient GetColorGradient() {
+        return colorGradient;
+    }
+
+    public float GetGradientSpeed() {
+        return gradientSpeed;
+    }
+
+    public float GetTickerValue() {
+        return gradientTicker;
     }
 }
