@@ -6,20 +6,21 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager sharedInstance;
 
-    private enum GameState {Splash, Start, Playing, Over, Options, Shop, HighScores}
+    private enum GameState {Splash, Start, Playing, Instructions, Over, Options, Shop, HighScores}
 
     [Header("Scene Names")]
     [SerializeField] string splashSceneName = null;
     [SerializeField] string startSceneName = null;
     [SerializeField] string playSceneName = null;
     [SerializeField] string gameOverSceneName = null;
+    [SerializeField] string instructionsSceneName = null;
     [SerializeField] string optionsSceneName = null;
     [SerializeField] string shopSceneName = null;
     [SerializeField] string highScoreSceneName = null;
 
     //Parameters
     [SerializeField] bool startFromInitialState = true;
-    [SerializeField] GameState initialState = GameState.Splash;
+    [SerializeField] GameState initialState = GameState.Start;
 
     //State Variables
     private GameState currentState;
@@ -34,6 +35,8 @@ public class GameStateManager : MonoBehaviour
                 return playSceneName;
             case GameState.Over:
                 return gameOverSceneName;
+            case GameState.Instructions:
+                return instructionsSceneName;
             case GameState.Options:
                 return optionsSceneName;
             case GameState.Shop:
@@ -73,6 +76,7 @@ public class GameStateManager : MonoBehaviour
     }
 
     public void QuitGame() {
+        Debug.Log("Exiting Game...");
         Application.Quit();
     }
 
@@ -82,6 +86,10 @@ public class GameStateManager : MonoBehaviour
 
     public void GameOver(float delayInSeconds) {
         StartCoroutine(WaitAndLoad(GameState.Over, delayInSeconds));
+    }
+
+    public void ShowInstructions() {
+        LoadState(GameState.Instructions);
     }
 
     public void OpenOptions() {

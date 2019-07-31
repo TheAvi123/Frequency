@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 1640409655512593756}
   - component: {fileID: 3508548454804499694}
   m_Layer: 5
-  m_Name: ShopButtom
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f6d6a945aed24ca40b11d17feabb3036, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2771660113896924905}
   - component: {fileID: 2403494919960745967}
-  - component: {fileID: 9060071945798842218}
+  - component: {fileID: 194011027528338082}
   m_Layer: 5
   m_Name: Collider
   m_TagString: Untagged
@@ -193,7 +193,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
---- !u!114 &9060071945798842218
+--- !u!114 &194011027528338082
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1396900234979117209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20048537f8e012f4c8c8d88e2a973352, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e1c747276d6b1644b969accbe26bd08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3518219935615273419
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 2070389444947671694}
   - component: {fileID: 4073442023454730634}
   m_Layer: 5
-  m_Name: OptionsButton
+  m_Name: MuteButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2d34e94ee5e655641b8023d14bc087ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -471,10 +471,10 @@ RectTransform:
   m_Father: {fileID: 3919035240145303841}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.27459016, y: 0.43756828}
+  m_AnchorMax: {x: 0.721, y: 0.56243163}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -28}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3919035239734365718
 CanvasRenderer:
@@ -777,7 +777,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7752733685665540604}
   - component: {fileID: 1064647800257322104}
-  - component: {fileID: 2661222151624284894}
+  - component: {fileID: 194011027528338081}
   m_Layer: 5
   m_Name: Collider
   m_TagString: Untagged
@@ -820,7 +820,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
---- !u!114 &2661222151624284894
+--- !u!114 &194011027528338081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -829,7 +829,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4613689762259325787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f969522791782a44f98e0ff96fdf6fc0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ec9f72ecb1498347b5b42c0ee5e3d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6282090524354953258
@@ -973,7 +973,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 345eefcf4ba33ab4386f684d5172a5b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

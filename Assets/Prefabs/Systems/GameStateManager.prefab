@@ -61,8 +61,9 @@ MonoBehaviour:
   startSceneName: StartMenu
   playSceneName: PlayScene
   gameOverSceneName: GameOver
+  instructionsSceneName: Instructions
   optionsSceneName: Options
   shopSceneName: Shop
   highScoreSceneName: HighScores
-  startFromInitialState: 0
-  initialState: 0
+  startFromInitialState: 1
+  initialState: 1
