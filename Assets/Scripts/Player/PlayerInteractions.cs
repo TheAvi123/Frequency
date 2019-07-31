@@ -29,6 +29,7 @@ public class PlayerInteractions : MonoBehaviour
         gameObject.SetActive(false);
         DisableInputControllers();
         StopIncreasingScore();
+        ShakeScreen();
         SpawnDeathVFX();
         LoadGameOver();
     }
@@ -48,6 +49,10 @@ public class PlayerInteractions : MonoBehaviour
 
     private void StopIncreasingScore() {
         ScoreManager.sharedInstance.StopIncreasingScore();
+    }
+
+    private void ShakeScreen() {
+        CameraShaker.sharedInstance.ShakeCamera();
     }
 
     private void SpawnDeathVFX() {
