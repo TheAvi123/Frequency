@@ -6,7 +6,10 @@ public class PlayerInteractions : MonoBehaviour
 
     [Header("Visual Effects")]
     [SerializeField] ParticleSystem deathVFX = null;
+    [SerializeField] GameObject plusOneVFX = null;
 
+    private bool playerAlive = true;
+ 
     private void Awake() {
         FindPlayerTrail();
     }
@@ -20,12 +23,35 @@ public class PlayerInteractions : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "ObstaclePart") {
-            PlayerDied();
+        switch (other.tag) {
+            case "ObstaclePart":
+                PlayerDied();
+                break;
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other) {
+        switch (other.tag) {
+            case "NMCollider":
+                NearMiss();
+                break;
+        }
+    }
+
+    private void NearMiss() {
+        if (playerAlive) {
+            ScoreManager.sharedInstance.AddScore(1);
+            SpawnPlusOneSprite();
+        }
+    }
+
+    private void SpawnPlusOneSprite() {
+        GameObject plusOne = Instantiate(plusOneVFX, transform.position, Quaternion.identity) as GameObject;
+        Destroy(plusOne, 2f);
+    }
+
     private void PlayerDied() {
+        playerAlive = false;
         gameObject.SetActive(false);
         DisableInputControllers();
         StopIncreasingScore();
@@ -33,7 +59,7 @@ public class PlayerInteractions : MonoBehaviour
         SpawnDeathVFX();
         LoadGameOver();
     }
-
+    #region PlayerDeath Helper Functions
     private void DisableInputControllers() {
         TouchInputController touchController = FindObjectOfType<TouchInputController>();
         if (touchController) {
@@ -64,4 +90,5 @@ public class PlayerInteractions : MonoBehaviour
     private void LoadGameOver() {
         GameStateManager.sharedInstance.GameOver(2.5f);
     }
+    #endregion
 }

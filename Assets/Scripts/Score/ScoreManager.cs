@@ -72,4 +72,9 @@ public class ScoreManager : MonoBehaviour
     public int GetScore() {
         return currentScore;
     }
+
+    public void AddScore(int amount) {
+        currentScore += amount;
+        UpdateScoreDisplay();
+    }
 }

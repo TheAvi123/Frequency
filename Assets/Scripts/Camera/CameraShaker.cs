@@ -60,7 +60,6 @@ public class CameraShaker : MonoBehaviour
     }
 
     private void ResetPositionRotation() {
-        print("reset");
         transform.localPosition = Vector3.zero;
         transform.localEulerAngles = Vector3.zero;
     }
