@@ -66,4 +66,11 @@ public class MouseInputController : MonoBehaviour
         //Debug.Log("Input Time: " + inputTimer);
         //Debug.Log("Input Distance: " + inputDistance);
     }
+
+    //These Methods Are For Debugging Purposes
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Tab)) {
+            Debug.Break();
+        }
+    }
 }

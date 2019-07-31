@@ -347,7 +347,11 @@ MonoBehaviour:
   dashSpeedMultiplier: 4
   delayWavelengthDuration: 1
   delayVerticalSpeed: 0
-  dashCooldown: 1
+  readyColor: {r: 1, g: 1, b: 1, a: 1}
+  cooldownColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+  dashDisplay: {fileID: 0}
+  delayDisplay: {fileID: 0}
+  dashCooldown: 1.5
   delayCooldown: 3
 --- !u!114 &4070629833039744878
 MonoBehaviour:

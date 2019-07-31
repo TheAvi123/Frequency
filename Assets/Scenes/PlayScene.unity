@@ -618,33 +618,13 @@ PrefabInstance:
       objectReference: {fileID: 1778048272}
     - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
         type: 3}
-      propertyPath: cooldownColor.a
-      value: 0.19607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
-        type: 3}
       propertyPath: dashCooldown
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
         type: 3}
       propertyPath: delayCooldown
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
-        type: 3}
-      propertyPath: cooldownColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
-        type: 3}
-      propertyPath: cooldownColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
-        type: 3}
-      propertyPath: cooldownColor.b
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec11b23e07011c42b05b83a5537183a, type: 3}

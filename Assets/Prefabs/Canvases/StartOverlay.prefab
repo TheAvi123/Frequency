@@ -898,7 +898,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "A GAME MADE FOR THE \nTIANCAI HACKATHON 2019"
+  m_text: "A GAME DEVELOPED FOR THE \nTIANCAI HACKATHON 2019"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 79c89c086544e244ea47e279c180f6bd, type: 2}
   m_sharedMaterial: {fileID: -7895183180473661255, guid: 79c89c086544e244ea47e279c180f6bd,
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 0.85
+  m_fontSize: 0.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -968,7 +968,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8436641253782641024}
-    characterCount: 43
+    characterCount: 48
     spriteCount: 0
     spaceCount: 8
     wordCount: 8
