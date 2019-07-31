@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using TMPro;
 
 public class PlayerWave : MonoBehaviour
 {
@@ -36,11 +37,24 @@ public class PlayerWave : MonoBehaviour
     private bool delayInProgress = false;
     private float delayAngle;
 
+    [Header("Ability Cooldowns")]
+    [SerializeField] Color readyColor = Color.white;
+    [SerializeField] Color cooldownColor = Color.gray;
+    [SerializeField] TextMeshProUGUI dashDisplay = null;
+    [SerializeField] TextMeshProUGUI delayDisplay = null;
+    [SerializeField] float dashCooldown = 1f;
+    [SerializeField] float delayCooldown = 3f;
+    private bool dashReady = false;
+    private bool delayReady = false;
+    private float dashTicker = 0f;
+    private float delayTicker = 0f;
+
     //Regular Movement Methods
     private void Start() {
         SetupInitialOffsets();
         SaveSetVariables();
         SetRandomFrequencyDirection();
+        InitializeCooldowns();
     }
 
     private void SetupInitialOffsets() {
@@ -61,9 +75,17 @@ public class PlayerWave : MonoBehaviour
         frequencyDirection = Random.Range(0, 2) * 2 - 1;    //Randomly Returns Either +1 or -1
     }
 
+    private void InitializeCooldowns() {
+        dashTicker = dashCooldown;
+        dashDisplay.color = cooldownColor;
+        delayTicker = delayCooldown;
+        delayDisplay.color = cooldownColor;
+    }
+
     private void Update() {
         UpdateAngle();
         SetPosition();
+        ManageCooldowns();
     }
 
     private void UpdateAngle() {
@@ -86,6 +108,25 @@ public class PlayerWave : MonoBehaviour
         transform.position = new Vector3(xPosition, yPosition);
     }
 
+    private void ManageCooldowns() {
+        if (!dashReady) {
+            if (dashTicker > 0) {
+                dashTicker -= Time.deltaTime;
+            } else {
+                dashReady = true;
+                dashDisplay.color = readyColor;
+            }
+        }
+        if (!delayReady) {
+            if (delayTicker > 0) {
+                delayTicker -= Time.deltaTime;
+            } else {
+                delayReady = true;
+                delayDisplay.color = readyColor;
+            }
+        }
+    }
+
     //Input Dependent Methods
     public void Flip() {
         StopAllCoroutines();                            //Cancel Dash and Delay Abilities
@@ -94,19 +135,26 @@ public class PlayerWave : MonoBehaviour
     }
 
     public void Dash() {
-        if (delayCoroutine != null) {           //Delay Active
-            StopCoroutine(delayCoroutine);      //Stop Delay Coroutine
-            ResetWaveParameters();              //Reset Parameters to Presets
-            delayCoroutine = null;
+        if (dashReady) {
+            if (delayCoroutine != null) {           //Delay Active
+                StopCoroutine(delayCoroutine);      //Stop Delay Coroutine
+                ResetWaveParameters();              //Reset Parameters to Presets
+                delayCoroutine = null;
+            }
+            dashCoroutine = StartCoroutine(DashCoroutine());
         }
-        dashCoroutine = StartCoroutine(DashCoroutine());
     }
 
     public void Delay() {
-        delayCoroutine = StartCoroutine(DelayCoroutine());
+        if (delayReady) {
+            delayCoroutine = StartCoroutine(DelayCoroutine());
+        }
     }
 
     private IEnumerator DashCoroutine() {
+        dashReady = false;
+        dashTicker = dashCooldown;
+        dashDisplay.color = cooldownColor;
         frequencyMultiplier = 0;
         verticalSpeed *= dashSpeedMultiplier;               //Multiply Vertical Speed by Multiplier
         yield return new WaitForSeconds(dashDuration);
@@ -116,6 +164,9 @@ public class PlayerWave : MonoBehaviour
     }
 
     private IEnumerator DelayCoroutine() {
+        delayReady = false;
+        delayTicker = delayCooldown;
+        delayDisplay.color = cooldownColor;
         delayAngle = 0;                                         //Mark Initial Angle for Duration Check
         delayInProgress = true;
         verticalSpeed = delayVerticalSpeed;                     //Set Vertical Speed to 0 = Pause Movement

@@ -189,6 +189,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c41ed5061269fb459eab41cdec9f665, type: 3}
+--- !u!114 &1778048272 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1778048272, guid: 833bc17d9587ccc46be287cb910b5fe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2362690556864360103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1971657845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1971657845, guid: 833bc17d9587ccc46be287cb910b5fe5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2362690556864360103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &579470027537789990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -581,6 +605,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: dashDisplay
+      value: 
+      objectReference: {fileID: 1971657845}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: delayDisplay
+      value: 
+      objectReference: {fileID: 1778048272}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: cooldownColor.a
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: dashCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: delayCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: cooldownColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: cooldownColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199606710196531407, guid: 2ec11b23e07011c42b05b83a5537183a,
+        type: 3}
+      propertyPath: cooldownColor.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec11b23e07011c42b05b83a5537183a, type: 3}

@@ -347,6 +347,8 @@ MonoBehaviour:
   dashSpeedMultiplier: 4
   delayWavelengthDuration: 1
   delayVerticalSpeed: 0
+  dashCooldown: 1
+  delayCooldown: 3
 --- !u!114 &4070629833039744878
 MonoBehaviour:
   m_ObjectHideFlags: 0
