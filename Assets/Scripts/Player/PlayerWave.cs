@@ -44,10 +44,10 @@ public class PlayerWave : MonoBehaviour
     }
 
     private void SetupInitialOffsets() {
-        Vector2 offsetVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f, 30));    //Percentage Coordinates
+        Vector2 offsetVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.4f, 30));    //Percentage Coordinates
         initialOffsetX = offsetVector.x;
         initialOffsetY = offsetVector.y;
-        transform.position = new Vector2(initialOffsetX, 0);
+        transform.position = new Vector2(initialOffsetX, -16);
     }
 
     private void SaveSetVariables() {

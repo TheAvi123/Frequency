@@ -1,30 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
     ///Reference Variables
-    private PlayerWave player = null;
+    private Camera cam = null;
 
     ///State Variables
-    private bool followingPlayer = false;
-    private float cameraOffset;
     private Vector3 position;
 
-    private void Awake() {
-        FindPlayerObject();
+    #region OnSceneLoadDelegateCalls   
+    private void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
-    private void FindPlayerObject() {
-        player = FindObjectOfType<PlayerWave>();
-        if (!player) {
-            Debug.LogError("No Player Object Found For Camera To Follow");
+    private void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoad;
+    }
+    #endregion
+    void OnSceneLoad(Scene scene, LoadSceneMode mode) {
+        FindCameraObject();
+        SetupPositionParameters();
+    }
+
+    private void FindCameraObject() {
+        cam = Camera.main;
+        if (!cam) {
+            Debug.LogError("No Main Camera Found!");
             enabled = false;        //Disable This Component
         }
-    }
-
-    private void Start() {
-        SetupPositionParameters();
-        followingPlayer = false;
     }
 
     private void SetupPositionParameters() {
@@ -36,18 +40,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void UpdatePosition() {
-        if (followingPlayer) {     
-            position.y = player.transform.position.y + cameraOffset;
-            transform.position = position;
-        } else {    //Create Initial Delay Before Following Player
-            if (player.transform.position.y > player.initialOffsetY) {
-                SetupCameraOffset();
-                followingPlayer = true;
-            }
-        }
-    }
-
-    private void SetupCameraOffset() {
-        cameraOffset = transform.position.y - player.transform.position.y;
+        position.y = cam.transform.position.y;
+        transform.position = position;
     }
 }

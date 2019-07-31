@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2862081024408589467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2862081024408589461}
+  - component: {fileID: 8008295761891780751}
+  - component: {fileID: 2862081024408589460}
+  - component: {fileID: 272257564739830626}
+  m_Layer: 0
+  m_Name: BackgroundGradient
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2862081024408589461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862081024408589467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -16, z: 110}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8008295761891780751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862081024408589467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30040967c37cd1b45a29358d10c343ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  component: {fileID: 2862081024408589460}
+--- !u!114 &2862081024408589460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862081024408589467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f2f4bfeb88316489ec492b28587527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  colorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 0, a: 1}
+    key1: {r: 0, g: 1, b: 0, a: 1}
+    key2: {r: 0, g: 1, b: 1, a: 0}
+    key3: {r: 0, g: 0, b: 1, a: 0}
+    key4: {r: 1, g: 0, b: 1, a: 0}
+    key5: {r: 1, g: 0, b: 0, a: 0}
+    key6: {r: 1, g: 1, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 10925
+    ctime2: 21823
+    ctime3: 32768
+    ctime4: 43712
+    ctime5: 54591
+    ctime6: 65535
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 7
+    m_NumAlphaKeys: 2
+  gradientSpeed: 0.015
+--- !u!114 &272257564739830626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862081024408589467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbb741139fa9fa47b1dbf64ed325e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

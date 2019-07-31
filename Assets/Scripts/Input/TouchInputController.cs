@@ -8,6 +8,8 @@ public class TouchInputController : MonoBehaviour
     [Header("Input Time")]
     private float inputTimer;                           //Duration that Input is Recieved
     [SerializeField] float maxTapTimer = 0.5f;          //Max Time for Input to be Considered a Tap
+    private float stayTimer;                            //Duration that Input is Stationary
+    [SerializeField] float maxStayTimer = 0.1f;         //Max Time for Input to be Stationary
 
     [Header("Input Distance")]
     private Vector2 startPos, endPos;                   //Coordinates for Touch Start and End Positions
@@ -16,6 +18,7 @@ public class TouchInputController : MonoBehaviour
 
     [Header("Touch Input")]
     private Touch currentTouch;
+    private bool sameTouch;
 
     private void Awake() {
         VerifyInputType();
@@ -51,6 +54,9 @@ public class TouchInputController : MonoBehaviour
                     TouchBegan();
                     break;
                 case TouchPhase.Moved:
+                    TouchMoving();
+                    break;
+                case TouchPhase.Stationary:
                     TouchStay();
                     break;
                 case TouchPhase.Ended:
@@ -63,13 +69,26 @@ public class TouchInputController : MonoBehaviour
     private void TouchBegan() {
         startPos = Camera.main.ScreenToViewportPoint(currentTouch.position);
         inputTimer = 0;     //Reset Timer
+        stayTimer = 0;      //Reset Timer
+        sameTouch = false;
+    }
+
+    private void TouchMoving() {
+        inputTimer += Time.deltaTime;   //Increase Timer per Frame the Touch is Moving
     }
 
     private void TouchStay() {
-        inputTimer += Time.deltaTime;   //Increase Timer per Frame the Touch is Detected
+        stayTimer += Time.deltaTime;   //Increase Timer per Frame the Touch is Stationary
+        if (!sameTouch && stayTimer >= maxStayTimer) {
+            TouchEnd();
+            sameTouch = true;
+        }
     }
 
     private void TouchEnd() {
+        if (sameTouch) {
+            return;
+        }
         endPos = Camera.main.ScreenToViewportPoint(currentTouch.position);
         inputDistance = Vector2.Distance(startPos, endPos);     //Calculate Distance
 

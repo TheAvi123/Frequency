@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GradientMesh : MonoBehaviour
 {
@@ -27,8 +28,8 @@ public class GradientMesh : MonoBehaviour
 
     //Parameters
     [SerializeField] Material meshMaterial = null;
-    private Gradient colorGradient = null;
-    private float gradientSpeed = 0f;
+    [SerializeField] Gradient colorGradient = null;
+    [SerializeField] float gradientSpeed = 0.25f;
 
     //State Variables
     private ColorPair currentColors;
@@ -39,20 +40,37 @@ public class GradientMesh : MonoBehaviour
     private float H, S, V;
 
     //Methods
-    private void Start() {
-        SetScreenCornerVectors();
+    private void Awake() {
         AddMeshComponents();
-        AssignMeshVerticesAndTriangles();
         SetMeshMaterial();
-        AssignGradientParameters();
+        SetRandomColor();
+    }
+
+    #region OnSceneLoadDelegateCalls   
+    private void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoad;
+    }
+
+    private void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoad;
+    }
+    #endregion
+    void OnSceneLoad(Scene scene, LoadSceneMode mode) {
+        ResetMeshPosition();
+        SetScreenCornerVectors();
+        AssignMeshVerticesAndTriangles();
+    }
+
+    private void ResetMeshPosition() {
+        transform.position = new Vector2(0, 0);
     }
 
     private void SetScreenCornerVectors() {
         Camera gameCamera = Camera.main;
-        topLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 1));
-        topRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 1));
-        botLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 0));
-        botRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 0));
+        topLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 60));
+        topRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, 60));
+        botLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 60));
+        botRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 60));
     }
 
     private void AddMeshComponents() {
@@ -76,11 +94,8 @@ public class GradientMesh : MonoBehaviour
         meshRenderer.material = meshMaterial;
     }
 
-    private void AssignGradientParameters() {
-        TrailColorChanger playerTrail = FindObjectOfType<TrailColorChanger>();
-        colorGradient = playerTrail.GetColorGradient();
-        gradientSpeed = playerTrail.GetGradientSpeed();
-        topTicker = playerTrail.GetTickerValue() + 0.25f;
+    private void SetRandomColor() {
+        topTicker = Random.value;    //Set Ticker to Random Color on Gradient
     }
 
     private void Update() {
@@ -113,5 +128,18 @@ public class GradientMesh : MonoBehaviour
 
     private void UpdateMeshColors() {
         mesh.colors = new Color[] { currentColors.topColor, currentColors.topColor, currentColors.botColor, currentColors.botColor };
+    }
+
+    //Public Getter Methods
+    public Gradient GetColorGradient() {
+        return colorGradient;
+    }
+
+    public float GetGradientSpeed() {
+        return gradientSpeed;
+    }
+
+    public float GetTickerValue() {
+        return topTicker;
     }
 }

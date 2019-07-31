@@ -18,7 +18,6 @@ public class TrailColorChanger : MonoBehaviour
     private void Awake() {
         FindPlayerSprite();
         FindPlayerTrail();
-        GradientCheck();
     }
 
     private void FindPlayerSprite() {
@@ -37,19 +36,27 @@ public class TrailColorChanger : MonoBehaviour
         }
     }
 
+    private void Start() {
+        SetInitialColor();
+        GradientCheck();
+    }
+
+    private void SetInitialColor() {
+        GradientMesh background = FindObjectOfType<GradientMesh>();
+        if (background) {   //Sync Color Gradient And Progress With Background
+            colorGradient = background.GetColorGradient();
+            gradientSpeed = background.GetGradientSpeed();
+            gradientTicker = background.GetTickerValue() - 0.25f;
+        } else {
+            gradientTicker = Random.value;
+        }
+    }
+
     private void GradientCheck() {
         if (colorGradient == null) {
             Debug.LogWarning("No Color Gradient Set for Player Trail");
             enabled = false;        //Disable This Component
         }
-    }
-
-    private void Start() {
-        SetRandomColor();
-    }
-
-    private void SetRandomColor() {
-        gradientTicker = Random.value;    //Set Ticker to Random Color on Gradient
     }
 
     private void Update() {
@@ -70,16 +77,8 @@ public class TrailColorChanger : MonoBehaviour
         playerSprite.color = currentColor;
     }
 
-    //Public Getter Methods
-    public Gradient GetColorGradient() {
-        return colorGradient;
-    }
-
-    public float GetGradientSpeed() {
-        return gradientSpeed;
-    }
-
-    public float GetTickerValue() {
-        return gradientTicker;
+    //Public Methods
+    public Color GetTrailColor() {
+        return currentColor;
     }
 }
