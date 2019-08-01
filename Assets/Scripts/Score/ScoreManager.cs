@@ -6,11 +6,10 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager sharedInstance;
 
-    private TextMeshProUGUI scoreDisplay = null;
-
     //Score Variables
     private int currentScore = 0;
     private bool increaseScore = true;
+    private TextMeshProUGUI scoreDisplay = null;
 
     //Counter Variables
     private float counter = 0f;

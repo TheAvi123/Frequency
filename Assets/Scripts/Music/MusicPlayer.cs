@@ -9,8 +9,16 @@ public class MusicPlayer : MonoBehaviour
     private float setVolume = 0f;
 
     private void Start() {
+        InitializeVariables();
+        FindAudioSource();
+    }
+
+    private void InitializeVariables() {
         setVolume = currentVolume;
         muted = false;
+    }
+
+    private void FindAudioSource() {
         player = GetComponent<AudioSource>();
         if (!player) {
             Debug.LogError("No Audio Source Found");
