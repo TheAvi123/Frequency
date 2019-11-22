@@ -1,42 +1,77 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicPlayer : MonoBehaviour
 {
-    private AudioSource player = null;
+    //Reference Variables
+    private AudioSource audioPlayer = null;
+    private Image muteButton;
 
+    //Sprite References
+    [SerializeField] Sprite muteSprite = null;
+    [SerializeField] Sprite volumeSprite = null;
+
+    //State Variables
     [SerializeField] float currentVolume = 0.25f;
     [SerializeField] bool muted = false;
+
+    //Set Variables
     private float setVolume = 0f;
 
+    //Internal Methods
+    private void OnSceneChange() {
+        FindMuteButton();
+    }
+
+    private void FindMuteButton() {
+        try {
+            muteButton = FindObjectOfType<MuteButton>().transform.parent.GetComponent<Image>();
+        } catch (NullReferenceException) {
+            //No Mute Button Found in Scene... Do Nothing
+        }
+    }
+
     private void Start() {
-        InitializeVariables();
         FindAudioSource();
+        InitializeVariables();
+    }
+
+    private void FindAudioSource() {
+        audioPlayer = GetComponent<AudioSource>();
+        if (!audioPlayer) {
+            Debug.LogError("No Audio Source Found");
+            enabled = false;
+        }
     }
 
     private void InitializeVariables() {
         setVolume = currentVolume;
         muted = false;
-    }
-
-    private void FindAudioSource() {
-        player = GetComponent<AudioSource>();
-        if (!player) {
-            Debug.LogError("No Audio Source Found");
-        }
+        ChangeButtonSprite(volumeSprite);
     }
 
     private void UpdatePlayerVolume() {
-        player.volume = currentVolume;
+        audioPlayer.volume = currentVolume;
     }
 
+    private void ChangeButtonSprite(Sprite s) {
+        if (muteButton) {
+            muteButton.sprite = s;
+        }
+    }
+
+    //Public Methods
     public void ToggleMute() {
         muted = !muted;
         if (muted) {
             currentVolume = 0f;
-            player.Stop();
+            ChangeButtonSprite(muteSprite);
+            audioPlayer.Stop();
         } else {
             currentVolume = setVolume;
-            player.Play();
+            ChangeButtonSprite(volumeSprite);
+            audioPlayer.Play();
         }
         UpdatePlayerVolume();
     }

@@ -3,19 +3,22 @@ using System.Collections;
 
 public class CameraShaker : MonoBehaviour
 {
+    //Reference Variables
     public static CameraShaker sharedInstance;
 
+    //Configuration Parameters
     [Header("Shake Parameters")]
-    [SerializeField][Range(0, 1)] float traumaLevel = 0f;   //Level Determines Shake Intensity
-    [SerializeField] float shakeMultiplier = 15f;           //Multiplier for Trauma Level
-    [SerializeField] float roughnessMultiplier = 10f;       //Multiplier for Displacement
-    [SerializeField] float rotationalMultiplier = 1f;       //Multiplier for Rotation
-    [SerializeField] float shakeDecay = 1f;                 //How Quickly the Shake Fades Out
+    [SerializeField][Range(0, 1)] float traumaLevel = 0f;
+    [SerializeField] float roughnessMultiplier = 15f;           //Multiplier for Trauma Level
+    [SerializeField] float distanceMultiplier = 10f;            //Multiplier for Displacement
+    [SerializeField] float rotationMultiplier = 1f;             //Multiplier for Rotation
+    [SerializeField] float shakeDecay = 1f;                     //Rate at which Shake Fades Out
 
     //State Variables
-    private bool shakeActive = true;    //Boolean for Shake
-    private float ticker;               //Time Counter for Decay/Additive Purposes
+    private bool shakeActive = true;
+    private float shakeTicker = 0f;
 
+    //Internal Methods
     private void Awake() {
         SetSharedInstance();
     }
@@ -37,22 +40,27 @@ public class CameraShaker : MonoBehaviour
     }
 
     private void UpdateTimer() {
-        ticker += Time.deltaTime * Mathf.Pow(traumaLevel, 0.3f) * shakeMultiplier;
+        shakeTicker += Time.deltaTime * Mathf.Pow(traumaLevel, 0.3f) * roughnessMultiplier;
     }
 
     private void MoveAndRotate() {
-        Vector3 newPos = GeneratePerlinVector() * roughnessMultiplier * traumaLevel;
+        Vector3 newPos = GeneratePerlinVector() * distanceMultiplier * traumaLevel;
         transform.localPosition = newPos;
-        transform.localRotation = Quaternion.Euler(newPos * rotationalMultiplier);
+        transform.localRotation = Quaternion.Euler(newPos * rotationMultiplier);
     }
 
     private void DecayTrauma() {
         traumaLevel -= Mathf.Clamp01(Time.deltaTime * shakeDecay * traumaLevel);
+        if (traumaLevel <= 0.001) {
+            traumaLevel = 0;
+            shakeActive = false;
+            ResetPositionRotation();
+        }
     }
 
     //Helper Methods
     private float GeneratePerlinFloat(float seed) {
-        return ((Mathf.PerlinNoise(seed, ticker) - 0.5f) * 2f);
+        return ((Mathf.PerlinNoise(seed, shakeTicker) - 0.5f) * 2f);
     }
 
     private Vector3 GeneratePerlinVector() {
@@ -65,15 +73,8 @@ public class CameraShaker : MonoBehaviour
     }
 
     //Public Methods
-    public void ShakeCamera() {
-        StartCoroutine(ShakeCameraCoroutine());
-    }
-
-    IEnumerator ShakeCameraCoroutine() {
+    public void AddCameraShake(float traumaToAdd) {
         shakeActive = true;
-        traumaLevel = 1;
-        yield return new WaitForSecondsRealtime(2f);
-        shakeActive = false;
-        ResetPositionRotation();
+        traumaLevel = Mathf.Clamp01(traumaToAdd);
     }
 }

@@ -4,13 +4,16 @@ using System.Collections.Generic;
 
 public class ObstaclePooler : MonoBehaviour
 {
+    //Reference Variables
     public static ObstaclePooler sharedInstance;    //Shared Static Variable for Other Classes to Access Pool
 
-    [SerializeField] private Dictionary<int, Queue<Obstacle>> obstaclePools;    //Serialized for testing
+    //Collections
+    [SerializeField] Dictionary<int, Queue<Obstacle>> obstaclePools;    //Serialized for testing
 
     //State Variables
     private Queue<Obstacle> currentQueue = null;
 
+    //Internal Methods
     private void Awake() {
         SetObstaclePoolerInstance();
         InstantiateDictionary();
@@ -24,8 +27,8 @@ public class ObstaclePooler : MonoBehaviour
         obstaclePools = new Dictionary<int, Queue<Obstacle>>();
     }
 
-    ///Pool Management Methods
-    private void CreateEmptyPool(Obstacle obstacle) {
+    ///Public Methods
+    public void CreateEmptyPool(Obstacle obstacle) {
         obstaclePools.Add(obstacle.obstacleID, new Queue<Obstacle>());
     }
 
@@ -34,7 +37,7 @@ public class ObstaclePooler : MonoBehaviour
         obstacle.transform.SetParent(gameObject.transform);
         try {
             currentQueue = obstaclePools[obstacle.obstacleID];
-            currentQueue.Enqueue(obstacle);     //Add Obstacle to End of Queue
+            currentQueue.Enqueue(obstacle);
         } catch (KeyNotFoundException) {        //Pool for Obstacle Not Created Yet
             CreateEmptyPool(obstacle);
             AddToPool(obstacle);

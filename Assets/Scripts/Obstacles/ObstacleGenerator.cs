@@ -7,7 +7,7 @@ public class ObstacleGenerator : MonoBehaviour
     //Reference Variables
     private PlayerWave player;
 
-    //Folder Variables for Obstacle Parent GameObjects
+    //Obstacle Parent Folders
     private GameObject easyFolder;
     private GameObject mediumFolder;
     private GameObject hardFolder;
@@ -20,15 +20,15 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] private Obstacle[] veryHardObstacles = null;
 
     [Header("Obstacle Probabilities")]
-    private const float easyProbability = 0.6f;
-    private const float mediumProbability = 0.3f;
-    private const float hardProbability = 0.09f;
+    private const float easyProbability = 0.50f;
+    private const float mediumProbability = 0.35f;
+    private const float hardProbability = 0.14f;
     private const float veryHardProbability = 0.01f;
 
     [Header("Distances")]
     [SerializeField] private Transform startSpawnPostion = null;
     [SerializeField] float spawnTriggerDistance = 50f;
-    [SerializeField] float minObstacleDistance = 5f;
+    [SerializeField] float minObstacleDistance = 6f;
     [SerializeField] float maxObstacleDistance = 12f;
 
     //Random Variables
@@ -42,7 +42,7 @@ public class ObstacleGenerator : MonoBehaviour
     private GameObject currentObstacle;
     private Vector3 lastEndPosition;
 
-    //Methods
+    //Internal Methods
     private void Awake() {
         FindPlayerObject();
         SetObstacleFolders();
@@ -79,11 +79,19 @@ public class ObstacleGenerator : MonoBehaviour
         }
         if (startSpawnPostion == null) {
             Debug.LogError("No Start Spawn Location Assigned To Generator");
+            enabled = false;
         }
     }
 
     private void Start() {
+        AspectRatioReconfigurations();
         SpawnFirstObstacle();
+    }
+
+    private void AspectRatioReconfigurations() {
+        float aspectMultiplier = Camera.main.aspect * 16 / 9;
+        minObstacleDistance *= Mathf.Pow(aspectMultiplier, 2);
+        maxObstacleDistance *= Mathf.Pow(aspectMultiplier, 2);
     }
 
     private void SpawnFirstObstacle() {
@@ -148,8 +156,8 @@ public class ObstacleGenerator : MonoBehaviour
         currentIndex = Random.Range(0, currentObstacleList.Length);
         currentObstacle = currentObstacleList[currentIndex].GetInstanceFromPool();
         if (currentObstacle != null) {  //Instance Available in Obstacle Pool
-            currentObstacle.SetActive(true);
             currentObstacle.transform.position = lastEndPosition;
+            currentObstacle.SetActive(true);
             SetObstacleProperties(currentObstacle);
         } else {  //No Instance Available in Obstacle Pool
             currentObstacle = currentObstacleList[currentIndex].gameObject;
@@ -161,5 +169,11 @@ public class ObstacleGenerator : MonoBehaviour
     private void SetObstacleProperties(GameObject obstacle) {
         obstacle.transform.SetParent(currentObstacleFolder.transform);
         lastEndPosition = obstacle.transform.Find("EndPosition").position;
+    }
+
+    //Public Methods
+    public void ChangeObstacleSpacing(float minDistance, float maxDistance) {
+        minObstacleDistance = minDistance;
+        maxObstacleDistance = maxDistance;
     }
 }

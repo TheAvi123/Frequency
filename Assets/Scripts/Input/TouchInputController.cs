@@ -1,41 +1,29 @@
 ﻿using UnityEngine;
 
-public class TouchInputController : MonoBehaviour
+public class TouchInputController : InputController
 {
-    ///Reference Variables
-    private PlayerWave player = null;                   //Player Movement Component
-
-    [Header("Input Time")]
-    private float inputTimer;                           //Duration that Input is Recieved
+    //Configuration Parameters
+    [Header("Max Tap Parameters")]
     [SerializeField] float maxTapTimer = 0.5f;          //Max Time for Input to be Considered a Tap
-    private float stayTimer;                            //Duration that Input is Stationary
-    [SerializeField] float maxStayTimer = 0.1f;         //Max Time for Input to be Stationary
-
-    [Header("Input Distance")]
-    private Vector2 startPos, endPos;                   //Coordinates for Touch Start and End Positions
-    private float inputDistance;                        //Used to Distinguish Tap and Swipe
+    [SerializeField] float maxStayTimer = 0.1f;         //Max Time for Stationary Input before Evaluation
     [SerializeField] float maxTapDistance = 0.1f;       //Max Distance for Input to be Considered a Tap
 
-    [Header("Touch Input")]
+    //Input State Variables
+    private float stayTimer;                            //Duration that Input is Stationary
+
+    //Touch State Variables
     private Touch currentTouch;
     private bool sameTouch;
 
-    private void Awake() {
+    //Internal Methods
+    private new void Awake() {
         VerifyInputType();
-        FindPlayer();
+        base.Awake();
     }
 
     private void VerifyInputType() {
         //Uses MouseInputController if Touch is Not Supported
         if (!Input.touchSupported) {
-            gameObject.SetActive(false);    //Disable Object
-        }
-    }
-
-    private void FindPlayer() {
-        player = FindObjectOfType<PlayerWave>();
-        if (!player) {
-            Debug.LogError("No Player Object Found");
             gameObject.SetActive(false);    //Disable Object
         }
     }
@@ -51,41 +39,42 @@ public class TouchInputController : MonoBehaviour
 
             switch (currentTouch.phase) {       //Determine Which Phase the Input Touch is in
                 case TouchPhase.Began:
-                    TouchBegan();
+                    InputBegan();
                     break;
                 case TouchPhase.Moved:
-                    TouchMoving();
+                    InputMove();
                     break;
                 case TouchPhase.Stationary:
-                    TouchStay();
+                    InputStay();
                     break;
                 case TouchPhase.Ended:
-                    TouchEnd();
+                    InputEnd();
                     break;
             }
         }
     }
 
-    private void TouchBegan() {
+    //Inherited Methods
+    protected override void InputBegan() {
         startPos = Camera.main.ScreenToViewportPoint(currentTouch.position);
         inputTimer = 0;     //Reset Timer
         stayTimer = 0;      //Reset Timer
         sameTouch = false;
     }
 
-    private void TouchMoving() {
+    protected override void InputMove() {
         inputTimer += Time.deltaTime;   //Increase Timer per Frame the Touch is Moving
     }
 
-    private void TouchStay() {
+    protected override void InputStay() {
         stayTimer += Time.deltaTime;   //Increase Timer per Frame the Touch is Stationary
         if (!sameTouch && stayTimer >= maxStayTimer) {
-            TouchEnd();
+            InputEnd();
             sameTouch = true;
         }
     }
 
-    private void TouchEnd() {
+    protected override void InputEnd() {
         if (sameTouch) {
             return;
         }
@@ -107,8 +96,5 @@ public class TouchInputController : MonoBehaviour
                 Debug.LogWarning("Input Parameters Unclear");
             }
         }
-        ///For Testing Purposes
-        //Debug.Log("Input Time: " + inputTimer);
-        //Debug.Log("Input Distance: " + inputDistance);
     }
 }

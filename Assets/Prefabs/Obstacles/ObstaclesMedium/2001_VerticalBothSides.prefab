@@ -307,7 +307,7 @@ PrefabInstance:
     - target: {fileID: 3314352692203453552, guid: a84ca18280aaf1f4cb7a0bd955909711,
         type: 3}
       propertyPath: m_Name
-      value: RectangleNMCollider (1)
+      value: RectangleNMCollider 2
       objectReference: {fileID: 0}
     - target: {fileID: 7634604499060922761, guid: a84ca18280aaf1f4cb7a0bd955909711,
         type: 3}
@@ -397,7 +397,7 @@ PrefabInstance:
     - target: {fileID: 3314352692203453552, guid: a84ca18280aaf1f4cb7a0bd955909711,
         type: 3}
       propertyPath: m_Name
-      value: RectangleNMCollider
+      value: RectangleNMCollider 1
       objectReference: {fileID: 0}
     - target: {fileID: 7634604499060922761, guid: a84ca18280aaf1f4cb7a0bd955909711,
         type: 3}

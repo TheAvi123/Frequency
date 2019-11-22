@@ -1,22 +1,16 @@
 ﻿using UnityEngine;
 
-public class MouseInputController : MonoBehaviour
+public class MouseInputController : InputController
 {
-    ///Reference Variables
-    private PlayerWave player = null;                   //Player Movement Component
-
-    [Header("Input Time")]
-    private float inputTimer;                           //Duration that Input is Recieved
+    //Configuration Parameters
+    [Header("Max Click Parameters")]
     [SerializeField] float maxClickTimer = 0.5f;        //Max Time for Input to be Considered a Click
-
-    [Header("Input Distance")]
-    private Vector2 startPos, endPos;                   //Coordinates for Mouse Start and End Positions
-    private float inputDistance;                        //Used to Distinguish Click and Drag
     [SerializeField] float maxClickDistance = 0.1f;     //Max Distance for Input to be Considered a Click   
 
-    private void Awake() {
+    //Internal Methods
+    private new void Awake() {
         VerifyInputType();
-        FindPlayer();
+        base.Awake();
     }
 
     private void VerifyInputType() {
@@ -26,24 +20,33 @@ public class MouseInputController : MonoBehaviour
         }
     }
 
-    private void FindPlayer() {
-        player = FindObjectOfType<PlayerWave>();
-        if (!player) {
-            Debug.LogError("No Player Object Found");
-            gameObject.SetActive(false);    //Disable Object
-        }
+    private void OnMouseDown() {
+        InputBegan();
     }
 
-    private void OnMouseDown() {
+    private void OnMouseDrag() {
+        InputMove();
+    }
+
+    private void OnMouseUp() {
+        InputEnd();
+    }
+
+    //Inherited Methods
+    protected override void InputBegan() {
         startPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         inputTimer = 0;     //Reset Timer
     }
 
-    private void OnMouseDrag() {
+    protected override void InputStay() {
+        //No Functionality Required for MouseController
+    }
+
+    protected override void InputMove() {
         inputTimer += Time.deltaTime;   //Increase Timer per Frame the Mouse is Held Down
     }
 
-    private void OnMouseUp() {
+    protected override void InputEnd() {
         endPos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         inputDistance = Vector2.Distance(startPos, endPos);     //Calculate Distance
 
@@ -67,7 +70,7 @@ public class MouseInputController : MonoBehaviour
         //Debug.Log("Input Distance: " + inputDistance);
     }
 
-    //These Methods Are For Debugging Purposes
+    //Debugging Methods
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Tab)) {
             Debug.Break();

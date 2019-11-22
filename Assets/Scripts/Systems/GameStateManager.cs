@@ -6,73 +6,143 @@ public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager sharedInstance;
 
-    private enum GameState {Splash, Start, Playing, Instructions, Over, Options, Shop, HighScores}
+    private enum GameState {Null, Splash, Start, Play, Over, Tutorial, Options, Shop, Score}
 
     [Header("Scene Names")]
     [SerializeField] string splashSceneName = null;
     [SerializeField] string startSceneName = null;
     [SerializeField] string playSceneName = null;
     [SerializeField] string gameOverSceneName = null;
-    [SerializeField] string instructionsSceneName = null;
+    [SerializeField] string tutorialSceneName = null;
     [SerializeField] string optionsSceneName = null;
     [SerializeField] string shopSceneName = null;
-    [SerializeField] string highScoreSceneName = null;
+    [SerializeField] string scoreSceneName = null;
 
-    //Parameters
+    //Configuration Parameters
+    [Header("Configuration")]
     [SerializeField] bool startFromInitialState = true;
-    [SerializeField] GameState initialState = GameState.Start;
+    [SerializeField] GameState initialState = GameState.Splash;
 
     //State Variables
     private GameState currentState;
+    private Coroutine waitLoader = null;
+    private Coroutine fadeLoader = null;
+    private bool fadeComplete = false;
 
+    //Helper Methods
     private string StateToName(GameState state) {
         switch (state) {
             case GameState.Splash:
                 return splashSceneName;
             case GameState.Start:
                 return startSceneName;
-            case GameState.Playing:
+            case GameState.Play:
                 return playSceneName;
             case GameState.Over:
                 return gameOverSceneName;
-            case GameState.Instructions:
-                return instructionsSceneName;
+            case GameState.Tutorial:
+                return tutorialSceneName;
             case GameState.Options:
                 return optionsSceneName;
             case GameState.Shop:
                 return shopSceneName;
-            case GameState.HighScores:
-                return highScoreSceneName;
+            case GameState.Score:
+                return scoreSceneName;
+            case GameState.Null:
             default:
-                Debug.LogError("Game State " + state.ToString() + " does not Exist"); 
+                Debug.LogError("Game State " + state.ToString() + " Does Not Exist"); 
                 return null;
         }
     }
 
-    private void OnEnable() {
-        sharedInstance = this;
-        if (startFromInitialState) {
-            LoadInitialState();
+    private GameState SceneToState(Scene scene) {
+        if (scene.name == splashSceneName) {
+            return GameState.Splash;
+        } else if (scene.name == startSceneName) {
+            return GameState.Start;
+        } else if (scene.name == playSceneName) {
+            return GameState.Play;
+        } else if (scene.name == gameOverSceneName) {
+            return GameState.Over;
+        } else if (scene.name == tutorialSceneName) {
+            return GameState.Tutorial;
+        } else if (scene.name == optionsSceneName) {
+            return GameState.Options;
+        } else if (scene.name == shopSceneName) {
+            return GameState.Shop;
+        } else if (scene.name == scoreSceneName) {
+            return GameState.Score;
+        } else {
+            Debug.LogError("Scene " + scene.name + " Does Not Exist in GameState Enumeration");
+            return GameState.Null;
         }
     }
 
-    public void LoadInitialState() {
-        currentState = initialState;
-        SceneManager.LoadScene(StateToName(initialState));
+    private void LoadState(GameState state) {
+        fadeLoader = StartCoroutine(FadeAndLoad(state));
     }
 
-    private void LoadState(GameState state) {
+    private IEnumerator FadeAndLoad(GameState state) {
+        if (fadeLoader != null) {
+            Debug.LogWarning("FadeLoader Already in Progress");
+            yield break;
+        }
+        SceneChangeController.sharedInstance.TriggerFadeAnimation();
+        yield return new WaitUntil(() => fadeComplete);
         SceneManager.LoadScene(StateToName(state));
+        fadeComplete = false;
+        fadeLoader = null;
     }
 
     private IEnumerator WaitAndLoad(GameState state, float delayInSeconds) {
         yield return new WaitForSecondsRealtime(delayInSeconds);
         SceneManager.LoadScene(StateToName(state));
+        waitLoader = null;
     }
 
-    //Public Methods
-    public void StartGame() {
-        LoadState(GameState.Playing);
+    //Internal Methods
+    private void Awake() {
+        SetSharedInstance();
+        SetCurrentState();
+        LoadInitialState();
+    }
+
+    private void SetSharedInstance() {
+        sharedInstance = this;
+    }
+
+    private void SetCurrentState() {
+        currentState = SceneToState(SceneManager.GetActiveScene());
+    }
+
+    public void LoadInitialState() {
+        if (startFromInitialState && currentState != initialState) {
+            currentState = initialState;
+            SceneManager.LoadScene(StateToName(initialState));
+        }
+    }
+
+    private void Start() {
+        LoadSaveData();
+    }
+
+    private void LoadSaveData() {
+        SaveLoadManager.LoadGame();
+    }
+
+    private void OnSceneChange() {      
+        SetCurrentState();
+    }   //Called from Singleton
+
+    private void OnApplicationPause(bool paused) {
+        if (paused) {
+            SaveLoadManager.SaveGame();
+        }
+    }
+
+    //Public Call Methods
+    public void PlayGame() {
+        LoadState(GameState.Play);
     }
 
     public void QuitGame() {
@@ -80,16 +150,20 @@ public class GameStateManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void RestartGame() {
+    public void LoadMenu() {
         LoadState(GameState.Start);
     }
 
     public void GameOver(float delayInSeconds) {
-        StartCoroutine(WaitAndLoad(GameState.Over, delayInSeconds));
+        if (waitLoader != null) {
+            Debug.LogError("WaitAndLoad Already In Progress!");
+            return;
+        }
+        waitLoader = StartCoroutine(WaitAndLoad(GameState.Over, delayInSeconds));
     }
 
-    public void ShowInstructions() {
-        LoadState(GameState.Instructions);
+    public void LoadTutorial() {
+        LoadState(GameState.Tutorial);
     }
 
     public void OpenOptions() {
@@ -100,7 +174,16 @@ public class GameStateManager : MonoBehaviour
         LoadState(GameState.Shop);
     }
 
-    public void ShowHighScores() {
-        LoadState(GameState.HighScores);
+    public void ShowScores() {
+        LoadState(GameState.Score);
+    }
+
+    //Public Return Methods
+    public string GetCurrentScene() {
+        return SceneManager.GetActiveScene().name;
+    }
+
+    public void FadeComplete() {
+        fadeComplete = true;
     }
 }

@@ -5,7 +5,7 @@ public class SpriteDirection : MonoBehaviour
     //Reference Variables
     private SpriteRenderer playerSprite = null;
 
-    //Serialized Parameters
+    //Configuration Parameters
     [SerializeField] float rotationOffset = -90f;
 
     //State Variables
@@ -14,6 +14,7 @@ public class SpriteDirection : MonoBehaviour
     private Vector2 currentDirection;
     private float directionAngle;
 
+    //Internal Methods
     private void Awake() {
         FindPlayerSprite();
     }

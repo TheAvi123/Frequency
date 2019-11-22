@@ -144,11 +144,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2536688852278760611}
     m_Modifications:
-    - target: {fileID: 551846891750646988, guid: e723483218e5a2e4fa12803dbf717e24,
-        type: 3}
-      propertyPath: m_Name
-      value: Circle 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: e723483218e5a2e4fa12803dbf717e24,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -214,6 +209,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: e723483218e5a2e4fa12803dbf717e24,
+        type: 3}
+      propertyPath: m_Name
+      value: Circle 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e723483218e5a2e4fa12803dbf717e24, type: 3}
 --- !u!4 &5952458198114182533 stripped
@@ -229,11 +229,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2536688852278760611}
     m_Modifications:
-    - target: {fileID: 551846891750646988, guid: e723483218e5a2e4fa12803dbf717e24,
-        type: 3}
-      propertyPath: m_Name
-      value: Circle 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: e723483218e5a2e4fa12803dbf717e24,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -299,6 +294,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: e723483218e5a2e4fa12803dbf717e24,
+        type: 3}
+      propertyPath: m_Name
+      value: Circle 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e723483218e5a2e4fa12803dbf717e24, type: 3}
 --- !u!4 &938680075331463435 stripped
@@ -314,11 +314,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2536688852278760611}
     m_Modifications:
-    - target: {fileID: 7986908599780469266, guid: 5ed316feea8137e45bb8f8e79613f177,
-        type: 3}
-      propertyPath: m_Name
-      value: CircleNMCollider 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3087870031823376363, guid: 5ed316feea8137e45bb8f8e79613f177,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -384,6 +379,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7986908599780469266, guid: 5ed316feea8137e45bb8f8e79613f177,
+        type: 3}
+      propertyPath: m_Name
+      value: CircleNMCollider 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1134531554879103831, guid: 5ed316feea8137e45bb8f8e79613f177,
         type: 3}
       propertyPath: m_Radius
@@ -404,11 +404,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2536688852278760611}
     m_Modifications:
-    - target: {fileID: 7986908599780469266, guid: 5ed316feea8137e45bb8f8e79613f177,
-        type: 3}
-      propertyPath: m_Name
-      value: CircleNMCollider 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3087870031823376363, guid: 5ed316feea8137e45bb8f8e79613f177,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -473,6 +468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7986908599780469266, guid: 5ed316feea8137e45bb8f8e79613f177,
+        type: 3}
+      propertyPath: m_Name
+      value: CircleNMCollider 1
       objectReference: {fileID: 0}
     - target: {fileID: 1134531554879103831, guid: 5ed316feea8137e45bb8f8e79613f177,
         type: 3}

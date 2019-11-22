@@ -3,24 +3,32 @@ using UnityEngine.SceneManagement;
 
 public class CameraFollow : MonoBehaviour
 {
-    ///Reference Variables
+    //Reference Variables
     private Camera cam = null;
 
-    ///State Variables
-    private Vector3 position;
+    //State Variables
+    private Vector3 currentPosition;
+    private float yOffset = 0f;
 
-    #region OnSceneLoadDelegateCalls   
+    //Scene Change Function
+    #region SceneChangedEventCalls
     private void OnEnable() {
-        SceneManager.sceneLoaded += OnSceneLoad;
+        SceneManager.activeSceneChanged += OnSceneChange;     //Subscribe to Event Delegate
     }
 
     private void OnDisable() {
-        SceneManager.sceneLoaded -= OnSceneLoad;
+        SceneManager.activeSceneChanged -= OnSceneChange;     //Unsubscribe from Event Delegate
     }
     #endregion
-    void OnSceneLoad(Scene scene, LoadSceneMode mode) {
+    private void OnSceneChange(Scene oldScene, Scene newScene) {
+        FindCameraObject();
+    }
+
+    //Internal Methods
+    private void Awake() {
         FindCameraObject();
         SetupPositionParameters();
+        SetVerticalOffset();
     }
 
     private void FindCameraObject() {
@@ -32,7 +40,11 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void SetupPositionParameters() {
-        position = new Vector3(transform.position.x, 0, transform.position.z);
+        currentPosition = transform.position;
+    }
+
+    private void SetVerticalOffset() {
+        yOffset = currentPosition.y;
     }
 
     private void LateUpdate() {
@@ -40,7 +52,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     private void UpdatePosition() {
-        position.y = cam.transform.position.y;
-        transform.position = position;
+        currentPosition.y = cam.transform.position.y + yOffset;
+        transform.position = currentPosition;
     }
 }

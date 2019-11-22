@@ -8,6 +8,21 @@ TagManager:
   - ObstaclePart
   - Disabler
   - NMCollider
+  - Coin
+  - Powerup
+  - Overlay
+  - StatsCanvas
+  - ScoreDisplay
+  - CoinDisplay
+  - ScoreStat
+  - CoinStat
+  - PowerupStat
+  - FlipStat
+  - DashStat
+  - DelayStat
+  - NearMissStat
+  - TimeStat
+  - HighScoreDisplay
   layers:
   - Default
   - TransparentFX
@@ -20,7 +35,7 @@ TagManager:
   - Player
   - Obstacle
   - NMCollider
-  - 
+  - Collectable
   - 
   - 
   - 
