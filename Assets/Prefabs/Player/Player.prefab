@@ -218,10 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f9d3061d6803646a39b64a2ddda511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathVFX: {fileID: 8305546849771390568, guid: 747a5033e58c88a4984e2073bd07afa3,
-    type: 3}
   plusOneVFX: {fileID: 1987135936604901850, guid: 29e7a449547fa4946b3f0bc277663cdc,
     type: 3}
+  deathVFX: {fileID: 8305546849771390568, guid: 747a5033e58c88a4984e2073bd07afa3,
+    type: 3}
+  pauseButton: {fileID: 0}
   playerDeathDelay: 2.5
 --- !u!114 &1753420612
 MonoBehaviour:

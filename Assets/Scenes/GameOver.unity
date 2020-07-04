@@ -354,7 +354,7 @@ PrefabInstance:
     - target: {fileID: 1199703953915938878, guid: 38664cac62f20f84dad4ae1b3e14d5cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1199703953915938878, guid: 38664cac62f20f84dad4ae1b3e14d5cc,
         type: 3}
@@ -547,7 +547,7 @@ PrefabInstance:
     - target: {fileID: 8591201908695092584, guid: 95081cabb410e184388e1f6d34cb8d2e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8591201908695092584, guid: 95081cabb410e184388e1f6d34cb8d2e,
         type: 3}
@@ -643,6 +643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StatsCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591201908695092588, guid: 95081cabb410e184388e1f6d34cb8d2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8591201908695092591, guid: 95081cabb410e184388e1f6d34cb8d2e,
         type: 3}

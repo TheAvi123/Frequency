@@ -4,8 +4,11 @@ public class PlayerInteractions : MonoBehaviour
 {
     //Reference Variables
     [Header("Visual Effects")]
-    [SerializeField] ParticleSystem deathVFX = null;
     [SerializeField] GameObject plusOneVFX = null;
+    [SerializeField] ParticleSystem deathVFX = null;
+
+    [Header("UI Elements")]
+    [SerializeField] RectTransform pauseButton = null;
 
     //Configuration Parameters
     [SerializeField] float playerDeathDelay = 2.5f;
@@ -35,6 +38,7 @@ public class PlayerInteractions : MonoBehaviour
         gameObject.SetActive(false);
         DisableInputControllers();
         StopIncreasingScore();
+        DisablePause();
         ShakeScreen();
         SpawnDeathVFX();
         LoadGameOver();
@@ -55,6 +59,10 @@ public class PlayerInteractions : MonoBehaviour
 
     private void StopIncreasingScore() {
         ScoreManager.sharedInstance.StopIncreasingScore();
+    }
+
+    private void DisablePause() {
+        pauseButton.gameObject.SetActive(false);
     }
 
     private void ShakeScreen() {
