@@ -3,6 +3,6 @@
 public class ScoresButton : MonoBehaviour
 {
     private void OnMouseUp() {
-        GameStateManager.sharedInstance.ShowScores();
+        GameStateManager.sharedInstance.LoadScores();
     }
 }

@@ -6,23 +6,23 @@ TagManager:
   tags:
   - Obstacle
   - ObstaclePart
+  - Coin
+  - Modifier
   - Disabler
   - NMCollider
-  - Coin
-  - Powerup
   - Overlay
   - StatsCanvas
+  - HighScoreDisplay
   - ScoreDisplay
   - CoinDisplay
   - ScoreStat
   - CoinStat
-  - PowerupStat
+  - ModifierStat
   - FlipStat
   - DashStat
   - DelayStat
   - NearMissStat
   - TimeStat
-  - HighScoreDisplay
   layers:
   - Default
   - TransparentFX
@@ -32,10 +32,10 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Obstacle
-  - NMCollider
-  - Collectable
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

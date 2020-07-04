@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
-public class MouseInputController : InputController
+public class UIMouseInputController : UIInputController
 {
-    //Reference Variables
-    protected PlayerWave player = null;   //Player Movement Component
-
     //Configuration Parameters
     [Header("Max Click Parameters")]
     [SerializeField] float maxClickTimer = 0.5f;        //Max Time for Input to be Considered a Click
@@ -13,21 +11,12 @@ public class MouseInputController : InputController
     //Internal Methods
     private void Awake() {
         VerifyInputType();
-        FindPlayer();
     }
 
     private void VerifyInputType() {
         //Uses TouchInputController if Touch is Supported
         if (Input.touchSupported) {
-            gameObject.SetActive(false);    //Disable Object
-        }
-    }
-
-    private void FindPlayer() {
-        player = FindObjectOfType<PlayerWave>();
-        if (!player) {
-            Debug.LogError("No Player Object Found");
-            gameObject.SetActive(false);    //Disable Object
+            enabled = false;    //Disable this component
         }
     }
 
@@ -62,23 +51,52 @@ public class MouseInputController : InputController
         inputDistance = Vector2.Distance(startPos, endPos);     //Calculate Distance
 
         if (inputTimer <= maxClickTimer && inputDistance <= maxClickDistance) {
-            //Player Clicked
-            player.Flip();
+            //Player Tapped
+            tapAction.Invoke();
         } else {
-            inputDistance = endPos.y - startPos.y;    //Vertical Distance
-            if (inputDistance > 0) {
-                //Player Dragged Up
-                player.Dash();
-            } else if (inputDistance < 0) {
-                //Player Dragged Down
-                player.Delay();
+            float inputDistanceY = endPos.y - startPos.y;    //Vertical Swipe Distance
+            float inputDistanceX = endPos.x - startPos.x;    //Horizontal Swipe Distance
+            if (Mathf.Abs(inputDistanceY) > Mathf.Abs(inputDistanceX)) {
+                //Vertical Swipe
+                if (inputDistanceY > 0) {
+                    //Player Swiped Up
+                    upSwipeAction();
+                } else {
+                    //Player Swiped Down
+                    downSwipeAction();
+                }
             } else {
-                Debug.LogWarning("Input Parameters Unclear");
+                //Horizontal Swipe
+                if (inputDistanceX > 0) {
+                    //Player Swiped Right
+                    rightSwipeAction();
+                } else {
+                    //Player Swiped Left
+                    leftSwipeAction();
+                }
             }
         }
-        ///For Testing Purposes
-        //Debug.Log("Input Time: " + inputTimer);
-        //Debug.Log("Input Distance: " + inputDistance);
+    }
+
+    //Public Methods
+    public override void SetTapAction(UnityAction action) {
+        tapAction = action;
+    }
+
+    public override void SetLeftSwipeAction(UnityAction action) {
+        leftSwipeAction = action;
+    }
+
+    public override void SetRightSwipeAction(UnityAction action) {
+        rightSwipeAction = action;
+    }
+
+    public override void SetUpSwipeAction(UnityAction action) {
+        upSwipeAction = action;
+    }
+
+    public override void SetDownSwipeAction(UnityAction action) {
+        downSwipeAction = action;
     }
 
     //Debugging Methods

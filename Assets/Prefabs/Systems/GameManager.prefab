@@ -71,7 +71,7 @@ MonoBehaviour:
   tutorialSceneName: Tutorial
   optionsSceneName: Options
   shopSceneName: Shop
-  scoreSceneName: Scores
+  statisticsSceneName: Statistics
   startFromInitialState: 1
   initialState: 2
 --- !u!114 &6791659634989194310
@@ -110,3 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5681ced266614a240a6088cfdc2f6416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalScoreAchieved: 0
+  totalCoinsCollected: 0
+  totalModifiersUsed: 0
+  totalFlipCount: 0
+  totalDashCount: 0
+  totalDelayCount: 0
+  totalNearMissCount: 0
+  totalTimeSurvived: 0
+  averageScore: 0
+  averageCoins: 0
+  averageModifiers: 0
+  averageFlipCount: 0
+  averageDashCount: 0
+  averageDelayCount: 0
+  averageNearMissCount: 0
+  averageTimeSurvived: 0

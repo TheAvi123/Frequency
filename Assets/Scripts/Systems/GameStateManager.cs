@@ -1,22 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System;
 
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager sharedInstance;
 
-    private enum GameState {Null, Splash, Start, Play, Over, Tutorial, Options, Shop, Score}
+    private enum GameState {Null, Splash, Start, Play, Over, Tutorial, Options, Shop, Stats}
 
     [Header("Scene Names")]
-    [SerializeField] string splashSceneName = null;
-    [SerializeField] string startSceneName = null;
-    [SerializeField] string playSceneName = null;
-    [SerializeField] string gameOverSceneName = null;
-    [SerializeField] string tutorialSceneName = null;
-    [SerializeField] string optionsSceneName = null;
-    [SerializeField] string shopSceneName = null;
-    [SerializeField] string scoreSceneName = null;
+    [SerializeField] string splashSceneName     = null;
+    [SerializeField] string startSceneName      = null;
+    [SerializeField] string playSceneName       = null;
+    [SerializeField] string gameOverSceneName   = null;
+    [SerializeField] string tutorialSceneName   = null;
+    [SerializeField] string optionsSceneName    = null;
+    [SerializeField] string shopSceneName       = null;
+    [SerializeField] string statisticsSceneName = null;
 
     //Configuration Parameters
     [Header("Configuration")]
@@ -46,8 +47,8 @@ public class GameStateManager : MonoBehaviour
                 return optionsSceneName;
             case GameState.Shop:
                 return shopSceneName;
-            case GameState.Score:
-                return scoreSceneName;
+            case GameState.Stats:
+                return statisticsSceneName;
             case GameState.Null:
             default:
                 Debug.LogError("Game State " + state.ToString() + " Does Not Exist"); 
@@ -70,8 +71,8 @@ public class GameStateManager : MonoBehaviour
             return GameState.Options;
         } else if (scene.name == shopSceneName) {
             return GameState.Shop;
-        } else if (scene.name == scoreSceneName) {
-            return GameState.Score;
+        } else if (scene.name == statisticsSceneName) {
+            return GameState.Stats;
         } else {
             Debug.LogError("Scene " + scene.name + " Does Not Exist in GameState Enumeration");
             return GameState.Null;
@@ -102,6 +103,7 @@ public class GameStateManager : MonoBehaviour
 
     //Internal Methods
     private void Awake() {
+        SetupPersistenceEnvironment();
         SetSharedInstance();
         SetCurrentState();
         LoadInitialState();
@@ -122,25 +124,28 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    public void SetupPersistenceEnvironment() {
+        //This code is required for the persistence system's BinaryFormatter to work on iOS devices
+        Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
+    }
+
     private void Start() {
         LoadSaveData();
     }
 
     private void LoadSaveData() {
-        SaveLoadManager.LoadGame();
+        PersistenceManager.LoadGame();
     }
 
     private void OnSceneChange() {      
         SetCurrentState();
     }   //Called from Singleton
 
-    private void OnApplicationPause(bool paused) {
-        if (paused) {
-            SaveLoadManager.SaveGame();
-        }
+    //Public Call Methods
+    public void LoadMenu() {
+        LoadState(GameState.Start);
     }
 
-    //Public Call Methods
     public void PlayGame() {
         LoadState(GameState.Play);
     }
@@ -148,10 +153,6 @@ public class GameStateManager : MonoBehaviour
     public void QuitGame() {
         Debug.Log("Exiting Game...");
         Application.Quit();
-    }
-
-    public void LoadMenu() {
-        LoadState(GameState.Start);
     }
 
     public void GameOver(float delayInSeconds) {
@@ -166,16 +167,16 @@ public class GameStateManager : MonoBehaviour
         LoadState(GameState.Tutorial);
     }
 
+    public void LoadScores() {
+        LoadState(GameState.Stats);
+    }
+
     public void OpenOptions() {
         LoadState(GameState.Options);
     }
 
     public void OpenShop() {
         LoadState(GameState.Shop);
-    }
-
-    public void ShowScores() {
-        LoadState(GameState.Score);
     }
 
     //Public Return Methods

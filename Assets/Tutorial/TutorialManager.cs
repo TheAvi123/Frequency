@@ -2,18 +2,18 @@
 
 public class TutorialManager : MonoBehaviour
 {
-    private enum Stage {Intro, Obstacle, Flip, Dash, Delay, Combo, }
+    private enum Stage {Intro, Basics, Flip, Dash, Delay, Combo, Score, End}
 
     //Reference Variables
     private GameStateManager gameManager;
-    private InputController inputController;
+    private UIInputController inputController;
     private PlayerAbilityManager abilityManager;
 
     //Configuration Parameters
     [SerializeField] GameObject tutorialOverlay = null;
 
     //State Variales
-    private Stage currentStage;
+    private Stage currentStage = 0;
 
     //Internal Methods
     private void Awake() {
@@ -27,7 +27,7 @@ public class TutorialManager : MonoBehaviour
     }
 
     private void FindInputController() {
-        inputController = FindObjectOfType<InputController>();
+        inputController = FindObjectOfType<UIInputController>();
     }
 
     private void FindAbiltiyManager() {
@@ -53,7 +53,7 @@ public class TutorialManager : MonoBehaviour
         switch (currentStage) {
             case Stage.Intro:
                 break;
-            case Stage.Obstacle:
+            case Stage.Basics:
                 break;
             case Stage.Flip:
                 break;
@@ -62,6 +62,10 @@ public class TutorialManager : MonoBehaviour
             case Stage.Delay:
                 break;
             case Stage.Combo:
+                break;
+            case Stage.Score:
+                break;
+            case Stage.End:
                 break;
         }
     }
