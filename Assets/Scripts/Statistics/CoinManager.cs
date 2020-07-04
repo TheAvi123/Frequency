@@ -25,7 +25,7 @@ public class CoinManager : MonoBehaviour
     private void OnSceneChange() {
         if (SceneManager.GetActiveScene().name == "StartMenu") {
             FindCoinDisplay();
-            coinDisplay.text = coinsTotal.ToString();
+            UpdateTotalCoinDisplay();
         }
         if (SceneManager.GetActiveScene().name == "PlayScene") {
             FindCoinDisplay();
@@ -57,7 +57,11 @@ public class CoinManager : MonoBehaviour
     private void UpdateCoinDisplay() {
         coinDisplay.text = coinsCollected.ToString();
     }
-    
+
+    private void UpdateTotalCoinDisplay() {
+        coinDisplay.text = coinsTotal.ToString();
+    }
+
     //Public Methods
     public void CollectCoin() {
         coinsCollected++;

@@ -11,12 +11,12 @@ public class ScoreManager : MonoBehaviour
     private const string hsSprite = "<sprite=\"StarSprite\" index=0>";
 
     //Score State Variabless
-    private int highScore = 0;
+    private int[] highScores = new int[] {0, 0, 0, 0, 0, 0, 0};
     private int currentScore = 0;
     private bool increaseScore = false;
 
     private TextMeshProUGUI scoreDisplay = null;
-    private TextMeshProUGUI hsDisplay = null;
+    private TextMeshProUGUI highScoreDisplay = null;
 
     //Counter State Variables
     private float counter = 0f;
@@ -40,8 +40,8 @@ public class ScoreManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "GameOver") {
             FindScoreDisplay();
             UpdateScoreDisplay();
-            FindHSDisplay();
-            UpdateHS();
+            FindHighScoreDisplay();
+            UpdateHighScores();
         }
         if (SceneManager.GetActiveScene().name == "Tutorial") {
             FindScoreDisplay();
@@ -66,27 +66,41 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private void FindHSDisplay() {
+    private void FindHighScoreDisplay() {
         if (gameObject.activeInHierarchy) {
-            hsDisplay = GameObject.FindGameObjectWithTag("HighScoreDisplay").GetComponent<TextMeshProUGUI>();
+            highScoreDisplay = GameObject.FindGameObjectWithTag("HighScoreDisplay").GetComponent<TextMeshProUGUI>();
         }
     }
 
-    private void UpdateHS() {
-        if (currentScore > highScore) {
-            highScore = currentScore;
-            UpdateHSDisplay(true);
+    private void UpdateHighScores() {
+        if (currentScore > highScores[0]) {
+            UpdateHighScoreArray(currentScore);
+            UpdateHighScoreDisplay(true);
+        } else if (currentScore > highScores[highScores.Length - 1]) {
+            UpdateHighScoreArray(currentScore);
+            UpdateHighScoreDisplay(false);
         } else {
-            UpdateHSDisplay(false);
+            UpdateHighScoreDisplay(false);
         }
     }
+    #region Helper Method for UpdateHighScores
+    private void UpdateHighScoreArray(int newScore) {
+        for(int i = 0; i < highScores.Length; i++) {
+            if (newScore > highScores[i]) {
+                int temp = highScores[i];
+                highScores[i] = newScore;
+                newScore = temp;
+            }
+        }
+    }
+    #endregion
 
-    private void UpdateHSDisplay(bool newScore) {
+    private void UpdateHighScoreDisplay(bool newRecord) {
         if (gameObject.activeInHierarchy) {
-            if (newScore) {
-                hsDisplay.text = hsSprite + " NEW RECORD " + hsSprite;
+            if (newRecord) {
+                highScoreDisplay.text = hsSprite + " NEW RECORD " + hsSprite;
             } else {
-                hsDisplay.text = hsSprite + " " + highScore.ToString() + " " + hsSprite;
+                highScoreDisplay.text = hsSprite + " " + highScores[0].ToString() + " " + hsSprite;
             }
         }
     }
@@ -125,11 +139,11 @@ public class ScoreManager : MonoBehaviour
     }
 
     //Public HighScore Methods
-    public void SetHighScore(int score) {
-        highScore = score;
+    public void SetHighScores(int[] highScores) {
+        this.highScores = highScores;
     }
 
-    public int GetHighScore() {
-        return highScore;
+    public int[] GetHighScores() {
+        return highScores;
     }
 }
