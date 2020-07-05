@@ -26,11 +26,11 @@ public class SceneChangeController : MonoBehaviour
 
     private void OnSceneChange() {
         //Do Nothing
-    }
+    }    //Called From Singleton
 
-    private void FadeComplete() {
-        GameStateManager.sharedInstance.FadeComplete();
-    }
+    private void FadeInComplete() {
+        GameStateManager.sharedInstance.SetFadeComplete();
+    }   //Called From Animation Event
     
     //Public Methods
     public void TriggerFadeAnimation() {

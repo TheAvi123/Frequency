@@ -64,7 +64,7 @@ public class PlayerWave : MonoBehaviour
 
     private void AspectRatioReconfigurations() {
         float aspectMultiplier = Camera.main.aspect * 16 / 9;
-        transform.localScale *= Mathf.Sqrt(aspectMultiplier);
+        transform.localScale *= aspectMultiplier;
         verticalSpeed *= aspectMultiplier;
     }
 

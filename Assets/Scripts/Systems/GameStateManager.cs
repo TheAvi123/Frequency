@@ -1,23 +1,24 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using System;
 using System.Collections;
-using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
     public static GameStateManager sharedInstance;
 
-    private enum GameState {Null, Splash, Start, Play, Over, Tutorial, Options, Shop, Stats}
+    private enum GameState {Null, Splash, Start, Play, Over, Stats, Shop, Tutorial, Options};
 
     [Header("Scene Names")]
-    [SerializeField] string splashSceneName     = null;
-    [SerializeField] string startSceneName      = null;
-    [SerializeField] string playSceneName       = null;
-    [SerializeField] string gameOverSceneName   = null;
-    [SerializeField] string tutorialSceneName   = null;
-    [SerializeField] string optionsSceneName    = null;
-    [SerializeField] string shopSceneName       = null;
-    [SerializeField] string statisticsSceneName = null;
+    [SerializeField] string splashSceneName   = null;
+    [SerializeField] string startSceneName    = null;
+    [SerializeField] string playSceneName     = null;
+    [SerializeField] string gameOverSceneName = null;
+    [SerializeField] string statsSceneName    = null;
+    [SerializeField] string shopSceneName     = null;
+    [SerializeField] string tutorialSceneName = null;
+    [SerializeField] string optionsSceneName  = null;
+
 
     //Configuration Parameters
     [Header("Configuration")]
@@ -30,6 +31,46 @@ public class GameStateManager : MonoBehaviour
     private Coroutine fadeLoader = null;
     private bool fadeComplete = false;
 
+    //Internal Methods
+    private void Awake() {
+        SetSharedInstance();
+        SetupPersistenceEnvironment();
+        SetCurrentState();
+        LoadInitialState();
+    }
+
+    private void OnSceneChange() {
+        SetCurrentState();
+    }   //Called from Singleton
+
+    private void SetSharedInstance() {
+        sharedInstance = this;
+    }
+
+    public void SetupPersistenceEnvironment() {
+        //This code is required for the persistence system's BinaryFormatter to work on iOS devices
+        Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
+    }
+
+    private void SetCurrentState() {
+        currentState = SceneNameToState(SceneManager.GetActiveScene());
+    }
+
+    public void LoadInitialState() {
+        if (startFromInitialState && currentState != initialState) {
+            currentState = initialState;
+            SceneManager.LoadScene(StateToName(initialState));
+        }
+    }
+
+    private void Start() {
+        LoadSaveData();
+    }
+
+    private void LoadSaveData() {
+        PersistenceManager.LoadGame();
+    }
+
     //Helper Methods
     private string StateToName(GameState state) {
         switch (state) {
@@ -41,38 +82,39 @@ public class GameStateManager : MonoBehaviour
                 return playSceneName;
             case GameState.Over:
                 return gameOverSceneName;
+            case GameState.Stats:
+                return statsSceneName;
+            case GameState.Shop:
+                return shopSceneName;
             case GameState.Tutorial:
                 return tutorialSceneName;
             case GameState.Options:
                 return optionsSceneName;
-            case GameState.Shop:
-                return shopSceneName;
-            case GameState.Stats:
-                return statisticsSceneName;
             case GameState.Null:
             default:
-                Debug.LogError("Game State " + state.ToString() + " Does Not Exist"); 
+                Debug.LogError("Game State " + state.ToString() + " Does Not Exist");
                 return null;
         }
     }
 
-    private GameState SceneToState(Scene scene) {
-        if (scene.name == splashSceneName) {
+    private GameState SceneNameToState(Scene scene) {
+        string sceneName = scene.name;
+        if (sceneName == splashSceneName) {
             return GameState.Splash;
-        } else if (scene.name == startSceneName) {
+        } else if (sceneName == startSceneName) {
             return GameState.Start;
-        } else if (scene.name == playSceneName) {
+        } else if (sceneName == playSceneName) {
             return GameState.Play;
-        } else if (scene.name == gameOverSceneName) {
+        } else if (sceneName == gameOverSceneName) {
             return GameState.Over;
-        } else if (scene.name == tutorialSceneName) {
-            return GameState.Tutorial;
-        } else if (scene.name == optionsSceneName) {
-            return GameState.Options;
-        } else if (scene.name == shopSceneName) {
-            return GameState.Shop;
-        } else if (scene.name == statisticsSceneName) {
+        } else if (sceneName == statsSceneName) {
             return GameState.Stats;
+        } else if (sceneName == shopSceneName) {
+            return GameState.Shop;
+        } else if (sceneName == tutorialSceneName) {
+            return GameState.Tutorial;
+        } else if (sceneName == optionsSceneName) {
+            return GameState.Options;
         } else {
             Debug.LogError("Scene " + scene.name + " Does Not Exist in GameState Enumeration");
             return GameState.Null;
@@ -97,52 +139,12 @@ public class GameStateManager : MonoBehaviour
 
     private IEnumerator WaitAndLoad(GameState state, float delayInSeconds) {
         yield return new WaitForSecondsRealtime(delayInSeconds);
-        SceneManager.LoadScene(StateToName(state));
+        LoadState(state);
         waitLoader = null;
     }
 
-    //Internal Methods
-    private void Awake() {
-        SetupPersistenceEnvironment();
-        SetSharedInstance();
-        SetCurrentState();
-        LoadInitialState();
-    }
-
-    private void SetSharedInstance() {
-        sharedInstance = this;
-    }
-
-    private void SetCurrentState() {
-        currentState = SceneToState(SceneManager.GetActiveScene());
-    }
-
-    public void LoadInitialState() {
-        if (startFromInitialState && currentState != initialState) {
-            currentState = initialState;
-            SceneManager.LoadScene(StateToName(initialState));
-        }
-    }
-
-    public void SetupPersistenceEnvironment() {
-        //This code is required for the persistence system's BinaryFormatter to work on iOS devices
-        Environment.SetEnvironmentVariable("MONO_REFLECTION_SERIALIZER", "yes");
-    }
-
-    private void Start() {
-        LoadSaveData();
-    }
-
-    private void LoadSaveData() {
-        PersistenceManager.LoadGame();
-    }
-
-    private void OnSceneChange() {      
-        SetCurrentState();
-    }   //Called from Singleton
-
-    //Public Call Methods
-    public void LoadMenu() {
+    //Load Methods
+    public void LoadStartMenu() {
         LoadState(GameState.Start);
     }
 
@@ -163,28 +165,28 @@ public class GameStateManager : MonoBehaviour
         waitLoader = StartCoroutine(WaitAndLoad(GameState.Over, delayInSeconds));
     }
 
-    public void LoadTutorial() {
-        LoadState(GameState.Tutorial);
-    }
-
-    public void LoadScores() {
+    public void LoadStats() {
         LoadState(GameState.Stats);
-    }
-
-    public void OpenOptions() {
-        LoadState(GameState.Options);
     }
 
     public void OpenShop() {
         LoadState(GameState.Shop);
     }
 
-    //Public Return Methods
+    public void LoadTutorial() {
+        LoadState(GameState.Tutorial);
+    }
+
+    public void OpenOptions() {
+        LoadState(GameState.Options);
+    }
+
+    //Public Methods
     public string GetCurrentScene() {
         return SceneManager.GetActiveScene().name;
     }
 
-    public void FadeComplete() {
+    public void SetFadeComplete() {
         fadeComplete = true;
     }
 }

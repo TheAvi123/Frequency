@@ -68,10 +68,10 @@ MonoBehaviour:
   startSceneName: StartMenu
   playSceneName: PlayScene
   gameOverSceneName: GameOver
+  statsSceneName: Statistics
+  shopSceneName: Shop
   tutorialSceneName: Tutorial
   optionsSceneName: Options
-  shopSceneName: Shop
-  statisticsSceneName: Statistics
   startFromInitialState: 1
   initialState: 2
 --- !u!114 &6791659634989194310
