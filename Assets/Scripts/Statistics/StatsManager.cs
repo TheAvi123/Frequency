@@ -1,10 +1,11 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class StatsManager : MonoBehaviour
 {
+    public enum Stat { Null, Runs, Score, Coins, Modifiers, Flips, Dashes, Delays, NearMisses, Time };
+
     //Reference Variables
     public static StatsManager sharedInstance;
 
@@ -59,7 +60,6 @@ public class StatsManager : MonoBehaviour
             DisplayRunStats();
             UpdateTotalStats();
             UpdateAverageStats(); 
-            PersistenceManager.SaveGame();
         }
         if (SceneManager.GetActiveScene().name == "Statistics") {
             DisplayAllStats();
@@ -238,5 +238,32 @@ public class StatsManager : MonoBehaviour
 
     public int GetRunsCompleted() {
         return runsCompleted;
+    }
+
+    public int GetStat(Stat stat) {
+        switch (stat) {
+            case Stat.Runs:
+                return runsCompleted;
+            case Stat.Score:
+                return ScoreManager.sharedInstance.GetCurrentScore();
+            case Stat.Coins:
+                return CoinManager.sharedInstance.GetCoinsCollected();
+            case Stat.Modifiers:
+                return modifiersUsed;
+            case Stat.Flips:
+                return flipCount;
+            case Stat.Dashes:
+                return dashCount;
+            case Stat.Delays:
+                return delayCount;
+            case Stat.NearMisses:
+                return nearMissCount;
+            case Stat.Time:
+                return (int) timeSurvived;
+            case Stat.Null:
+            default:
+                Debug.LogError("Given Stat Type does not match defined Enum Types");
+                return 0;
+        }
     }
 }

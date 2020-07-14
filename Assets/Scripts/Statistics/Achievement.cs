@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "NewAcheievement", menuName = "Custom Assets/Achievement")]
 public class Achievement : ScriptableObject
 {
-    private enum Stat {Runs, Score, Coins, Modifiers, Flips, Dashes, Delays, NearMisses, Time};
-
-    private string achievementName;
-    private Stat statistic;
-    private int threshold;
+    public new string name;
+    public string description;
+    public StatsManager.Stat goalStatistic;
+    public int goalThreshold;
+    public StatsManager.Stat conditionStatistic = StatsManager.Stat.Null;
+    public int conditionThreshold = 0;
+    public int coinReward;
 }
+    

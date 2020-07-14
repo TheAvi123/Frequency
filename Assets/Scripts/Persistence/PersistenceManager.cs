@@ -28,6 +28,7 @@ public static class PersistenceManager
     private static void SetLoadedData(SaveData saveData) {
         ScoreManager.sharedInstance.SetHighScores(saveData.highScores);
         CoinManager.sharedInstance.SetCoinsTotal(saveData.coinsCollected);
+        AchievementManager.sharedInstance.SetAchievementStatusArray(saveData.achievementStatus);
         SetLoadedStatistics(saveData);
     }
 

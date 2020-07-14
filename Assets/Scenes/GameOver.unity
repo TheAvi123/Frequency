@@ -644,11 +644,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8591201908695092588, guid: 95081cabb410e184388e1f6d34cb8d2e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8591201908695092591, guid: 95081cabb410e184388e1f6d34cb8d2e,
         type: 3}
       propertyPath: m_Camera

@@ -1,4 +1,6 @@
-﻿[System.Serializable]
+﻿using System.Numerics;
+
+[System.Serializable]
 public class SaveData
 {
     //Essential Data
@@ -26,10 +28,14 @@ public class SaveData
     public float averageNearMissCount;
     public float averageTimeSurvived;
 
+    //Achievement Status
+    public bool[] achievementStatus;
+
     public SaveData() {
         GetEssentialData();
         GetCumulativeStatistics();
         GetAverageStatistics();
+        GetAchievementsStatus();
     }
 
     private void GetEssentialData() {
@@ -60,5 +66,9 @@ public class SaveData
         averageDelayCount    = statsManager.averageDelayCount;
         averageNearMissCount = statsManager.averageNearMissCount;
         averageTimeSurvived  = statsManager.averageTimeSurvived;
+    }
+
+    private void GetAchievementsStatus() {
+        achievementStatus = AchievementManager.sharedInstance.GetAchievementStatusArray();
     }
 }

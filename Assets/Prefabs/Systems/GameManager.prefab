@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6791659634989194310}
   - component: {fileID: 2802902689667326167}
   - component: {fileID: 3819800006738353823}
+  - component: {fileID: 433353612092813742}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   - {fileID: 6791659634989194310}
   - {fileID: 2802902689667326167}
   - {fileID: 3819800006738353823}
+  - {fileID: 433353612092813742}
 --- !u!114 &4644910664610438814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +128,43 @@ MonoBehaviour:
   averageDelayCount: 0
   averageNearMissCount: 0
   averageTimeSurvived: 0
+--- !u!114 &433353612092813742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644910664610438813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273f3496b4e2e9942b8609142ee1e1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievements:
+  - {fileID: 11400000, guid: be405bf406b0177449031db86a033741, type: 2}
+  - {fileID: 11400000, guid: fa4e5556a9688c34e81e90394407f148, type: 2}
+  - {fileID: 11400000, guid: b28c71561287262429cc53c5f2fa344a, type: 2}
+  - {fileID: 11400000, guid: 454bd22e8c9b0d94498a755b05ad4953, type: 2}
+  - {fileID: 11400000, guid: be7bf57183a604148b800d8d64f3cfe7, type: 2}
+  - {fileID: 11400000, guid: 2a74ddc5d36674a46932405ec7ce6a25, type: 2}
+  - {fileID: 11400000, guid: 20b38ea472329fe49b7d404b78ee98a6, type: 2}
+  - {fileID: 11400000, guid: 36dddd11606969141848073c806d470a, type: 2}
+  - {fileID: 11400000, guid: fac6446f1816f2e449e557da504f1309, type: 2}
+  - {fileID: 11400000, guid: faef894f2d7065547aa02a19a2bb7192, type: 2}
+  - {fileID: 11400000, guid: 7c8067d0cc1a3c34e852656c0af49f0b, type: 2}
+  - {fileID: 11400000, guid: 1c72aebb68e204f42b8bc2dfca2e5163, type: 2}
+  - {fileID: 11400000, guid: c6394b029adbb1b448d002f75adb19ce, type: 2}
+  - {fileID: 11400000, guid: f6a6d8fa789043246b0b769ffe98c571, type: 2}
+  - {fileID: 11400000, guid: 6fc9152a66645584aace24be24344d27, type: 2}
+  - {fileID: 11400000, guid: b8d453aa9681e2841b6ab1de362f3fd8, type: 2}
+  - {fileID: 11400000, guid: c3b61956e75641544962f93850ea1b50, type: 2}
+  - {fileID: 11400000, guid: 4f654982e664253499b2c133260fad88, type: 2}
+  - {fileID: 11400000, guid: ef063671a29cd8a4886e34f7c13f03b4, type: 2}
+  - {fileID: 11400000, guid: 1720e5416b890d94e9bc8ee913dd749b, type: 2}
+  - {fileID: 11400000, guid: 44c0416c326ce5c4d98ca5a8fe33d9b0, type: 2}
+  - {fileID: 11400000, guid: f642abdb297a03d459f41200a54c882f, type: 2}
+  - {fileID: 11400000, guid: 8e62b578f5747634287bab50d5f2a1ed, type: 2}
+  - {fileID: 11400000, guid: 1abb43513437ff64698efa0651721b04, type: 2}
+  - {fileID: 11400000, guid: 771150130a74c7046822522bcdfd6e42, type: 2}
+  achievementPrefab: {fileID: -1081884226275374740, guid: 7cb3f7e4cb009ef489e5ea1b0769f004,
+    type: 3}
