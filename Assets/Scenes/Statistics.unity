@@ -359,16 +359,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AchievementCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 9149306408742683249, guid: bf7fb657ee637c84a888cf960bce8021,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9149306408742683249, guid: bf7fb657ee637c84a888cf960bce8021,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7fb657ee637c84a888cf960bce8021, type: 3}
 --- !u!224 &1029842455 stripped

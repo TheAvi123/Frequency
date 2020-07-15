@@ -30,6 +30,7 @@ public class AchievementManager : MonoBehaviour
             PersistenceManager.SaveGame();
         }
         if (SceneManager.GetActiveScene().name == "Statistics") {
+            CheckForStatusArray();
             DisplayAchievements();
         }
     }   //Called Through Singleton
@@ -53,13 +54,19 @@ public class AchievementManager : MonoBehaviour
             if (statManager.GetStat(currentAchievement.goalStatistic) >= currentAchievement.goalThreshold) {
                 if (currentAchievement.conditionStatistic == StatsManager.Stat.Null) {
                     statusArray[index] = true;
+                    AwardCoinReward(currentAchievement);
                     continue;
                 }
                 if (statManager.GetStat(currentAchievement.conditionStatistic) <= currentAchievement.conditionThreshold) {
                     statusArray[index] = true;
+                    AwardCoinReward(currentAchievement);
                 }
             }
         }
+    }
+
+    private void AwardCoinReward(Achievement achievement) {
+        CoinManager.sharedInstance.AddCoins(achievement.coinReward);
     }
 
     private void DisplayAchievements() {

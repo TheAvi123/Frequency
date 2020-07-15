@@ -120,7 +120,7 @@ public class StatsManager : MonoBehaviour
         int[] highScores = ScoreManager.sharedInstance.GetHighScores();
         for(int i = 0; i < highScores.Length; i++) {
             if (highScores[i] == 0) {
-                FindStatObjectByName("Score " + (i + 1) + " Number").text = "N/A";
+                FindStatObjectByName("Score " + (i + 1) + " Number").text = "-";
             } else {
                 FindStatObjectByName("Score " + (i + 1) + " Number").text = highScores[i].ToString();
             }
@@ -151,6 +151,7 @@ public class StatsManager : MonoBehaviour
 
     private TextMeshProUGUI FindStatObjectByTag(string tag) {
         return GameObject.FindGameObjectWithTag(tag).GetComponent<TextMeshProUGUI>();
+        //If throwing NullPointerException, check if GameObject is enabled...
     }
 
     private TextMeshProUGUI FindStatObjectByName(string name) {

@@ -263,6 +263,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: InGameOverylays
       objectReference: {fileID: 0}
+    - target: {fileID: 6964904559155664719, guid: ee9ce09fa12ecf44dae7989d53d4716b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee9ce09fa12ecf44dae7989d53d4716b, type: 3}
 --- !u!1001 &579470027537789990

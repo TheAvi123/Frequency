@@ -18,4 +18,4 @@ MonoBehaviour:
   goalThreshold: 50
   conditionStatistic: 2
   conditionThreshold: 50
-  coinReward: 15
+  coinReward: 30

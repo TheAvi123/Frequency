@@ -133,11 +133,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartOverlay
       objectReference: {fileID: 0}
-    - target: {fileID: 3806229743581767636, guid: ca285eb7bd5f41d4d823017bfd0af3c9,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1937302538}
     - target: {fileID: 3806229743581767639, guid: ca285eb7bd5f41d4d823017bfd0af3c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -350,12 +345,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3806229743581767639, guid: ca285eb7bd5f41d4d823017bfd0af3c9,
     type: 3}
   m_PrefabInstance: {fileID: 184243304}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &1937302538 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2379182295632118473, guid: a1e254f92fba8ec4cbc948f30c3fa4fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 2379182296083774134}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1197197136012485719
 PrefabInstance:
