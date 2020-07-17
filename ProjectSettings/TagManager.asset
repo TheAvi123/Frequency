@@ -10,7 +10,6 @@ TagManager:
   - Modifier
   - Disabler
   - NMCollider
-  - Overlay
   - StatsCanvas
   - HighScoreDisplay
   - ScoreDisplay
@@ -23,6 +22,8 @@ TagManager:
   - DelayStat
   - NearMissStat
   - TimeStat
+  - InfoDisplay
+  - PauseOverlay
   layers:
   - Default
   - TransparentFX

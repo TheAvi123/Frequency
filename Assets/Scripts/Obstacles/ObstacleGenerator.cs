@@ -6,6 +6,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     //Reference Variables
     private PlayerWave player;
+    private ScoreManager scoreManager;
 
     //Obstacle Parent Folders
     private GameObject easyFolder;
@@ -20,23 +21,29 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] private Obstacle[] veryHardObstacles = null;
 
     [Header("Obstacle Probabilities")]
-    private const float easyProbability = 0.50f;
-    private const float mediumProbability = 0.35f;
-    private const float hardProbability = 0.14f;
-    private const float veryHardProbability = 0.01f;
+    [SerializeField] const float easyProbability     = 0.45f;
+    [SerializeField] const float mediumProbability   = 0.37f;
+    [SerializeField] const float hardProbability     = 0.15f;
+    [SerializeField] const float veryHardProbability = 0.03f;
 
     [Header("Distances")]
-    [SerializeField] private Transform startSpawnPostion = null;
+    [SerializeField] Transform startSpawnPostion = null;
     [SerializeField] float spawnTriggerDistance = 50f;
     [SerializeField] float minObstacleDistance = 6f;
     [SerializeField] float maxObstacleDistance = 12f;
+    [SerializeField] float distanceReductionRate = 0.05f;
 
     //Random Variables
     private int currentIndex;           //Random Roll for Obstacle Prefab Selection
     private float currentRoll;          //Random Roll for Obstacle Difficulty Selection
 
-    //State Variables
+    //Difficulty State Variables
+    private Difficulty currentMaxDifficulty;
     private Difficulty currentDifficulty;
+    private bool reachedMaxDifficulty;
+
+
+    //Obstacle State Variables
     private Obstacle[] currentObstacleList;
     private GameObject currentObstacleFolder;
     private GameObject currentObstacle;
@@ -45,6 +52,7 @@ public class ObstacleGenerator : MonoBehaviour
     //Internal Methods
     private void Awake() {
         FindPlayerObject();
+        FindScoreManager();
         SetObstacleFolders();
         PrefabChecks();
     }
@@ -54,6 +62,13 @@ public class ObstacleGenerator : MonoBehaviour
         if (!player) {
             Debug.LogError("No Player Object Found");
             gameObject.SetActive(false);    //Disable Object
+        }
+    }
+
+    private void FindScoreManager() {
+        scoreManager = ScoreManager.sharedInstance;
+        if (!scoreManager) {
+            Debug.Log("No Score Manager Found in Scene");
         }
     }
 
@@ -85,6 +100,7 @@ public class ObstacleGenerator : MonoBehaviour
 
     private void Start() {
         AspectRatioReconfigurations();
+        SetInitialMaxDifficulty();
         SpawnFirstObstacle();
     }
 
@@ -94,15 +110,21 @@ public class ObstacleGenerator : MonoBehaviour
         maxObstacleDistance *= Mathf.Pow(aspectMultiplier, 2);
     }
 
+    private void SetInitialMaxDifficulty() {
+        currentMaxDifficulty = Difficulty.Easy;
+        reachedMaxDifficulty = false;
+    }
+
     private void SpawnFirstObstacle() {
         currentIndex = Random.Range(0, easyObstacles.Length);       //Always Spawn Easy Obstacle First
-        GameObject obstacle = Instantiate(easyObstacles[currentIndex].gameObject, startSpawnPostion) as GameObject;
+        GameObject obstacle = Instantiate(easyObstacles[currentIndex].gameObject, startSpawnPostion);
         obstacle.transform.parent = easyFolder.transform;           //Set Parent as Easy Folder for Organization
         lastEndPosition = obstacle.transform.Find("EndPosition").position;
     }
 
     private void Update() {
         SpawnTriggerCheck();
+        UpdateMaxDifficulty();
     }
 
     private void SpawnTriggerCheck() {
@@ -115,7 +137,7 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     private void ChooseObstacleDifficulty() {
-        currentRoll = Random.value;     //Returns Value between 0 and 1
+        currentRoll = Random.Range(0, GetMaxRollValue());     //Returns Value between 0 and 1
         if (currentRoll < easyProbability) {
             currentDifficulty = Difficulty.Easy;
         } else if (currentRoll < easyProbability + mediumProbability) {
@@ -124,6 +146,22 @@ public class ObstacleGenerator : MonoBehaviour
             currentDifficulty = Difficulty.Hard;
         } else {
             currentDifficulty = Difficulty.VeryHard;
+        }
+    }
+
+    private float GetMaxRollValue() {
+        switch (currentMaxDifficulty) {
+            case Difficulty.Easy:
+                return 0.45f;
+            case Difficulty.Medium:
+                return 0.82f;
+            case Difficulty.Hard:
+                return 0.97f;
+            case Difficulty.VeryHard:
+                return 1.00f;
+            default:
+                Debug.LogError("Current Max Difficulty Does Not Fit Enumeration Types");
+                return 1.00f;
         }
     }
 
@@ -171,9 +209,45 @@ public class ObstacleGenerator : MonoBehaviour
         lastEndPosition = obstacle.transform.Find("EndPosition").position;
     }
 
-    //Public Methods
-    public void ChangeObstacleSpacing(float minDistance, float maxDistance) {
-        minObstacleDistance = minDistance;
-        maxObstacleDistance = maxDistance;
+    private void UpdateMaxDifficulty() {
+        switch (currentMaxDifficulty) {
+            case Difficulty.VeryHard:
+                if (!reachedMaxDifficulty) {
+                    ReduceObstacleDistance();
+                }
+                break;
+            case Difficulty.Hard:
+                if (scoreManager.GetCurrentScore() >= 100) {
+                    currentMaxDifficulty = Difficulty.VeryHard;
+                }
+                break;
+            case Difficulty.Medium:
+                if (scoreManager.GetCurrentScore() >= 50) {
+                    currentMaxDifficulty = Difficulty.Hard;
+                }
+                break;
+            case Difficulty.Easy:
+                if (scoreManager.GetCurrentScore() >= 25) {
+                    currentMaxDifficulty = Difficulty.Medium;
+                }
+                break;
+            default:
+                Debug.LogError("Current Max Difficulty Does Not Fit Enumeration Types");
+                break;
+        }        
+    }
+
+    private void ReduceObstacleDistance() {
+        if (minObstacleDistance > 0f) {
+            minObstacleDistance -= distanceReductionRate * Time.deltaTime;
+            maxObstacleDistance -= distanceReductionRate * Time.deltaTime;
+        } else if (maxObstacleDistance > 4f) {
+            maxObstacleDistance -= distanceReductionRate * Time.deltaTime;
+        } else {
+            minObstacleDistance = 0f;
+            maxObstacleDistance = 4f;
+            reachedMaxDifficulty = true;
+        }
+        
     }
 }

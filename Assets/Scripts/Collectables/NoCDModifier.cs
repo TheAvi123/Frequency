@@ -1,27 +1,24 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class NoCDModifier : MonoBehaviour
+public class NoCDModifier : ModifierTemplate
 {
-    //Reference Variables
-    
-    //Configuration Parameters
-    
-    //State Variables
-    
     //Internal Methods
-    private void Awake() {
-        
+    private void OnTriggerEnter2D(Collider2D otherCollider) {
+        if (otherCollider.tag == "Player") {
+            ModifierCollected();
+        }
     }
 
-    private void Start() {
-        
-    }
-
-    private void FixedUpdate() {
-        
-    }
-
-    private void Update() {
-        
+    protected override IEnumerator ModifierEffect() {
+        PlayerAbilityManager player = FindObjectOfType<PlayerAbilityManager>();
+        float modifierTimer = 0f;
+        while (modifierTimer <= modifierDuration) {
+            player.SetRemovedCooldowns(true);
+            modifierTimer += Time.deltaTime;
+            yield return null;
+        }
+        player.SetRemovedCooldowns(false);
+        ExpireModifier();
     }
 }

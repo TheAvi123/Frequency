@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055dc44c3bb275e419ae4551a074882e, type: 3}
   m_Name: Score 4 - Legendary
   m_EditorClassIdentifier: 
-  name: Legendary
+  name: Score 4
   description: Score 100 or more points
   goalStatistic: 2
   goalThreshold: 100

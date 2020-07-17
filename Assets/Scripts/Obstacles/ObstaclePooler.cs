@@ -5,10 +5,10 @@ using System.Collections.Generic;
 public class ObstaclePooler : MonoBehaviour
 {
     //Reference Variables
-    public static ObstaclePooler sharedInstance;    //Shared Static Variable for Other Classes to Access Pool
+    public static ObstaclePooler sharedInstance;
 
     //Collections
-    [SerializeField] Dictionary<int, Queue<Obstacle>> obstaclePools;    //Serialized for testing
+    private Dictionary<int, Queue<Obstacle>> obstaclePools;
 
     //State Variables
     private Queue<Obstacle> currentQueue = null;
@@ -27,7 +27,7 @@ public class ObstaclePooler : MonoBehaviour
         obstaclePools = new Dictionary<int, Queue<Obstacle>>();
     }
 
-    ///Public Methods
+    //Public Methods
     public void CreateEmptyPool(Obstacle obstacle) {
         obstaclePools.Add(obstacle.obstacleID, new Queue<Obstacle>());
     }

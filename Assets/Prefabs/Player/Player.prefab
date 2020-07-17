@@ -201,7 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03369537303728447bf62d0c1630957e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialActive: 0
   dashCooldown: 1
   delayCooldown: 3
   readyAlpha: 1
@@ -222,7 +221,6 @@ MonoBehaviour:
     type: 3}
   deathVFX: {fileID: 8305546849771390568, guid: 747a5033e58c88a4984e2073bd07afa3,
     type: 3}
-  pauseButton: {fileID: 0}
   playerDeathDelay: 2.5
 --- !u!114 &1753420612
 MonoBehaviour:

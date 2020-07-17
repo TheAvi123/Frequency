@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055dc44c3bb275e419ae4551a074882e, type: 3}
   m_Name: Modifier 3 - Evolved
   m_EditorClassIdentifier: 
-  name: Evolved
+  name: Modifiers 3
   description: Use 15 modifiers
   goalStatistic: 4
   goalThreshold: 15

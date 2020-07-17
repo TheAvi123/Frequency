@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 055dc44c3bb275e419ae4551a074882e, type: 3}
-  m_Name: Time 2 - Microwave Popcorn
+  m_Name: Time 2 - Microwave Burrito
   m_EditorClassIdentifier: 
-  name: Microwave Popcorn
+  name: Microwave Burrito
   description: Survive for 5 minutes
   goalStatistic: 9
   goalThreshold: 300

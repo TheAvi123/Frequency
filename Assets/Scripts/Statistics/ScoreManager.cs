@@ -23,6 +23,10 @@ public class ScoreManager : MonoBehaviour
     private float counterMultiplier = 4f;
     private const float resetValue = 2 * Mathf.PI;
 
+    //Modifier Varibles
+    private bool doubleScore = false;
+    private bool freezeScore = false;
+
     //Internal Methods
     private void Awake() {
         SetSharedInstance();
@@ -36,6 +40,7 @@ public class ScoreManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "PlayScene") {
             FindScoreDisplay();
             ResetScore();
+            ResetModifierStates();
         }
         if (SceneManager.GetActiveScene().name == "GameOver") {
             FindScoreDisplay();
@@ -58,6 +63,11 @@ public class ScoreManager : MonoBehaviour
     private void ResetScore() {
         currentScore = 0;
         UpdateScoreDisplay();
+    }
+
+    private void ResetModifierStates() {
+        doubleScore = false;
+        freezeScore = false;
     }
 
     private void UpdateScoreDisplay() {
@@ -112,11 +122,21 @@ public class ScoreManager : MonoBehaviour
     }
 
     private void IncreaseScore() {
-        counter += Time.deltaTime * counterMultiplier;
+        IncreaseCounter();
         if (counter >= resetValue) {
             counter -= resetValue;
             currentScore++;
             UpdateScoreDisplay();
+        }
+    }
+
+    private void IncreaseCounter() {
+        if (doubleScore) {
+            counter += Time.deltaTime * counterMultiplier * 2;
+        } else if (freezeScore) {
+            //Don't increase counter
+        } else {
+            counter += Time.deltaTime * counterMultiplier;
         }
     }
 
@@ -145,5 +165,14 @@ public class ScoreManager : MonoBehaviour
 
     public int[] GetHighScores() {
         return highScores;
+    }
+
+    //Public Modifier Methods
+    public void SetDoubleScore(bool status) {
+        doubleScore = status;
+    }
+
+    public void SetFreezeScore(bool status) {
+        freezeScore = status;
     }
 }

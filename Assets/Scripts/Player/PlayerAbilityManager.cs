@@ -4,10 +4,6 @@ using TMPro;
 
 public class PlayerAbilityManager : MonoBehaviour
 {
-    //Configuration Parameters
-    [Header("Tutorial Override")]
-    public bool tutorialActive = false;
-
     [Header("Ability Cooldowns")]
     [SerializeField] float dashCooldown = 1f;
     [SerializeField] float delayCooldown = 3f;
@@ -32,6 +28,10 @@ public class PlayerAbilityManager : MonoBehaviour
     private float delayTicker = 0f;
     private float delayAngle;
 
+    //Modifier Varibles
+    private bool doubleCooldowns = false;
+    private bool removedCooldowns = false;
+
     //Internal Methods
     private void Start() {
         FindCooldownDisplays();
@@ -39,7 +39,6 @@ public class PlayerAbilityManager : MonoBehaviour
     }
 
     private void FindCooldownDisplays() {
-        if (tutorialActive) { return; }
         GameObject gameOverlay = GameObject.Find("GameOverlay");
         if (!gameOverlay) {
             gameOverlay = GameObject.Find("TutorialOverlay");
@@ -88,8 +87,8 @@ public class PlayerAbilityManager : MonoBehaviour
     public void DashUsed(float duration) {
         StatsManager.sharedInstance.AddDash();
 
+        SetDashTicker();
         dashReady = false;
-        dashTicker = dashCooldown;
         dashInProgress = true;
 
         displayColor = dashDisplay.color;
@@ -107,8 +106,8 @@ public class PlayerAbilityManager : MonoBehaviour
     public void DelayUsed(float frequency, float delayWavelengths) {
         StatsManager.sharedInstance.AddDelay();
 
+        SetDelayTicker();
         delayReady = false;
-        delayTicker = delayCooldown;
 
         displayColor = delayDisplay.color;
         displayColor.a = cooldownAlpha;
@@ -130,6 +129,26 @@ public class PlayerAbilityManager : MonoBehaviour
         }
     }
 
+    private void SetDashTicker() {
+        if (doubleCooldowns) {
+            dashTicker = dashCooldown * 3;
+        } else if (removedCooldowns) {
+            dashTicker = 0;
+        } else {
+            dashTicker = dashCooldown;
+        }
+    }
+
+    private void SetDelayTicker() {
+        if (doubleCooldowns) {
+            delayTicker = delayCooldown * 2.5f;
+        } else if (removedCooldowns) {
+            delayTicker = 0;
+        } else {
+            delayTicker = delayCooldown;
+        }
+    }
+
     //Public Return Methods
     public bool GetDashStatus() {
         return dashReady;
@@ -145,5 +164,13 @@ public class PlayerAbilityManager : MonoBehaviour
 
     public bool GetDelayProgress() {
         return delayInProgress;
+    }
+
+    public void SetDoubleCooldown(bool status) {
+        doubleCooldowns = status;
+    }
+
+    public void SetRemovedCooldowns(bool status) {
+        removedCooldowns = status;
     }
 }

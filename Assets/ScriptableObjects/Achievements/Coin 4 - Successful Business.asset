@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 055dc44c3bb275e419ae4551a074882e, type: 3}
-  m_Name: Coin 3 - Humble Trader
+  m_Name: Coin 4 - Successful Business
   m_EditorClassIdentifier: 
-  name: Humble Trader
-  description: Collect 25 or more coins
+  name: Successful Business
+  description: Collect 50 or more coins
   goalStatistic: 3
-  goalThreshold: 25
+  goalThreshold: 50
   conditionStatistic: 0
   conditionThreshold: 0
-  coinReward: 25
+  coinReward: 50

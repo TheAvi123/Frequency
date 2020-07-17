@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055dc44c3bb275e419ae4551a074882e, type: 3}
   m_Name: Modifier 2 - Mutated
   m_EditorClassIdentifier: 
-  name: Mutated
+  name: Modifiers 2
   description: Use 10 modifiers
   goalStatistic: 4
   goalThreshold: 10

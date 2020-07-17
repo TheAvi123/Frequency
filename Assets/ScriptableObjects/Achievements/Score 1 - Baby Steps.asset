@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 055dc44c3bb275e419ae4551a074882e, type: 3}
-  m_Name: Score 1 - Starting Out
+  m_Name: Score 1 - Baby Steps
   m_EditorClassIdentifier: 
-  name: Starting Out
+  name: Score 1
   description: Score 10 or more points
   goalStatistic: 2
   goalThreshold: 10

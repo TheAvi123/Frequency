@@ -3,12 +3,11 @@
 public class PlayerInteractions : MonoBehaviour
 {
     //Reference Variables
+    private RectTransform pauseOverlay = null;
+
     [Header("Visual Effects")]
     [SerializeField] GameObject plusOneVFX = null;
     [SerializeField] ParticleSystem deathVFX = null;
-
-    [Header("UI Elements")]
-    [SerializeField] RectTransform pauseButton = null;
 
     //Configuration Parameters
     [SerializeField] float playerDeathDelay = 2.5f;
@@ -16,11 +15,31 @@ public class PlayerInteractions : MonoBehaviour
     //State Variables
     private bool playerAlive = true;
 
+    //Modifier Variables
+    private bool ghostMode = false;
+
     //Internal Methods
+    private void Awake() {
+        FindPauseOverlay();
+    }
+
+    private void FindPauseOverlay() {
+        RectTransform[] interfaceElements = Resources.FindObjectsOfTypeAll<RectTransform>();
+        foreach (RectTransform element in interfaceElements) {
+            if (element.tag == "PauseOverlay") {
+                pauseOverlay = element;
+            }
+        }
+        if (!pauseOverlay) {
+            Debug.LogError("No Pause Overlay Found In Scene");
+            enabled = false;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other) {
         switch (other.tag) {
             case "ObstaclePart":
-                PlayerDied();
+                ObstacleCollision();
                 break;
         }
     }
@@ -28,8 +47,24 @@ public class PlayerInteractions : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         switch (other.tag) {
             case "NMCollider":
-                NearMiss();
+                NearMissTrigger();
                 break;
+        }
+    }
+
+    private void ObstacleCollision() {
+        if (ghostMode) {
+            //Do Nothing
+        } else {
+            PlayerDied();
+        }
+    }
+
+    private void NearMissTrigger() {
+        if (ghostMode) {
+            //Do Nothing
+        } else {
+            NearMiss();
         }
     }
 
@@ -62,7 +97,7 @@ public class PlayerInteractions : MonoBehaviour
     }
 
     private void DisablePause() {
-        pauseButton.gameObject.SetActive(false);
+        pauseOverlay.gameObject.SetActive(false);
     }
 
     private void ShakeScreen() {
@@ -91,4 +126,9 @@ public class PlayerInteractions : MonoBehaviour
         Destroy(plusOne, 2f);
     }
     #endregion
+
+    //Public Methods
+    public void SetGhostMode(bool status) {
+        ghostMode = status;
+    }
 }

@@ -70,12 +70,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ba2aac9f9f271e46836cdcccca8cb97, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec18b994ef0d40f4fb00438084d8b5f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 21.34, y: 21.34}
+  m_Size: {x: 7.111111, y: 7.111111}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2999212297030184390}
   m_Layer: 0
   m_Name: GhostModifier
-  m_TagString: Untagged
+  m_TagString: Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329624548687793489afd60e923ab423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modifierCollectVFX: {fileID: 6719880602983636701, guid: 1ea93d90a5fcdae41827a23f8a82e06c,
+    type: 3}
+  modifierDuration: 15

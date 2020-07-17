@@ -70,12 +70,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93bad8124d5e90149b29e222b2d87902, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 923cb9793f9be7543a5a7ecc7ee94bf1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 21.34, y: 21.34}
+  m_Size: {x: 7.111111, y: 7.111111}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5240228181116616151}
   m_Layer: 0
   m_Name: FreezeScoreModifier
-  m_TagString: Untagged
+  m_TagString: Modifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,3 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb5c1ad4c70b7b449869284a91c08d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modifierCollectVFX: {fileID: 6719880602983636701, guid: 1ea93d90a5fcdae41827a23f8a82e06c,
+    type: 3}
+  modifierDuration: 15

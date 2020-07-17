@@ -2,7 +2,7 @@
 
 public class Coin : MonoBehaviour
 {
-    //Reference Variables
+    //Configuration Parameters
     [SerializeField] ParticleSystem coinCollectVFX = null;
 
     //Internal Methods
@@ -16,11 +16,11 @@ public class Coin : MonoBehaviour
         CoinManager.sharedInstance.CollectCoin();
         SpawnCollectVFX();
         ShakeCamera();
-        SendBackToPool();
+        DisableCoin();
     }
 
     private void SpawnCollectVFX() {
-        ParticleSystem coinVFX = Instantiate(coinCollectVFX, transform.position, transform.rotation) as ParticleSystem;
+        GameObject coinVFX = Instantiate(coinCollectVFX, transform.position, transform.rotation).gameObject;
         Destroy(coinVFX, 1f);
     }
 
@@ -28,8 +28,8 @@ public class Coin : MonoBehaviour
         CameraShaker.sharedInstance.AddCameraShake(0.1f);
     }
 
-    private void SendBackToPool() {
-        //Coin Pool
+    //Public Methods
+    public void DisableCoin() {
         gameObject.SetActive(false);
     }
 }

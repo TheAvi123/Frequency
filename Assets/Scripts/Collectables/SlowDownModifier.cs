@@ -1,27 +1,37 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class SlowDownModifier : MonoBehaviour
+public class SlowDownModifier : ModifierTemplate
 {
-    //Reference Variables
-    
     //Configuration Parameters
-    
-    //State Variables
-    
+    [Header("Custom Modifier Parameters")]
+    [SerializeField] float speedMultiplier = 0.7f;
+
+    [Header("Transition Parameters")]
+    [SerializeField] float timeToSlowDown = 0.5f;
+    [SerializeField] float timeToSpeedUp = 2.0f;
+
     //Internal Methods
-    private void Awake() {
-        
+    private void OnTriggerEnter2D(Collider2D otherCollider) {
+        if (otherCollider.tag == "Player") {
+            ModifierCollected();
+        }
     }
 
-    private void Start() {
-        
-    }
-
-    private void FixedUpdate() {
-        
-    }
-
-    private void Update() {
-        
+    protected override IEnumerator ModifierEffect() {
+        float modifierTimer = 0f;
+        while (modifierTimer <= modifierDuration) {
+            Time.timeScale = Mathf.Lerp(Time.timeScale, speedMultiplier, modifierTimer / timeToSpeedUp);
+            modifierTimer += Time.deltaTime;
+            yield return null;
+        }
+        modifierTimer = 0f;
+        while (Time.timeScale < 0.99f) {
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, modifierTimer / timeToSlowDown);
+            modifierTimer += Time.deltaTime;
+            yield return null;
+        }
+        Time.timeScale = 1f;
+        ExpireModifier();
     }
 }

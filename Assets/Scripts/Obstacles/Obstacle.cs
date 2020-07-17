@@ -34,15 +34,9 @@ public class Obstacle : MonoBehaviour
 
     private void OnEnable() {
         ClearCoinTrailRenderers();
+        EnableAllObstacleParts();
         DisableAllCoins();
         SpawnCoins();
-    }
-
-    private void ClearCoinTrailRenderers() {
-        coinTrails = GetComponentsInChildren<TrailRenderer>();
-        foreach (TrailRenderer ct in coinTrails) {
-            ct.Clear();
-        }
     }
 
     private void SpawnCoins() {
@@ -57,6 +51,19 @@ public class Obstacle : MonoBehaviour
     }
 
     #region Coin Spawning Helper Methods
+    private void ClearCoinTrailRenderers() {
+        coinTrails = GetComponentsInChildren<TrailRenderer>();
+        foreach (TrailRenderer ct in coinTrails) {
+            ct.Clear();
+        }
+    }
+
+    private void EnableAllObstacleParts() { 
+        for(int i = 0; i < transform.childCount; i++) {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
+
     private void DisableAllCoins() {
         foreach (Coin c in coinPrefabs) {
             c.gameObject.SetActive(false);
@@ -97,10 +104,6 @@ public class Obstacle : MonoBehaviour
         }
     }
 
-    private void SendBackToPool() {
-        ObstaclePooler.sharedInstance.AddToPool(this);
-    }
-
     //Public Methods
     public GameObject GetInstanceFromPool() {
         try {
@@ -108,5 +111,9 @@ public class Obstacle : MonoBehaviour
         } catch (NullReferenceException) {
             return null;
         }
+    }
+
+    public void SendBackToPool() {
+        ObstaclePooler.sharedInstance.AddToPool(this);
     }
 }

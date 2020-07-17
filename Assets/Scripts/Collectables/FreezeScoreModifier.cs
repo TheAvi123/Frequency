@@ -1,27 +1,23 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class FreezeScoreModifier : MonoBehaviour
+public class FreezeScoreModifier : ModifierTemplate
 {
-    //Reference Variables
-    
-    //Configuration Parameters
-    
-    //State Variables
-    
     //Internal Methods
-    private void Awake() {
-        
+    private void OnTriggerEnter2D(Collider2D otherCollider) {
+        if (otherCollider.tag == "Player") {
+            ModifierCollected();
+        }
     }
 
-    private void Start() {
-        
-    }
-
-    private void FixedUpdate() {
-        
-    }
-
-    private void Update() {
-        
+    protected override IEnumerator ModifierEffect() {
+        float modifierTimer = 0f;
+        while (modifierTimer <= modifierDuration) {
+            ScoreManager.sharedInstance.SetFreezeScore(true);
+            modifierTimer += Time.deltaTime;
+            yield return null;
+        }
+        ScoreManager.sharedInstance.SetFreezeScore(false);
+        ExpireModifier();
     }
 }

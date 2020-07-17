@@ -1,27 +1,33 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class NoCoinsModifier : MonoBehaviour
+public class NoCoinsModifier : ModifierTemplate
 {
     //Reference Variables
-    
-    //Configuration Parameters
-    
-    //State Variables
-    
+    [SerializeField] GameObject coinDisablerPrefab = null;
+
     //Internal Methods
-    private void Awake() {
-        
+    private void OnTriggerEnter2D(Collider2D otherCollider) {
+        if (otherCollider.tag == "Player") {
+            ModifierCollected();
+        }
     }
 
-    private void Start() {
-        
+    protected override IEnumerator ModifierEffect() {
+        float modifierTimer = 0f;
+        GameObject disabler = Instantiate(coinDisablerPrefab).gameObject;
+        Transform playerTransform = FindObjectOfType<PlayerWave>().transform;
+        DisableCoinSprite();
+        while (modifierTimer <= modifierDuration) {
+            disabler.transform.position = new Vector2(0, playerTransform.position.y);
+            modifierTimer += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(disabler);
+        ExpireModifier();
     }
 
-    private void FixedUpdate() {
-        
-    }
-
-    private void Update() {
-        
+    private void DisableCoinSprite() {
+        gameObject.GetComponentInChildren<Coin>().gameObject.SetActive(false);
     }
 }
