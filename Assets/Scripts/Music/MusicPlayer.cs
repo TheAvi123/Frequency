@@ -6,7 +6,7 @@ public class MusicPlayer : MonoBehaviour
 {
     //Reference Variables
     private AudioSource audioPlayer = null;
-    private Image muteButton;
+    private Image muteButton = null;
 
     //Sprite References
     [SerializeField] Sprite muteSprite = null;
@@ -46,9 +46,9 @@ public class MusicPlayer : MonoBehaviour
     }
 
     private void InitializeVariables() {
-        setVolume = currentVolume;
-        muted = false;
-        ChangeButtonSprite(volumeSprite);
+        muted = true;
+        setVolume = 0f;
+        ChangeButtonSprite(muteSprite);
     }
 
     private void UpdatePlayerVolume() {

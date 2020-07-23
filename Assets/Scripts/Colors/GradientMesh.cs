@@ -17,7 +17,6 @@ public class GradientMesh : MonoBehaviour
 
     [Header("Mesh Variables")]
     private Vector3[] vertices;
-    private Color[] vertexColors;
     private int[] triangles;
 
     [Header("Mesh Vertices")]

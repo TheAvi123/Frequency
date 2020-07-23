@@ -27,7 +27,7 @@ public class AchievementInterface : MonoBehaviour
         coinSprite = transform.Find("CoinSprite").GetComponent<Image>();
     }
 
-
+    //Helper Methods
     private void SetParameters(bool completed) {
         achievementName.text = thisAchievement.name;
         description.text = thisAchievement.description;

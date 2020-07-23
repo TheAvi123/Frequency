@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using TMPro;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerAbilityManager : MonoBehaviour
 {

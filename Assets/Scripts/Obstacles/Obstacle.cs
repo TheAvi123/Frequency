@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
@@ -43,7 +43,6 @@ public class Obstacle : MonoBehaviour
         SpawnModifiers();
         SpawnCoins();
     }
-
     #region PrepareObstacle Helper Methods
     private void ClearCoinTrailRenderers() {
         coinTrails = GetComponentsInChildren<TrailRenderer>();

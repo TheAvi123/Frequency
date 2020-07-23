@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
+using System.Collections;
 
 public class InfoDisplayer : MonoBehaviour
 {

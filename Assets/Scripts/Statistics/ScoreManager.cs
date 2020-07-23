@@ -11,9 +11,9 @@ public class ScoreManager : MonoBehaviour
     private const string hsSprite = "<sprite=\"StarSprite\" index=0>";
 
     //Score State Variabless
-    private int[] highScores = new int[] {0, 0, 0, 0, 0, 0, 0};
     private int currentScore = 0;
     private bool increaseScore = false;
+    private int[] highScores = new int[] { 0, 0, 0, 0, 0, 0, 0 };
 
     private TextMeshProUGUI scoreDisplay = null;
     private TextMeshProUGUI highScoreDisplay = null;
@@ -93,7 +93,7 @@ public class ScoreManager : MonoBehaviour
             UpdateHighScoreDisplay(false);
         }
     }
-    #region Helper Method for UpdateHighScores
+    #region Helper Methods for UpdateHighScores
     private void UpdateHighScoreArray(int newScore) {
         for(int i = 0; i < highScores.Length; i++) {
             if (newScore > highScores[i]) {
@@ -103,7 +103,6 @@ public class ScoreManager : MonoBehaviour
             }
         }
     }
-    #endregion
 
     private void UpdateHighScoreDisplay(bool newRecord) {
         if (gameObject.activeInHierarchy) {
@@ -114,6 +113,7 @@ public class ScoreManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
     private void Update() {
         if (increaseScore) {

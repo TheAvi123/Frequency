@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerInteractions : MonoBehaviour
 {
@@ -9,8 +9,8 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] ParticleSystem deathVFX = null;
 
     //Configuration Parameters
-    [SerializeField] float playerDeathDelay = 2.5f;
     [SerializeField] float deathFreezeTime = 0.5f;
+    [SerializeField] float playerDeathDelay = 2.5f;
 
     //State Variables
     private bool playerAlive = true;

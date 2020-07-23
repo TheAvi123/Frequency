@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerFollow : MonoBehaviour
 {
@@ -11,8 +11,8 @@ public class PlayerFollow : MonoBehaviour
     [SerializeField] float zoomFactor = 0.25f;
 
     //State Variables
-    private bool playerAlive = true;
     private bool followingPlayer = false;
+    private bool playerAlive = true;
     private Vector3 currentPosition;
     private float cameraOffset;
 

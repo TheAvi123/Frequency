@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ModifierManager : MonoBehaviour
 {
@@ -70,6 +69,7 @@ public class ModifierManager : MonoBehaviour
         }
     }
 
+    //Helper Methods
     private void SpawnRandomModifier(Vector3 spawnPosition) {
         spawnTimer = modifierSpawnDelay;
         Modifier modifierToSpawn = modifierArray[Random.Range(0, modifierArray.Length)];

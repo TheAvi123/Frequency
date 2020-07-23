@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using TMPro;
+﻿using TMPro;
+using UnityEngine;
 
 public class BaseColorChanger : MonoBehaviour
 {
@@ -8,8 +8,8 @@ public class BaseColorChanger : MonoBehaviour
 
     //Configuration Parameters
     [Header("Gradient Parameters")]
-    [SerializeField] Gradient colorGradient = null;
     [SerializeField] float gradientSpeed = 0;
+    [SerializeField] Gradient colorGradient = null;
 
     //Modified Variables
     [Header("Materials")]

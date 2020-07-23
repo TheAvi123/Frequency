@@ -31,7 +31,7 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] float spawnTriggerDistance = 50f;
     [SerializeField] float minObstacleDistance = 6f;
     [SerializeField] float maxObstacleDistance = 12f;
-    [SerializeField] float distanceReductionRate = 0.05f;
+    [SerializeField] float distanceReductionRate = 0.02f;
 
     [Header("Debugging")]
     [SerializeField] Difficulty initialDifficulty = Difficulty.Easy;
@@ -44,7 +44,6 @@ public class ObstacleGenerator : MonoBehaviour
     private Difficulty currentMaxDifficulty;
     private Difficulty currentDifficulty;
     private bool reachedMaxDifficulty;
-
 
     //Obstacle State Variables
     private Obstacle[] currentObstacleList;

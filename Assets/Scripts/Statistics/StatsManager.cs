@@ -114,7 +114,6 @@ public class StatsManager : MonoBehaviour
         DisplayLifetimeStats();
         DisplayAverageStats();
     }
-
     #region Helper Method For DisplayStats
     private void DisplayHighScores() {
         int[] highScores = ScoreManager.sharedInstance.GetHighScores();

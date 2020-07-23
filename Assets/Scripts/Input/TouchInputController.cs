@@ -45,9 +45,7 @@ public class TouchInputController : InputController
 
     private void UseTouchInput() {
         if (Input.touchCount > 0) {             //Only Execute if Any Touch Input is Detected
-
             currentTouch = Input.touches[0];    //Set First Touch as Input Touch to be used Later
-
             switch (currentTouch.phase) {       //Determine Which Phase the Input Touch is in
                 case TouchPhase.Began:
                     InputBegan();
