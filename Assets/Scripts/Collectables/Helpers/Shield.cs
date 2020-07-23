@@ -12,7 +12,10 @@ public class Shield : MonoBehaviour
 
     private void DestroyObstacle(GameObject obstacleObject) {
         obstacleObject.SetActive(false);
-        StartCoroutine(ExpireShield());
+        //Spawn Particle Effects
+        InfoDisplayer.sharedInstance.DisplayInfo("SHIELD DESTROYED");
+        ModifierManager.sharedInstance.EndModifierEffects();
+        Destroy(gameObject);
     }
 
     private IEnumerator ExpireShield() {

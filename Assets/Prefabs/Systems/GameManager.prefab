@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a179b6cc99b67364d836ffcad686405f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinDisplayTime: 3
 --- !u!114 &3819800006738353823
 MonoBehaviour:
   m_ObjectHideFlags: 0

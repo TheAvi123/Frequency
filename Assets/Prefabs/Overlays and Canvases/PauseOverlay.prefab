@@ -87,7 +87,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639542858c81ab8419085f0b83752908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasSwitcher: {fileID: 0}
 --- !u!1 &2665258007914008858
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7872600417888782662}
   - component: {fileID: 8362024538796455490}
-  - component: {fileID: 5383864291641220798}
+  - component: {fileID: 938374662}
   m_Layer: 5
   m_Name: Collider
   m_TagString: Untagged
@@ -151,7 +150,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18, y: 32}
   m_EdgeRadius: 0
---- !u!114 &5383864291641220798
+--- !u!114 &938374662
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,11 +159,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2665258007914008858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cbe995ef44011a44b0caac3bfd2be24, type: 3}
+  m_Script: {fileID: 11500000, guid: d27096766a9e88541b5d672f460836b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverlay: {fileID: 0}
   pauseOverlay: {fileID: 4774268864989176092}
+  pauser: 0
 --- !u!1 &2955304835711886767
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,11 +181,11 @@ GameObject:
   - component: {fileID: 5604842902649297186}
   m_Layer: 5
   m_Name: PauseOverlay
-  m_TagString: Overlay
+  m_TagString: PauseOverlay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4431066783846102366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2955304835711886767}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -427,13 +427,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 6937797063169884705}
-    characterCount: 13
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -584,13 +584,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5723114571453056255}
-    characterCount: 11
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0

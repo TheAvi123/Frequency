@@ -24,6 +24,8 @@ TagManager:
   - TimeStat
   - InfoDisplay
   - PauseOverlay
+  - Overlay
+  - ModifierSpawn
   layers:
   - Default
   - TransparentFX

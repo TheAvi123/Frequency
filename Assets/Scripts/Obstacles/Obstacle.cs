@@ -33,10 +33,44 @@ public class Obstacle : MonoBehaviour
     }
 
     private void OnEnable() {
+        PrepareObstacle();
+    }
+
+    private void PrepareObstacle() {
         ClearCoinTrailRenderers();
         EnableAllObstacleParts();
         DisableAllCoins();
+        SpawnModifiers();
         SpawnCoins();
+    }
+
+    #region PrepareObstacle Helper Methods
+    private void ClearCoinTrailRenderers() {
+        coinTrails = GetComponentsInChildren<TrailRenderer>();
+        foreach (TrailRenderer ct in coinTrails) {
+            ct.Clear();
+        }
+    }
+
+    private void EnableAllObstacleParts() {
+        for (int i = 0; i < transform.childCount; i++) {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
+
+    private void DisableAllCoins() {
+        foreach (Coin c in coinPrefabs) {
+            c.gameObject.SetActive(false);
+        }
+        InitializeSpawnList();
+    }
+
+    private void SpawnModifiers() {
+        for (int i = 0; i < transform.childCount; i++) {
+            if (transform.GetChild(i).tag == "ModifierSpawn") {
+                ModifierManager.sharedInstance.SetAvailableSpawn(gameObject.transform, transform.GetChild(i).localPosition);
+            }
+        }
     }
 
     private void SpawnCoins() {
@@ -48,27 +82,6 @@ public class Obstacle : MonoBehaviour
             }
             return;
         }
-    }
-
-    #region Coin Spawning Helper Methods
-    private void ClearCoinTrailRenderers() {
-        coinTrails = GetComponentsInChildren<TrailRenderer>();
-        foreach (TrailRenderer ct in coinTrails) {
-            ct.Clear();
-        }
-    }
-
-    private void EnableAllObstacleParts() { 
-        for(int i = 0; i < transform.childCount; i++) {
-            transform.GetChild(i).gameObject.SetActive(true);
-        }
-    }
-
-    private void DisableAllCoins() {
-        foreach (Coin c in coinPrefabs) {
-            c.gameObject.SetActive(false);
-        }
-        InitializeSpawnList();
     }
 
     private void SpawnXCoins(int x) {
@@ -83,6 +96,7 @@ public class Obstacle : MonoBehaviour
             SpawnRandomCoin();
         } else {
             currentCoin.gameObject.SetActive(true);
+            currentCoin.gameObject.GetComponent<Animator>().enabled = true;
             coinsSpawned.Add(currentCoin);
         }
     }

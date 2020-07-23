@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
     //Reference Variables
-    private RectTransform pauseOverlay = null;
-
     [Header("Visual Effects")]
     [SerializeField] GameObject plusOneVFX = null;
     [SerializeField] ParticleSystem deathVFX = null;
 
     //Configuration Parameters
     [SerializeField] float playerDeathDelay = 2.5f;
+    [SerializeField] float deathFreezeTime = 0.5f;
 
     //State Variables
     private bool playerAlive = true;
@@ -19,23 +19,6 @@ public class PlayerInteractions : MonoBehaviour
     private bool ghostMode = false;
 
     //Internal Methods
-    private void Awake() {
-        FindPauseOverlay();
-    }
-
-    private void FindPauseOverlay() {
-        RectTransform[] interfaceElements = Resources.FindObjectsOfTypeAll<RectTransform>();
-        foreach (RectTransform element in interfaceElements) {
-            if (element.tag == "PauseOverlay") {
-                pauseOverlay = element;
-            }
-        }
-        if (!pauseOverlay) {
-            Debug.LogError("No Pause Overlay Found In Scene");
-            enabled = false;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D other) {
         switch (other.tag) {
             case "ObstaclePart":
@@ -56,7 +39,7 @@ public class PlayerInteractions : MonoBehaviour
         if (ghostMode) {
             //Do Nothing
         } else {
-            PlayerDied();
+            StartCoroutine(PlayerDied());
         }
     }
 
@@ -68,17 +51,27 @@ public class PlayerInteractions : MonoBehaviour
         }
     }
 
-    private void PlayerDied() {
+    private IEnumerator PlayerDied() {
         playerAlive = false;
-        gameObject.SetActive(false);
+        DisablePlayer();
         DisableInputControllers();
         StopIncreasingScore();
+        ClearInfoDisplays();
+        RemoveModifiers();
         DisablePause();
-        ShakeScreen();
+        yield return StartCoroutine(WaitForDeathFreeze());
         SpawnDeathVFX();
+        ShakeScreen();
         LoadGameOver();
     }
     #region PlayerDeath Helper Functions
+    private void DisablePlayer() {
+        gameObject.GetComponent<PlayerWave>().enabled = false;
+        gameObject.GetComponent<PlayerAbilityManager>().enabled = false;
+        gameObject.GetComponent<PlayerDirection>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+    }
+
     private void DisableInputControllers() {
         TouchInputController touchController = FindObjectOfType<TouchInputController>();
         if (touchController) {
@@ -96,16 +89,38 @@ public class PlayerInteractions : MonoBehaviour
         ScoreManager.sharedInstance.StopIncreasingScore();
     }
 
-    private void DisablePause() {
-        pauseOverlay.gameObject.SetActive(false);
+    private void ClearInfoDisplays() {
+        InfoDisplayer.sharedInstance.ClearDisplays();
     }
 
-    private void ShakeScreen() {
-        CameraShaker.sharedInstance.AddCameraShake(1f);
+    private void RemoveModifiers() {
+        ModifierManager.sharedInstance.EndModifierEffects();
+    }
+
+    private void DisablePause() {
+        RectTransform[] interfaceElements = Resources.FindObjectsOfTypeAll<RectTransform>();
+        foreach (RectTransform element in interfaceElements) {
+            if (element.tag == "PauseOverlay") {
+                element.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private IEnumerator WaitForDeathFreeze() {
+        Time.timeScale = 0f;
+        Camera.main.gameObject.GetComponent<PlayerFollow>().DeathZoomAnimation(deathFreezeTime, transform.position);
+        yield return new WaitForSecondsRealtime(deathFreezeTime);
+        Time.timeScale = 1f;
     }
 
     private void SpawnDeathVFX() {
         Instantiate(deathVFX, transform.position, transform.rotation);
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
+    }
+
+    private void ShakeScreen() {
+        CameraShaker.sharedInstance.AddCameraShake(1f);
     }
 
     private void LoadGameOver() {
@@ -117,6 +132,7 @@ public class PlayerInteractions : MonoBehaviour
         if (playerAlive) {
             ScoreManager.sharedInstance.AddScore(1);
             StatsManager.sharedInstance.AddNearMiss();
+            InfoDisplayer.sharedInstance.DisplayInfo("NEAR MISS");
             SpawnPlusOneSprite();
         }
     }

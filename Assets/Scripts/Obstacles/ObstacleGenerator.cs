@@ -33,6 +33,9 @@ public class ObstacleGenerator : MonoBehaviour
     [SerializeField] float maxObstacleDistance = 12f;
     [SerializeField] float distanceReductionRate = 0.05f;
 
+    [Header("Debugging")]
+    [SerializeField] Difficulty initialDifficulty = Difficulty.Easy;
+
     //Random Variables
     private int currentIndex;           //Random Roll for Obstacle Prefab Selection
     private float currentRoll;          //Random Roll for Obstacle Difficulty Selection
@@ -111,7 +114,7 @@ public class ObstacleGenerator : MonoBehaviour
     }
 
     private void SetInitialMaxDifficulty() {
-        currentMaxDifficulty = Difficulty.Easy;
+        currentMaxDifficulty = initialDifficulty;
         reachedMaxDifficulty = false;
     }
 

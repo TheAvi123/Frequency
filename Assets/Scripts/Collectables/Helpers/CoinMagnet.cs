@@ -11,7 +11,7 @@ public class CoinMagnet : MonoBehaviour
     private bool keepAttracting = true;
 
     //Internal Methods
-    private void OnTriggerStay2D(Collider2D otherCollider) {
+    private void OnTriggerEnter2D(Collider2D otherCollider) {
         if (otherCollider.tag == "Coin") {
             if (keepAttracting) {
                 StartCoroutine(AttractCoin(otherCollider.gameObject));
@@ -23,7 +23,7 @@ public class CoinMagnet : MonoBehaviour
         coinCount++;
         coinObject.GetComponent<Animator>().enabled = false;
         Transform coin = coinObject.gameObject.transform;
-        while (coinObject) {
+        while (coinObject.activeInHierarchy) {
             coin.position = Vector3.Lerp(coin.position, transform.position, magnetMultiplier * Time.deltaTime);
             yield return null;
         }

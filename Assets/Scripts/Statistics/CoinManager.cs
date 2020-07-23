@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,9 @@ public class CoinManager : MonoBehaviour
 {
     //Reference Variables
     public static CoinManager sharedInstance;
+
+    //Configuration Parameters
+    [SerializeField] float coinDisplayTime = 3f;
 
     //State Variales
     private int coinsTotal;
@@ -47,15 +51,19 @@ public class CoinManager : MonoBehaviour
 
     private void ResetCollectedCoins() {
         coinsCollected = 0;
-        UpdateCoinDisplay();
+        coinDisplay.text = coinsCollected.ToString();
+        coinDisplay.gameObject.SetActive(false);
     }
 
     private void TransferCoins() {
         coinsTotal += coinsCollected;
     }
 
-    private void UpdateCoinDisplay() {
+    private IEnumerator UpdateCoinDisplay() {
+        coinDisplay.gameObject.SetActive(true);
         coinDisplay.text = coinsCollected.ToString();
+        yield return new WaitForSecondsRealtime(coinDisplayTime);
+        coinDisplay.gameObject.SetActive(false);
     }
 
     private void UpdateTotalCoinDisplay() {
@@ -65,7 +73,8 @@ public class CoinManager : MonoBehaviour
     //Public Methods
     public void CollectCoin() {
         coinsCollected++;
-        UpdateCoinDisplay();
+        StopAllCoroutines();
+        StartCoroutine(UpdateCoinDisplay());
     }
 
     public int GetCoinsCollected() {

@@ -103,7 +103,7 @@ MonoBehaviour:
   spawnTriggerDistance: 50
   minObstacleDistance: 6
   maxObstacleDistance: 12
-  distanceReductionRate: 0.05
+  distanceReductionRate: 0.02
 --- !u!1 &8940630264871714060
 GameObject:
   m_ObjectHideFlags: 0

@@ -133,11 +133,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartOverlay
       objectReference: {fileID: 0}
-    - target: {fileID: 3806229743581767635, guid: ca285eb7bd5f41d4d823017bfd0af3c9,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 3806229743581767639, guid: ca285eb7bd5f41d4d823017bfd0af3c9,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2366431057547791566}
   - component: {fileID: 2013455212774208589}
   m_Layer: 0
-  m_Name: CoinMagnetSprite
+  m_Name: DebuggingSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 18add242a0f76b344bfd4801e0e8a86a, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.09803922}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

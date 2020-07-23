@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerAbilityManager : MonoBehaviour
 {
@@ -17,12 +18,14 @@ public class PlayerAbilityManager : MonoBehaviour
 
     //Dash State Variables
     private TextMeshProUGUI dashDisplay = null;
+    private Image dashCooldownBar = null;
     private bool dashInProgress = false;
     private bool dashReady = false;
     private float dashTicker = 0f;
 
     //Delay State Variables
     private TextMeshProUGUI delayDisplay = null;
+    private Image delayCooldownBar = null;
     private bool delayInProgress = false;
     private bool delayReady = false;
     private float delayTicker = 0f;
@@ -40,16 +43,17 @@ public class PlayerAbilityManager : MonoBehaviour
 
     private void FindCooldownDisplays() {
         GameObject gameOverlay = GameObject.Find("GameOverlay");
-        if (!gameOverlay) {
-            gameOverlay = GameObject.Find("TutorialOverlay");
-        }
         dashDisplay = gameOverlay.transform.Find("DashDisplay").GetComponent<TextMeshProUGUI>();
         delayDisplay = gameOverlay.transform.Find("DelayDisplay").GetComponent<TextMeshProUGUI>();
+        dashCooldownBar = dashDisplay.transform.Find("DashCooldown").GetComponent<Image>();
+        delayCooldownBar = delayDisplay.transform.Find("DelayCooldown").GetComponent<Image>();
     }
 
     private void InitializeCooldowns() {
         dashTicker = dashCooldown;
         delayTicker = delayCooldown;
+        dashCooldownBar.fillAmount = 0f;
+        delayCooldownBar.fillAmount = 0f;
     }
 
     private void Update() {
@@ -60,21 +64,34 @@ public class PlayerAbilityManager : MonoBehaviour
         if (!dashReady) {
             if (dashTicker > 0) {
                 dashTicker -= Time.deltaTime;
+                dashCooldownBar.fillAmount = dashTicker / dashCooldown;
+                if (doubleCooldowns) {
+                    dashCooldownBar.fillAmount = dashTicker / (3f * dashCooldown);
+                } else {
+                    dashCooldownBar.fillAmount = dashTicker / dashCooldown;
+                }
             } else {
                 dashReady = true;
                 displayColor = dashDisplay.color;
                 displayColor.a = readyAlpha;
                 dashDisplay.color = displayColor;
+                dashCooldownBar.gameObject.SetActive(false);
             }
         }
         if (!delayReady) {
             if (delayTicker > 0) {
                 delayTicker -= Time.deltaTime;
+                if (doubleCooldowns) {
+                    delayCooldownBar.fillAmount = delayTicker / (2.5f * delayCooldown);
+                } else {
+                    delayCooldownBar.fillAmount = delayTicker / delayCooldown;
+                }
             } else {
                 delayReady = true;
                 displayColor = delayDisplay.color;
                 displayColor.a = readyAlpha;
                 delayDisplay.color = displayColor;
+                delayCooldownBar.gameObject.SetActive(false);
             }
         }
     }
@@ -94,6 +111,8 @@ public class PlayerAbilityManager : MonoBehaviour
         displayColor = dashDisplay.color;
         displayColor.a = cooldownAlpha;
         dashDisplay.color = displayColor;
+        dashCooldownBar.fillAmount = 0f;
+        dashCooldownBar.gameObject.SetActive(true);
 
         TickDashProgress(duration);
     }
@@ -112,6 +131,8 @@ public class PlayerAbilityManager : MonoBehaviour
         displayColor = delayDisplay.color;
         displayColor.a = cooldownAlpha;
         delayDisplay.color = displayColor;
+        delayCooldownBar.fillAmount = 0f;
+        delayCooldownBar.gameObject.SetActive(true);
 
         delayAngle = 0;
         delayInProgress = true;
