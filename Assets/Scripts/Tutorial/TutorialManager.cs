@@ -1,72 +1,93 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.PlayerLoop;
 
 public class TutorialManager : MonoBehaviour
 {
-    private enum Stage {Intro, Basics, Flip, Dash, Delay, Combo, Score, End}
-
     //Reference Variables
-    private GameStateManager gameManager;
-    private UIInputController inputController;
-    private PlayerAbilityManager abilityManager;
+    public static TutorialManager sharedInstance;
+    private PlayerWave player = null;
 
     //Configuration Parameters
-    [SerializeField] GameObject tutorialOverlay = null;
+    [SerializeField] GameObject gameOverlay = null;
+    [SerializeField] GameObject pauseOverlay = null;
 
     //State Variales
-    private Stage currentStage = 0;
+    private int currentStageIndex = 0;
+
+    //Blocking Variables
+    [Header("Abilities")]
+    private bool flipEnabled = false;
+    private bool dashEnabled = false;
+    private bool delayEnabled = false;
+    //[Header("User Interface")]
+    //private bool scoreDisplayEnabled = false;
+    //private bool dashDisplayEnabled = false;
+    //private bool delayDisplayEnabled = false;
 
     //Internal Methods
     private void Awake() {
-        FindGameManager();
-        FindInputController();
-        FindAbiltiyManager();
+        SetSharedInstance();
+        FindPlayer();
     }
 
-    private void FindGameManager() {
-        gameManager = GameStateManager.sharedInstance;
+    private void SetSharedInstance() {
+        sharedInstance = this;
     }
 
-    private void FindInputController() {
-        inputController = FindObjectOfType<UIInputController>();
-    }
-
-    private void FindAbiltiyManager() {
-        abilityManager = FindObjectOfType<PlayerAbilityManager>();
+    private void FindPlayer() {
+        player = FindObjectOfType<PlayerWave>();
+        if (!player) {
+            Debug.LogError("No Player Found In Tutorial Scene");
+            enabled = false;
+        }
     }
 
     private void Start() {
-        DisableRegularSystems();
+        SetInputControllerActions();
+        StartCoroutine(DisableInterfaceElements());
+        SetPlayerDirection();
     }
 
-    private void DisableRegularSystems() {
-        gameManager.gameObject.SetActive(false);
-        inputController.gameObject.SetActive(false);
-        abilityManager.enabled = false;
-        tutorialOverlay.SetActive(false);
+    private void SetInputControllerActions() {
+        InputController inputController = null;
+        inputController = FindObjectOfType<InputController>();
+        if (!inputController) {
+            gameObject.SetActive(false);
+        } else {
+            inputController.SetTapAction(AttemptPlayerFlip);
+            inputController.SetUpSwipeAction(AttemptPlayerDash);
+            inputController.SetDownSwipeAction(AttemptPlayerDelay);
+        }
     }
 
-    private void Update() {
-        FollowCurrentStage();
+    private IEnumerator DisableInterfaceElements() {
+        yield return new WaitForEndOfFrame();
+        for (int i = 0; i < gameOverlay.transform.childCount; i++) {
+            gameOverlay.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 
-    private void FollowCurrentStage() {
-        switch (currentStage) {
-            case Stage.Intro:
-                break;
-            case Stage.Basics:
-                break;
-            case Stage.Flip:
-                break;
-            case Stage.Dash:
-                break;
-            case Stage.Delay:
-                break;
-            case Stage.Combo:
-                break;
-            case Stage.Score:
-                break;
-            case Stage.End:
-                break;
+    private void SetPlayerDirection() {
+        player.SetFrequencyToOne();
+    }
+
+    //Public Methods
+    private void AttemptPlayerFlip() {
+        if (flipEnabled) {
+            player.Flip();
+        }
+    }
+
+    private void AttemptPlayerDash() {
+        if (dashEnabled) {
+            player.Dash();
+        }
+    }
+
+    private void AttemptPlayerDelay() {
+        if (delayEnabled) {
+            player.Delay();
         }
     }
 }

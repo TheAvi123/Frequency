@@ -40,6 +40,7 @@ public class CoinManager : MonoBehaviour
         }
         if (SceneManager.GetActiveScene().name == "Tutorial") {
             FindCoinDisplay();
+            ResetCollectedCoins();
         }
     }   //Called Through Singleton
 

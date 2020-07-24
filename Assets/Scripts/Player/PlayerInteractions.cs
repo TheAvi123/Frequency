@@ -73,12 +73,12 @@ public class PlayerInteractions : MonoBehaviour
     }
 
     private void DisableInputControllers() {
-        TouchInputController touchController = FindObjectOfType<TouchInputController>();
+        TouchController touchController = FindObjectOfType<TouchController>();
         if (touchController) {
             touchController.gameObject.SetActive(false);
             return;
         }
-        MouseInputController mouseController = FindObjectOfType<MouseInputController>();
+        MouseController mouseController = FindObjectOfType<MouseController>();
         if (mouseController) {
             mouseController.gameObject.SetActive(false);
             return;
@@ -100,7 +100,7 @@ public class PlayerInteractions : MonoBehaviour
     private void DisablePause() {
         RectTransform[] interfaceElements = Resources.FindObjectsOfTypeAll<RectTransform>();
         foreach (RectTransform element in interfaceElements) {
-            if (element.tag == "PauseOverlay") {
+            if (element.gameObject.name == "PauseCollider") {
                 element.gameObject.SetActive(false);
             }
         }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2666506982265832155}
   - component: {fileID: 2666506982265832156}
+  - component: {fileID: 8657023101113956122}
   m_Layer: 0
   m_Name: ModifierGenerator
   m_TagString: Untagged
@@ -41,6 +42,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93b2ed1b2e04c7b49a8c8437e7af8f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8657023101113956122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666506982265832157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea306e4bd4a8224bbe2a1466dbaea46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   modifierArray:

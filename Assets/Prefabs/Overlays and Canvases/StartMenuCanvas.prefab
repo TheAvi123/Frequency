@@ -536,7 +536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3313492316234116358}
   - component: {fileID: 2256333593547969719}
-  - component: {fileID: 982135643443886595}
+  - component: {fileID: 184243306}
   m_Layer: 5
   m_Name: Collider
   m_TagString: Untagged
@@ -579,7 +579,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
---- !u!114 &982135643443886595
+--- !u!114 &184243306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3725298347682909371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20048537f8e012f4c8c8d88e2a973352, type: 3}
+  m_Script: {fileID: 11500000, guid: 414de6a26d717774ea515dfe128b6a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3806229743581767635

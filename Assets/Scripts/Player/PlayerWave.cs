@@ -165,4 +165,9 @@ public class PlayerWave : MonoBehaviour
         frequencyMultiplier = setFrequencyMultiplier;
         amplitudeMultiplier = setAmplitudeMultiplier;
     }
+
+    //Public Methods
+    public void SetFrequencyToOne() {
+        frequencyDirection = 1;
+    }
 }

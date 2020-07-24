@@ -2,9 +2,6 @@
 
 public class OverlaySwitcher : MonoBehaviour
 {
-    //Reference Variables
-    UIInputController inputController = null;
-
     //Configuration Parameters
     [SerializeField] Canvas[] overlays = null;
 
@@ -13,20 +10,7 @@ public class OverlaySwitcher : MonoBehaviour
 
     //Internal Methods
     private void Awake() {
-        FindUIInputController();
         ActivateFirstOverlay();
-        SetInputActions();
-    }
-
-    private void FindUIInputController() {
-        foreach (UIInputController controller in GameObject.FindObjectsOfType<UIInputController>()) {
-            if (controller.enabled) {
-                inputController = controller;
-            }
-        }
-        if (!inputController) {
-            gameObject.SetActive(false);
-        }
     }
 
     private void ActivateFirstOverlay() {
@@ -38,18 +22,20 @@ public class OverlaySwitcher : MonoBehaviour
         }
     }
 
-    private void SetInputActions() {
-        inputController.SetTapAction(DoNothing);
-        inputController.SetUpSwipeAction(DoNothing);
-        inputController.SetDownSwipeAction(DoNothing);
+    private void Start() {
+        SetInputControllerActions();
+    }
+
+    private void SetInputControllerActions() {
+        InputController inputController = FindObjectOfType<InputController>();
+        if (!inputController) {
+            gameObject.SetActive(false);
+        }
         inputController.SetLeftSwipeAction(SwitchToNextOverlay);
         inputController.SetRightSwipeAction(SwitchToPrevOverlay);
     }
 
-    private void DoNothing() {
-       //Do Nothing
-    }
-
+    //Input Action Methods
     private void SwitchToPrevOverlay() {
         if (overlays == null || overlays.Length < 2) {
             Debug.LogWarning("No Overlays To Switch Between");

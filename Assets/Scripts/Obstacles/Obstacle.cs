@@ -67,7 +67,7 @@ public class Obstacle : MonoBehaviour
     private void SpawnModifiers() {
         for (int i = 0; i < transform.childCount; i++) {
             if (transform.GetChild(i).tag == "ModifierSpawn") {
-                ModifierManager.sharedInstance.SetAvailableSpawn(gameObject.transform, transform.GetChild(i).localPosition);
+                ModifierGenerator.sharedInstance.SetAvailableSpawn(gameObject.transform, transform.GetChild(i).localPosition);
             }
         }
     }

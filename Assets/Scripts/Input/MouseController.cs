@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
-public class UIMouseInputController : UIInputController
+public class MouseController : InputController
 {
     //Configuration Parameters
     [Header("Max Click Parameters")]
@@ -9,26 +8,27 @@ public class UIMouseInputController : UIInputController
     [SerializeField] float maxClickDistance = 0.1f;     //Max Distance for Input to be Considered a Click   
 
     //Internal Methods
-    private void Awake() {
+    protected new void Awake() {
         VerifyInputType();
+        base.Awake();
     }
 
-    private void VerifyInputType() {
+    protected void VerifyInputType() {
         //Uses TouchInputController if Touch is Supported
         if (Input.touchSupported) {
-            enabled = false;    //Disable this component
+            gameObject.SetActive(false);    //Disable Object
         }
     }
 
-    private void OnMouseDown() {
+    protected void OnMouseDown() {
         InputBegan();
     }
 
-    private void OnMouseDrag() {
+    protected void OnMouseDrag() {
         InputMove();
     }
 
-    private void OnMouseUp() {
+    protected void OnMouseUp() {
         InputEnd();
     }
 
@@ -52,7 +52,7 @@ public class UIMouseInputController : UIInputController
 
         if (inputTimer <= maxClickTimer && inputDistance <= maxClickDistance) {
             //Player Tapped
-            tapAction.Invoke();
+            tapAction();
         } else {
             float inputDistanceY = endPos.y - startPos.y;    //Vertical Swipe Distance
             float inputDistanceX = endPos.x - startPos.x;    //Horizontal Swipe Distance
@@ -78,25 +78,25 @@ public class UIMouseInputController : UIInputController
         }
     }
 
-    //Public Methods
-    public override void SetTapAction(UnityAction action) {
-        tapAction = action;
+    //Input Actions
+    protected override void TapAction() {
+        //Do Nothing
     }
 
-    public override void SetLeftSwipeAction(UnityAction action) {
-        leftSwipeAction = action;
+    protected override void LeftSwipeAction() {
+        //Do Nothing
     }
 
-    public override void SetRightSwipeAction(UnityAction action) {
-        rightSwipeAction = action;
+    protected override void RightSwipeAction() {
+        //Do Nothing
     }
 
-    public override void SetUpSwipeAction(UnityAction action) {
-        upSwipeAction = action;
+    protected override void UpSwipeAction() {
+        //Do Nothing
     }
 
-    public override void SetDownSwipeAction(UnityAction action) {
-        downSwipeAction = action;
+    protected override void DownSwipeAction() {
+        //Do Nothing
     }
 
     //Debugging Methods

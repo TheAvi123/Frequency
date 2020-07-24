@@ -14,7 +14,7 @@ public class Coin : MonoBehaviour
     }
 
     private void GetSpawnPosition() {
-        spawnPosition = transform.position;
+        spawnPosition = transform.localPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D otherCollider) {
@@ -42,7 +42,7 @@ public class Coin : MonoBehaviour
     }
 
     private void ReturnToSpawnPosition() {
-        transform.position = spawnPosition;
+        transform.localPosition = spawnPosition;
     }
 
     //Public Methods
