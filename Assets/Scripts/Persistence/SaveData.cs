@@ -1,74 +1,80 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics.CodeAnalysis;
 
-[System.Serializable]
-public class SaveData
-{
-    //Essential Data
-    public int[] highScores;
-    public int coinsCollected;
-    public int totalRunsCompleted;
+using Statistics;
 
-    //Cumulative Statistics
-    public int totalScoreAchieved;
-    public int totalCoinsCollected;
-    public int totalModifiersUsed;
-    public int totalFlipCount;
-    public int totalDashCount;
-    public int totalDelayCount;
-    public int totalNearMissCount;
-    public float totalTimeSurvived;
+namespace Persistence {
+    
+    [System.Serializable]
+    [SuppressMessage("ReSharper", "NotAccessedField.Global")]
+    public class SaveData
+    {
+        //Essential Data
+        public int[] highScores;
+        public int coinsCollected;
+        public int totalRunsCompleted;
 
-    //Average Statistics Per Run
-    public float averageScore;
-    public float averageCoins;
-    public float averageModifiersUsed;
-    public float averageFlipCount;
-    public float averageDashCount;
-    public float averageDelayCount;
-    public float averageNearMissCount;
-    public float averageTimeSurvived;
+        //Cumulative Statistics
+        public int totalScoreAchieved;
+        public int totalCoinsCollected;
+        public int totalModifiersUsed;
+        public int totalFlipCount;
+        public int totalDashCount;
+        public int totalDelayCount;
+        public int totalNearMissCount;
+        public float totalTimeSurvived;
 
-    //Achievement Status
-    public bool[] achievementStatus;
+        //Average Statistics Per Run
+        public float averageScore;
+        public float averageCoins;
+        public float averageModifiersUsed;
+        public float averageFlipCount;
+        public float averageDashCount;
+        public float averageDelayCount;
+        public float averageNearMissCount;
+        public float averageTimeSurvived;
 
-    public SaveData() {
-        GetEssentialData();
-        GetCumulativeStatistics();
-        GetAverageStatistics();
-        GetAchievementsStatus();
-    }
+        //Achievement Status
+        public bool[] achievementStatus;
 
-    private void GetEssentialData() {
-        highScores = ScoreManager.sharedInstance.GetHighScores();
-        coinsCollected = CoinManager.sharedInstance.GetCoinsTotal();
-        totalRunsCompleted = StatsManager.sharedInstance.GetRunsCompleted();
-    }
+        public SaveData() {
+            GetEssentialData();
+            GetCumulativeStatistics();
+            GetAverageStatistics();
+            GetAchievementsStatus();
+        }
 
-    private void GetCumulativeStatistics() {
-        StatsManager statsManager = StatsManager.sharedInstance;
-        totalScoreAchieved  = statsManager.totalScoreAchieved;
-        totalCoinsCollected = statsManager.totalCoinsCollected;
-        totalModifiersUsed  = statsManager.totalModifiersUsed;
-        totalFlipCount      = statsManager.totalFlipCount;
-        totalDashCount      = statsManager.totalDashCount;
-        totalDelayCount     = statsManager.totalDelayCount;
-        totalNearMissCount  = statsManager.totalNearMissCount;
-        totalTimeSurvived   = statsManager.totalTimeSurvived;
-    }
+        private void GetEssentialData() {
+            highScores = ScoreManager.sharedInstance.GetHighScores();
+            coinsCollected = CoinManager.sharedInstance.GetCoinsTotal();
+            totalRunsCompleted = StatsManager.sharedInstance.GetRunsCompleted();
+        }
 
-    private void GetAverageStatistics() {
-        StatsManager statsManager = StatsManager.sharedInstance;
-        averageScore         = statsManager.averageScore;
-        averageCoins         = statsManager.averageCoins;
-        averageModifiersUsed = statsManager.averageModifiers;
-        averageFlipCount     = statsManager.averageFlipCount;
-        averageDashCount     = statsManager.averageDashCount;
-        averageDelayCount    = statsManager.averageDelayCount;
-        averageNearMissCount = statsManager.averageNearMissCount;
-        averageTimeSurvived  = statsManager.averageTimeSurvived;
-    }
+        private void GetCumulativeStatistics() {
+            StatsManager statsManager = StatsManager.sharedInstance;
+            totalScoreAchieved  = statsManager.totalScoreAchieved;
+            totalCoinsCollected = statsManager.totalCoinsCollected;
+            totalModifiersUsed  = statsManager.totalModifiersUsed;
+            totalFlipCount      = statsManager.totalFlipCount;
+            totalDashCount      = statsManager.totalDashCount;
+            totalDelayCount     = statsManager.totalDelayCount;
+            totalNearMissCount  = statsManager.totalNearMissCount;
+            totalTimeSurvived   = statsManager.totalTimeSurvived;
+        }
 
-    private void GetAchievementsStatus() {
-        achievementStatus = AchievementManager.sharedInstance.GetAchievementStatusArray();
+        private void GetAverageStatistics() {
+            StatsManager statsManager = StatsManager.sharedInstance;
+            averageScore         = statsManager.averageScore;
+            averageCoins         = statsManager.averageCoins;
+            averageModifiersUsed = statsManager.averageModifiers;
+            averageFlipCount     = statsManager.averageFlipCount;
+            averageDashCount     = statsManager.averageDashCount;
+            averageDelayCount    = statsManager.averageDelayCount;
+            averageNearMissCount = statsManager.averageNearMissCount;
+            averageTimeSurvived  = statsManager.averageTimeSurvived;
+        }
+
+        private void GetAchievementsStatus() {
+            achievementStatus = AchievementManager.sharedInstance.GetAchievementStatusArray();
+        }
     }
 }

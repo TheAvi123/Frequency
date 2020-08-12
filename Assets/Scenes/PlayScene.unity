@@ -128,10 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1034866050}
     m_Modifications:
-    - target: {fileID: 938374662, guid: ad66c38a061e018478e9c573a62152d5, type: 3}
-      propertyPath: gameOverlay
-      value: 
-      objectReference: {fileID: 1210674296}
     - target: {fileID: 2955304835711886767, guid: ad66c38a061e018478e9c573a62152d5,
         type: 3}
       propertyPath: m_Name
@@ -679,12 +675,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1372768800}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &889815920 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 4774268864989176092, guid: ad66c38a061e018478e9c573a62152d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 57602540}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &930612583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,12 +947,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1450166806}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1210674296 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7092903959610706220, guid: 833bc17d9587ccc46be287cb910b5fe5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1450166806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1225514834
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1192,11 +1176,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1034866050}
     m_Modifications:
-    - target: {fileID: 4550488282080275475, guid: 833bc17d9587ccc46be287cb910b5fe5,
-        type: 3}
-      propertyPath: pauseOverlay
-      value: 
-      objectReference: {fileID: 889815920}
     - target: {fileID: 6255143850851408841, guid: 833bc17d9587ccc46be287cb910b5fe5,
         type: 3}
       propertyPath: m_Name

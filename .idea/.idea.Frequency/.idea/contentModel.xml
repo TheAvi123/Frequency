@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\avira\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\avira\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_Frequency.1685262020.00" t="ExcludeRecursive" />
+    <e p="D:\Game Development\Unity\Projects\Frequency" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="CountLines.cs" t="Include" />
+          <e p="CustomUITools.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="CameraFeatures" t="Include">
+            <e p="CameraFollow.cs" t="Include" />
+            <e p="CameraShaker.cs" t="Include" />
+          </e>
+          <e p="Collectables" t="Include">
+            <e p="Coin.cs" t="Include" />
+            <e p="Helpers" t="Include">
+              <e p="CoinDisabler.cs" t="Include" />
+              <e p="CoinMagnet.cs" t="Include" />
+              <e p="Shield.cs" t="Include" />
+              <e p="VFXFade.cs" t="Include" />
+            </e>
+            <e p="Modifier.cs" t="Include" />
+            <e p="ModifierGenerator.cs" t="Include" />
+            <e p="ModifierManager.cs" t="Include" />
+            <e p="Modifiers" t="Include">
+              <e p="CoinMagnetModifier.cs" t="Include" />
+              <e p="DoubleCDModifier.cs" t="Include" />
+              <e p="DoubleScoreModifier.cs" t="Include" />
+              <e p="FreezeScoreModifier.cs" t="Include" />
+              <e p="GhostModifier.cs" t="Include" />
+              <e p="NoCDModifier.cs" t="Include" />
+              <e p="NoCoinsModifier.cs" t="Include" />
+              <e p="ShieldModifier.cs" t="Include" />
+              <e p="SlowDownModifier.cs" t="Include" />
+              <e p="SpeedUpModifier.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ColorGradients" t="Include">
+            <e p="BaseColorChanger.cs" t="Include" />
+            <e p="GradientMesh.cs" t="Include" />
+            <e p="UIColorChanger.cs" t="Include" />
+          </e>
+          <e p="InputControllers" t="Include">
+            <e p="GameControllers" t="Include">
+              <e p="GameMouseController.cs" t="Include" />
+              <e p="GameTouchController.cs" t="Include" />
+            </e>
+            <e p="InputController.cs" t="Include" />
+            <e p="MouseController.cs" t="Include" />
+            <e p="TouchController.cs" t="Include" />
+          </e>
+          <e p="Music" t="Include">
+            <e p="MusicPlayer.cs" t="Include" />
+          </e>
+          <e p="Obstacles" t="Include">
+            <e p="Obstacle.cs" t="Include" />
+            <e p="ObstacleGenerator.cs" t="Include" />
+            <e p="ObstaclePooler.cs" t="Include" />
+          </e>
+          <e p="Persistence" t="Include">
+            <e p="PersistenceManager.cs" t="Include" />
+            <e p="SaveData.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="PlayerAbilityManager.cs" t="Include" />
+            <e p="PlayerDirection.cs" t="Include" />
+            <e p="PlayerFollow.cs" t="Include" />
+            <e p="PlayerInteractions.cs" t="Include" />
+            <e p="PlayerWave.cs" t="Include" />
+          </e>
+          <e p="Statistics" t="Include">
+            <e p="Achievement.cs" t="Include" />
+            <e p="AchievementInterface.cs" t="Include" />
+            <e p="AchievementManager.cs" t="Include" />
+            <e p="CoinManager.cs" t="Include" />
+            <e p="ScoreManager.cs" t="Include" />
+            <e p="StatsManager.cs" t="Include" />
+          </e>
+          <e p="Systems" t="Include">
+            <e p="GameStateManager.cs" t="Include" />
+            <e p="SceneChangeController.cs" t="Include" />
+            <e p="SettingsManager.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
+          </e>
+          <e p="Tutorial" t="Include">
+            <e p="TutorialManager.cs" t="Include" />
+            <e p="TutorialPopUp.cs" t="Include" />
+            <e p="TutorialSegment.cs" t="Include" />
+            <e p="TutorialSegmentSpawner.cs" t="Include" />
+          </e>
+          <e p="UserInterface" t="Include">
+            <e p="Buttons" t="Include">
+              <e p="ClosePopUpButton.cs" t="Include" />
+              <e p="MenuButton.cs" t="Include" />
+              <e p="MuteButton.cs" t="Include" />
+              <e p="OptionsButton.cs" t="Include" />
+              <e p="PauseButton.cs" t="Include" />
+              <e p="PlayButton.cs" t="Include" />
+              <e p="QuitButton.cs" t="Include" />
+              <e p="ScoresButton.cs" t="Include" />
+              <e p="ShopButton.cs" t="Include" />
+              <e p="StatsButton.cs" t="Include" />
+              <e p="TutorialButton.cs" t="Include" />
+            </e>
+            <e p="ImageRotator.cs" t="Include" />
+            <e p="InfoDisplayer.cs" t="Include" />
+            <e p="OverlayScaler.cs" t="Include" />
+            <e p="OverlaySwitcher.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Frequency.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

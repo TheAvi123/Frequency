@@ -1,70 +1,71 @@
 ﻿using UnityEngine;
 
-public class ModifierGenerator : MonoBehaviour
-{
-    //Reference Variables
-    public static ModifierGenerator sharedInstance;
+namespace Collectables {
+    public class ModifierGenerator : MonoBehaviour
+    {
+        public static ModifierGenerator sharedInstance;
 
-    //Configuration Parameters
-    [SerializeField] Modifier[] modifierArray = null;
-    [SerializeField] float modifierSpawnChance = 0.5f;
-    [SerializeField] float modifierSpawnDelay = 10f;
+        //Configuration Parameters
+        [SerializeField] Modifier[] modifierArray = null;
+        [SerializeField] float modifierSpawnChance = 0.5f;
+        [SerializeField] float modifierSpawnDelay = 10f;
 
-    //State Variales
-    private float spawnTimer = 0f;
+        //State Variables
+        private float spawnTimer = 0f;
 
-    //Internal Methods
-    private void Awake() {
-        SetSharedInstance();
-        CheckModifierArray();
-        SetSpawnDelay();
-    }
-
-    private void SetSharedInstance() {
-        sharedInstance = this;
-    }
-
-    private void CheckModifierArray() {
-        if (modifierArray == null || modifierArray.Length == 0) {
-            enabled = false;
-            Debug.LogError("No Modifiers Specified in Manager Array");
+        //Internal Methods
+        private void Awake() {
+            SetSharedInstance();
+            CheckModifierArray();
+            SetSpawnDelay();
         }
-    }
 
-    private void SetSpawnDelay() {
-        spawnTimer = modifierSpawnDelay;
-    }
-
-    private void Update() {
-        TickSpawnCooldown();
-    }
-
-    private void TickSpawnCooldown() {
-        if (spawnTimer > 0f) {
-            spawnTimer -= Time.deltaTime;
+        private void SetSharedInstance() {
+            sharedInstance = this;
         }
-    }
 
-    //Helper Methods
-    private void SpawnRandomModifier(Vector3 spawnPosition) {
-        spawnTimer = modifierSpawnDelay;
-        Modifier modifierToSpawn = modifierArray[Random.Range(0, modifierArray.Length)];
-        Modifier modifier = Instantiate(modifierToSpawn, spawnPosition, Quaternion.identity);
-        modifier.gameObject.transform.SetParent(gameObject.transform);
-    }
+        private void CheckModifierArray() {
+            if (modifierArray == null || modifierArray.Length == 0) {
+                enabled = false;
+                Debug.LogError("No Modifiers Specified in Manager Array");
+            }
+        }
 
-    private Vector3 CalculateSpawnPosition(Transform obstacle, Vector3 spawn) {
-        Vector3 spawnPosition = obstacle.position;
-        spawnPosition += spawn * Camera.main.aspect * 16 / 9;
-        return spawnPosition;
-    }
+        private void SetSpawnDelay() {
+            spawnTimer = modifierSpawnDelay;
+        }
 
-    //Public Methods
-    public void SetAvailableSpawn(Transform obstacle, Vector3 spawn) {
-        if (ModifierManager.sharedInstance.GetActiveModifier() == null && spawnTimer <= 0f) {
-            float roll = Random.value;
-            if (roll < modifierSpawnChance) {
-                SpawnRandomModifier(CalculateSpawnPosition(obstacle, spawn));
+        private void Update() {
+            TickSpawnCooldown();
+        }
+
+        private void TickSpawnCooldown() {
+            if (spawnTimer > 0f) {
+                spawnTimer -= Time.deltaTime;
+            }
+        }
+
+        //Helper Methods
+        private void SpawnRandomModifier(Vector3 spawnPosition) {
+            spawnTimer = modifierSpawnDelay;
+            Modifier modifierToSpawn = modifierArray[Random.Range(0, modifierArray.Length)];
+            Modifier modifier = Instantiate(modifierToSpawn, spawnPosition, Quaternion.identity);
+            modifier.gameObject.transform.SetParent(gameObject.transform);
+        }
+
+        private Vector3 CalculateSpawnPosition(Transform obstacle, Vector3 spawn) {
+            Vector3 spawnPosition = obstacle.position;
+            spawnPosition += spawn * Camera.main.aspect * 16 / 9;
+            return spawnPosition;
+        }
+
+        //Public Methods
+        public void SetAvailableSpawn(Transform obstacle, Vector3 spawn) {
+            if (ModifierManager.sharedInstance.GetActiveModifier() == null && spawnTimer <= 0f) {
+                float roll = Random.value;
+                if (roll < modifierSpawnChance) {
+                    SpawnRandomModifier(CalculateSpawnPosition(obstacle, spawn));
+                }
             }
         }
     }

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -361,8 +361,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8813392227234776757, guid: bf7fb657ee637c84a888cf960bce8021,
         type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149306408742683249, guid: bf7fb657ee637c84a888cf960bce8021,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9149306408742683249, guid: bf7fb657ee637c84a888cf960bce8021,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7fb657ee637c84a888cf960bce8021, type: 3}
@@ -428,8 +438,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 449202484442968596, guid: 539452329e7206242b74440a15c484af,
         type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 449202484442968599, guid: 539452329e7206242b74440a15c484af,
         type: 3}
@@ -618,11 +628,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HighScoresCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4963385628027581826, guid: 13357d5dc636f164aade1179466ef75a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4963385628027581830, guid: 13357d5dc636f164aade1179466ef75a,
         type: 3}
@@ -850,8 +855,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6796385279137414839, guid: 33e9685337aed7b4ba0e6138268ad896,
         type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33e9685337aed7b4ba0e6138268ad896, type: 3}

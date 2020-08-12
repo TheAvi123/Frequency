@@ -23,9 +23,11 @@ TagManager:
   - NearMissStat
   - TimeStat
   - InfoDisplay
+  - ModifierSpawn
+  - GameOverlay
   - PauseOverlay
   - Overlay
-  - ModifierSpawn
+  - TutorialPopUp
   layers:
   - Default
   - TransparentFX
