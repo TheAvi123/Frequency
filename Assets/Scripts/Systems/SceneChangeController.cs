@@ -1,39 +1,49 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
 
-public class SceneChangeController : MonoBehaviour
-{
-    //Reference Variables
-    public static SceneChangeController sharedInstance;
-    private Animator fadeAnimator = null;
-    
-    //Internal Methods
-    private void Awake() {
-        SetSharedInstance();
-        FindFadeAnimator();
-    }
+using UnityEngine;
 
-    private void SetSharedInstance() {
-        sharedInstance = this;
-    }
-    
-    private void FindFadeAnimator() {
-        fadeAnimator = GetComponent<Animator>();
-        if (!fadeAnimator) {
-            Debug.LogError("No Animator Component Found on SceneChangeController");
-            enabled = false;
+namespace Systems {
+    public class SceneChangeController : MonoBehaviour
+    {
+        public static SceneChangeController sharedInstance;
+        
+        //Reference Variables
+        private Animator fadeAnimator = null;
+        
+        //Configuration Parameters
+        private static readonly int FadeSwitch = Animator.StringToHash("FadeSwitch");
+
+        //Internal Methods
+        private void Awake() {
+            SetSharedInstance();
+            FindFadeAnimator();
         }
-    }
 
-    private void OnSceneChange() {
-        //Do Nothing
-    }
-
-    private void FadeComplete() {
-        GameStateManager.sharedInstance.FadeComplete();
-    }
+        private void SetSharedInstance() {
+            sharedInstance = this;
+        }
     
-    //Public Methods
-    public void TriggerFadeAnimation() {
-        fadeAnimator.SetTrigger("FadeSwitch");
+        private void FindFadeAnimator() {
+            fadeAnimator = GetComponent<Animator>();
+            if (!fadeAnimator) {
+                Debug.LogError("No Animator Component Found on SceneChangeController");
+                enabled = false;
+            }
+        }
+
+        [SuppressMessage("ReSharper", "UnusedMember.Local")]
+        private void OnSceneChange() {
+            //Do Nothing
+        }    //Called From Singleton
+
+        [SuppressMessage("ReSharper", "UnusedMember.Local")]
+        private void FadeInComplete() {
+            GameStateManager.sharedInstance.SetFadeComplete();
+        }   //Called From Animation Event
+    
+        //Public Methods
+        public void TriggerFadeAnimation() {
+            fadeAnimator.SetTrigger(FadeSwitch);
+        }
     }
 }

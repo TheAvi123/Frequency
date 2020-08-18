@@ -1,35 +1,60 @@
-﻿using UnityEngine;
+﻿using CameraFeatures;
 
-public class Coin : MonoBehaviour
-{
-    //Reference Variables
-    [SerializeField] ParticleSystem coinCollectVFX = null;
+using Statistics;
 
-    //Internal Methods
-    private void OnTriggerEnter2D(Collider2D otherCollider) {
-        if (otherCollider.tag == "Player") {
-            CoinCollected();
+using UnityEngine;
+
+using UserInterface;
+
+namespace Collectables {
+    public class Coin : MonoBehaviour
+    {
+        //Configuration Parameters
+        [SerializeField] ParticleSystem coinCollectVFX = null;
+
+        //State Variables
+        private Vector3 spawnPosition;
+
+        //Internal Methods
+        private void OnEnable() {
+            GetSpawnPosition();
         }
-    }
 
-    private void CoinCollected() {
-        CoinManager.sharedInstance.CollectCoin();
-        SpawnCollectVFX();
-        ShakeCamera();
-        SendBackToPool();
-    }
+        private void GetSpawnPosition() {
+            spawnPosition = transform.localPosition;
+        }
 
-    private void SpawnCollectVFX() {
-        ParticleSystem coinVFX = Instantiate(coinCollectVFX, transform.position, transform.rotation) as ParticleSystem;
-        Destroy(coinVFX, 1f);
-    }
+        private void OnTriggerEnter2D(Collider2D otherCollider) {
+            if (otherCollider.CompareTag("Player")) {
+                CoinCollected();
+            }
+        }
 
-    private void ShakeCamera() {
-        CameraShaker.sharedInstance.AddCameraShake(0.1f);
-    }
+        private void CoinCollected() {
+            InfoDisplayer.sharedInstance.DisplayInfo("COIN COLLECTED");
+            CoinManager.sharedInstance.CollectCoin();
+            SpawnCollectVFX();
+            ShakeCamera();
+            DisableCoin();
+            ReturnToSpawnPosition();
+        }
 
-    private void SendBackToPool() {
-        //Coin Pool
-        gameObject.SetActive(false);
+        private void SpawnCollectVFX() {
+            GameObject coinVFX = Instantiate(coinCollectVFX, transform.position, transform.rotation).gameObject;
+            Destroy(coinVFX, 1f);
+        }
+
+        private void ShakeCamera() {
+            CameraShaker.sharedInstance.AddCameraShake(0.1f);
+        }
+
+        private void ReturnToSpawnPosition() {
+            transform.localPosition = spawnPosition;
+        }
+
+        //Public Methods
+        public void DisableCoin() {
+            gameObject.SetActive(false);
+        }
     }
 }

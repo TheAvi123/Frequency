@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 4890085278179872738, guid: f11a9af64812697448c90e788ac72e32,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,15 +119,11 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!20 &360097571 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2379182295632118473, guid: a1e254f92fba8ec4cbc948f30c3fa4fc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1363824965}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &657747715
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +351,7 @@ PrefabInstance:
     - target: {fileID: 1199703953915938878, guid: 38664cac62f20f84dad4ae1b3e14d5cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 1199703953915938878, guid: 38664cac62f20f84dad4ae1b3e14d5cc,
         type: 3}
@@ -446,11 +443,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2626801082984572170, guid: 38664cac62f20f84dad4ae1b3e14d5cc,
-        type: 3}
-      propertyPath: canvasSwitcher
-      value: 
-      objectReference: {fileID: 657747717}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38664cac62f20f84dad4ae1b3e14d5cc, type: 3}
 --- !u!1001 &4644910663859659212
@@ -529,11 +521,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 657747716}
     m_Modifications:
-    - target: {fileID: 1994649076388866966, guid: 95081cabb410e184388e1f6d34cb8d2e,
-        type: 3}
-      propertyPath: canvasSwitcher
-      value: 
-      objectReference: {fileID: 657747717}
     - target: {fileID: 8591201908695092584, guid: 95081cabb410e184388e1f6d34cb8d2e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 8591201908695092584, guid: 95081cabb410e184388e1f6d34cb8d2e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8591201908695092584, guid: 95081cabb410e184388e1f6d34cb8d2e,
         type: 3}
@@ -644,10 +631,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatsCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8591201908695092591, guid: 95081cabb410e184388e1f6d34cb8d2e,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 360097571}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95081cabb410e184388e1f6d34cb8d2e, type: 3}

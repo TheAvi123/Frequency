@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1197197135980314644}
-  - component: {fileID: 35349572}
   - component: {fileID: 1197197135980314646}
   - component: {fileID: 1197197135980314645}
+  - component: {fileID: 35349572}
   m_Layer: 0
   m_Name: MusicPlayer
   m_TagString: Untagged
@@ -33,6 +33,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1197197135980314646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197197135980314647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30040967c37cd1b45a29358d10c343ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 1197197135980314645}
+--- !u!114 &1197197135980314645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197197135980314647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ac238569577654c802a213405f974c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muteSprite: {fileID: 21300000, guid: 2d34e94ee5e655641b8023d14bc087ff, type: 3}
+  volumeSprite: {fileID: 21300000, guid: d30d837dca3953b4a90fe03d5749ddf7, type: 3}
+  currentVolume: 0.25
+  muted: 0
 --- !u!82 &35349572
 AudioSource:
   m_ObjectHideFlags: 0
@@ -129,33 +159,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1197197135980314646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197197135980314647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30040967c37cd1b45a29358d10c343ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scripts:
-  - {fileID: 1197197135980314645}
---- !u!114 &1197197135980314645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1197197135980314647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57ac238569577654c802a213405f974c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  muteSprite: {fileID: 21300000, guid: 2d34e94ee5e655641b8023d14bc087ff, type: 3}
-  volumeSprite: {fileID: 21300000, guid: d30d837dca3953b4a90fe03d5749ddf7, type: 3}
-  currentVolume: 0.25
-  muted: 0

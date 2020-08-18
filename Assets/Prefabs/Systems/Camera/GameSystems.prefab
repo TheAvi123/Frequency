@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92101836}
   - component: {fileID: 92101837}
-  - component: {fileID: 92101835}
+  - component: {fileID: 3406462083825499976}
   m_Layer: 0
   m_Name: MouseInputController
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92101834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1224459272461349693}
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18, y: 32}
   m_EdgeRadius: 0
---- !u!114 &92101835
+--- !u!114 &3406462083825499976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 92101834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6aec38adf354b340ba9265800ff15da, type: 3}
+  m_Script: {fileID: 11500000, guid: d4099280ee36eba4e970e98b4720fb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxClickTimer: 0.5
@@ -82,7 +82,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483435008}
   - component: {fileID: 483435009}
-  - component: {fileID: 4751367471032173006}
+  - component: {fileID: 545551052974531641}
   m_Layer: 0
   m_Name: TouchInputController
   m_TagString: Untagged
@@ -98,7 +98,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483435007}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1224459272461349693}
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18, y: 32}
   m_EdgeRadius: 0
---- !u!114 &4751367471032173006
+--- !u!114 &545551052974531641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 483435007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89f4f55e4d490ac4bb9ec0ea38258715, type: 3}
+  m_Script: {fileID: 11500000, guid: 4148ef3add733ca4d8db7e592a800238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxTapTimer: 0.5
@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 1224459272461349826}
   - component: {fileID: 1224459272461349824}
   - component: {fileID: 519420030}
+  - component: {fileID: 430274797925327837}
   m_Layer: 0
   m_Name: GameCamera
   m_TagString: MainCamera
@@ -190,7 +191,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -243,6 +244,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d286047acbe668e47a2a7003e1ca63b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followSpeed: 5
+  zoomLerpConstant: 0.125
+  zoomFactor: 0.25
+--- !u!114 &430274797925327837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224459272461349825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &3300171516684142588
 GameObject:
   m_ObjectHideFlags: 0

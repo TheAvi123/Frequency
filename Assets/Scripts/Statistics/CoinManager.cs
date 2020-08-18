@@ -1,95 +1,110 @@
-﻿using TMPro;
+﻿using System.Collections;
+using System.Diagnostics.CodeAnalysis;
+
+using TMPro;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CoinManager : MonoBehaviour
-{
-    //Reference Variables
-    public static CoinManager sharedInstance;
+namespace Statistics {
+    public class CoinManager : MonoBehaviour
+    {
+        public static CoinManager sharedInstance;
 
-    //State Variales
-    private int coinsTotal;
-    private int coinsCollected;
+        //Configuration Parameters
+        [SerializeField] float coinDisplayTime = 3f;
 
-    private TextMeshProUGUI coinDisplay = null;
+        //State Variables
+        private int coinsTotal;
+        private int coinsCollected;
 
-    //Internal Methods
-    private void Awake() {
-        SetSharedInstance();
-    }
+        private TextMeshProUGUI coinDisplay = null;
 
-    private void SetSharedInstance() {
-        sharedInstance = this;
-    }
+        //Internal Methods
+        private void Awake() {
+            SetSharedInstance();
+        }
+
+        private void SetSharedInstance() {
+            sharedInstance = this;
+        }
     
-    private void OnSceneChange() {
-        if (SceneManager.GetActiveScene().name == "StartMenu") {
-            FindCoinDisplay();
-            UpdateTotalCoinDisplay();
+        [SuppressMessage("ReSharper", "UnusedMember.Local")]
+        private void OnSceneChange() {
+            if (SceneManager.GetActiveScene().name == "StartMenu") {
+                FindCoinDisplay();
+                UpdateTotalCoinDisplay();
+            }
+            if (SceneManager.GetActiveScene().name == "PlayScene") {
+                FindCoinDisplay();
+                ResetCollectedCoins();
+            }
+            if (SceneManager.GetActiveScene().name == "GameOver") {
+                TransferCoins();
+            }
+            if (SceneManager.GetActiveScene().name == "Tutorial") {
+                FindCoinDisplay();
+                ResetCollectedCoins();
+            }
+        }   //Called Through Singleton
+
+        private void FindCoinDisplay() {
+            if (gameObject.activeInHierarchy) {
+                coinDisplay = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<TextMeshProUGUI>();
+            }
         }
-        if (SceneManager.GetActiveScene().name == "PlayScene") {
-            FindCoinDisplay();
-            ResetCollectedCoins();
+
+        private void ResetCollectedCoins() {
+            coinsCollected = 0;
+            coinDisplay.text = coinsCollected.ToString();
+            coinDisplay.gameObject.SetActive(false);
         }
-        if (SceneManager.GetActiveScene().name == "GameOver") {
-            TransferCoins();
+
+        private void TransferCoins() {
+            coinsTotal += coinsCollected;
         }
-        if (SceneManager.GetActiveScene().name == "Tutorial") {
-            FindCoinDisplay();
+
+        private IEnumerator UpdateCoinDisplay() {
+            coinDisplay.gameObject.SetActive(true);
+            coinDisplay.text = coinsCollected.ToString();
+            yield return new WaitForSecondsRealtime(coinDisplayTime);
+            coinDisplay.gameObject.SetActive(false);
         }
-    }   //Called Through Singleton
 
-    private void FindCoinDisplay() {
-        if (gameObject.activeInHierarchy) {
-            coinDisplay = GameObject.FindGameObjectWithTag("CoinDisplay").GetComponent<TextMeshProUGUI>();
+        private void UpdateTotalCoinDisplay() {
+            coinDisplay.text = coinsTotal.ToString();
         }
-    }
 
-    private void ResetCollectedCoins() {
-        coinsCollected = 0;
-        UpdateCoinDisplay();
-    }
-
-    private void TransferCoins() {
-        coinsTotal += coinsCollected;
-    }
-
-    private void UpdateCoinDisplay() {
-        coinDisplay.text = coinsCollected.ToString();
-    }
-
-    private void UpdateTotalCoinDisplay() {
-        coinDisplay.text = coinsTotal.ToString();
-    }
-
-    //Public Methods
-    public void CollectCoin() {
-        coinsCollected++;
-        UpdateCoinDisplay();
-    }
-
-    public int GetCoinsCollected() {
-        return coinsCollected;
-    }
-
-    public void AddCoins(int amountToAdd) {
-        coinsTotal += amountToAdd;
-    }
-
-    public bool SpendCoins(int amountToRemove) {
-        if (coinsTotal >= amountToRemove) {
-            coinsTotal -= amountToRemove;
-            return true;    //Purchase Successful
-        } else {
-            return false;   //Purchase Failed Due to Insufficient Coins
+        //Public Methods
+        public void CollectCoin() {
+            coinsCollected++;
+            StopAllCoroutines();
+            StartCoroutine(UpdateCoinDisplay());
         }
-    }
 
-    public void SetCoinsTotal(int coins) {
-        coinsTotal = coins;
-    }
+        public int GetCoinsCollected() {
+            return coinsCollected;
+        }
 
-    public int GetCoinsTotal() {
-        return coinsTotal;
+        public void AddCoins(int amountToAdd) {
+            coinsTotal += amountToAdd;
+        }
+
+        public bool SpendCoins(int amountToRemove) {
+            if (coinsTotal >= amountToRemove) {
+                coinsTotal -= amountToRemove;
+                return true;    //Purchase Successful
+            } else {
+                return false;   //Purchase Failed Due to Insufficient Coins
+            }
+        }
+
+        public void SetCoinsTotal(int coins) {
+            coinsTotal = coins;
+        }
+
+        public int GetCoinsTotal() {
+            return coinsTotal;
+        }
     }
 }
