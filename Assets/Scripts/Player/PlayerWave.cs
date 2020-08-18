@@ -23,8 +23,6 @@ namespace Player {
 
         [Header("Position")]
         private float xPosition, yPosition;
-        private float initialOffsetX;
-        [HideInInspector] public float initialOffsetY;      //Made Public to Allow Access from Camera
 
         [Header("Angle and Direction")]
         private float currentAngle = 0;
@@ -58,10 +56,10 @@ namespace Player {
 
         private void Start() {
             AspectRatioReconfigurations();
-            SetupInitialOffsets();
             CalculateAmplitudeMultiplier();
-            SaveSetVariables();
+            SaveCalculatedMovementVariables();
             SetRandomFrequencyDirection();
+            MoveToStartPosition();
         }
 
         private void AspectRatioReconfigurations() {
@@ -70,18 +68,11 @@ namespace Player {
             verticalSpeed *= aspectMultiplier;
         }
 
-        private void SetupInitialOffsets() {
-            Vector2 offsetVector = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.3f));    //Percentage Coordinates
-            initialOffsetX = offsetVector.x;
-            initialOffsetY = offsetVector.y;
-            transform.position = new Vector2(initialOffsetX, -16.5f);
-        }
-
         private void CalculateAmplitudeMultiplier() {
             amplitudeMultiplier = Camera.main.ViewportToWorldPoint(new Vector3(0.92f, 0)).x;
         }
 
-        private void SaveSetVariables() {
+        private void SaveCalculatedMovementVariables() {
             //Saving These Variables For Reset Purpose
             setVerticalSpeed = verticalSpeed;
             setFrequencyMultiplier = frequencyMultiplier;
@@ -91,8 +82,12 @@ namespace Player {
         private void SetRandomFrequencyDirection() {
             frequencyDirection = Random.Range(0, 2) * 2 - 1;    //Randomly Returns Either +1 or -1
         }
+        
+        private void MoveToStartPosition() {
+            transform.position = new Vector2(0f, -16.5f);
+        }
 
-        private void Update() {
+        private void Update() {    
             UpdateAngle();
             SetPosition();
         }
@@ -105,7 +100,7 @@ namespace Player {
         }
 
         private void SetPosition() {
-            xPosition = Mathf.Sin(currentAngle) * amplitudeMultiplier + initialOffsetX;
+            xPosition = Mathf.Sin(currentAngle) * amplitudeMultiplier;
             yPosition = transform.position.y + verticalSpeed * Time.deltaTime;
             transform.position = new Vector3(xPosition, yPosition);
         }
@@ -171,6 +166,10 @@ namespace Player {
         //Public Methods
         public void SetFrequencyToOne() {
             frequencyDirection = 1;
+        }
+
+        public float GetVerticalSpeed() {
+            return verticalSpeed;
         }
     }
 }

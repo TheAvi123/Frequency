@@ -77,10 +77,10 @@ namespace ColorGradients {
         [SuppressMessage("ReSharper", "PossibleNullReferenceException")]
         private void SetScreenCornerVectors() {
             Camera gameCamera = Camera.main;
-            topLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 60));
-            topRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, 60));
-            botLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 60));
-            botRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 60));
+            topLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 100));
+            topRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 1, 100));
+            botLeft = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 100));
+            botRight = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 100));
         }
 
         private void AssignMeshVerticesAndTriangles() {
