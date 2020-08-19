@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "YOU HAVE ABILITIES \nTHAT CAN BE USED \nTO MODIFY ITS \nMOVEMENT"
+  m_text: "USE ABILITIES \nTO MODIFY THE \nPARTICLE'S MOVEMEMENT"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ba7bda4fd1f467348b71493837b989f8, type: 2}
   m_sharedMaterial: {fileID: 3509326829323262914, guid: ba7bda4fd1f467348b71493837b989f8,
@@ -279,7 +279,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7773800726108684935}
-  - component: {fileID: 7773800726108684936}
   - component: {fileID: 7773800726108684937}
   - component: {fileID: 7773800726108684934}
   m_Layer: 9
@@ -296,7 +295,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7773800726108684932}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -304,21 +303,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7773800726108684936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7773800726108684932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d563b09583b6e48bead0c1b31bc081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleID: 0
-  minCoins: 0
-  maxCoins: 0
 --- !u!114 &7773800726108684937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,12 +315,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43c9c8806fd43789f3ba670e47012e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezeDelay: 0.6
+  spawnWavelengthDelay: 0
   inputType: 0
+  freezeDelay: 0.6
   fadeTextArray:
   - {fileID: 7773800725622055472}
   - {fileID: 434077676254422770}
-  spawnWavelengthDelay: 0.5
+  lockedSegment: 1
+  segmentSize: 15
+  focusColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeColor: {r: 0, g: 0, b: 0, a: 0.2}
 --- !u!61 &7773800726108684934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -350,7 +338,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 7.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -361,7 +349,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 18, y: 1}
+  m_Size: {x: 18, y: 15}
   m_EdgeRadius: 0
 --- !u!1 &7773800727162254968
 GameObject:

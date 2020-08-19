@@ -2,11 +2,14 @@
 
 using UnityEngine;
 
+using Random = UnityEngine.Random;
+
 namespace Player {
     public class PlayerWave : MonoBehaviour
     {
         //Reference Variables
         private PlayerAbilityManager abilityManager;
+        private Transform playerTransform;
 
         //Movement Configuration Parameters
         [Header("Movement Parameters")]
@@ -44,6 +47,7 @@ namespace Player {
         //Internal Movement Methods
         private void Awake() {
             FindAbilityManager();
+            GetPlayerTransform();
         }
 
         private void FindAbilityManager() {
@@ -53,6 +57,11 @@ namespace Player {
                 enabled = false;
             }
         }
+
+        private void GetPlayerTransform() {
+            playerTransform = gameObject.transform;
+        }
+
 
         private void Start() {
             AspectRatioReconfigurations();
@@ -64,7 +73,7 @@ namespace Player {
 
         private void AspectRatioReconfigurations() {
             float aspectMultiplier = Camera.main.aspect * 16 / 9;
-            transform.localScale *= aspectMultiplier;
+            playerTransform.localScale *= aspectMultiplier;
             verticalSpeed *= aspectMultiplier;
         }
 
@@ -84,13 +93,26 @@ namespace Player {
         }
         
         private void MoveToStartPosition() {
-            transform.position = new Vector2(0f, -16.5f);
+            playerTransform.position = new Vector2(0f, -16.5f);
         }
 
         private void Update() {    
             UpdateAngle();
             SetPosition();
         }
+        
+        //TODO: START DELETE SECTION
+
+        private ArrayList positions = new ArrayList();
+
+        private void OnDrawGizmos() {
+            positions.Add(playerTransform.position);
+            foreach (Vector3 position in positions) {
+                Gizmos.DrawCube(position, new Vector3(0.2f, 0.2f, 0.2f));
+            }
+        }
+        
+        //TODO: END DELETE SECTION
 
         private void UpdateAngle() {
             currentAngle += Time.deltaTime * frequencyMultiplier * frequencyDirection;
@@ -101,8 +123,8 @@ namespace Player {
 
         private void SetPosition() {
             xPosition = Mathf.Sin(currentAngle) * amplitudeMultiplier;
-            yPosition = transform.position.y + verticalSpeed * Time.deltaTime;
-            transform.position = new Vector3(xPosition, yPosition);
+            yPosition = playerTransform.position.y + verticalSpeed * Time.deltaTime;
+            playerTransform.position = new Vector3(xPosition, yPosition);
         }
 
         //Ability Methods

@@ -10,6 +10,8 @@ namespace Tutorial
 		
 		//Reference Variables
 		private PlayerWave player;
+		private Transform playerTransform;
+		private Transform objectTransform;
 	
 		//Configuration Parameters
 		[Header("Segments")]
@@ -28,8 +30,8 @@ namespace Tutorial
 		private Vector3 oldPosition;
 
 		//Spawner State Variables
-		private bool freeZone = false;
-		private bool readyToSpawn = true;
+		private bool lockedZone = true;
+		private bool readyToSpawn = false;
 		private int currentSegmentIndex = 0;
 		private TutorialSegment currentSegment;
 		
@@ -37,6 +39,7 @@ namespace Tutorial
 		private void Awake() {
 			SetSharedInstance();
 			VerifySegmentList();
+			GetObjectTransform();
 			FindPlayer();
 		}
 
@@ -46,15 +49,21 @@ namespace Tutorial
 
 		private void VerifySegmentList() {
 			if (segmentList.Length < 1 || segmentList == null) {
-				Debug.LogError("Tutorial Segment List is Empty or Null");
+				Debug.LogWarning("Tutorial Segment List is Empty or Null");
 			}
+		}
+
+		private void GetObjectTransform() {
+			objectTransform = gameObject.transform;
 		}
 
 		private void FindPlayer() {
 			player = FindObjectOfType<PlayerWave>();
-			if (!player) {
+			if (player is null) {
 				Debug.LogError("No Player Found In Tutorial Scene");
 				enabled = false;
+			} else {
+				playerTransform = player.transform;
 			}
 		}
 
@@ -76,8 +85,8 @@ namespace Tutorial
 		}
 
 		private void SpawnTriggerCheck() {
-			Vector3 newPosition = player.transform.position;
 			if (readyToSpawn) {
+				Vector3 newPosition = playerTransform.position;
 				if (oldPosition.x < 0 && newPosition.x > 0) {
 					if (currentSegmentIndex == segmentList.Length) {
 						currentSegmentIndex = 0;
@@ -86,15 +95,15 @@ namespace Tutorial
 					SpawnCurrentSegment();
 					currentSegmentIndex++;
 				}
+				oldPosition = newPosition;
 			} 
-			oldPosition = newPosition;
 		}
 
 		private void SpawnCurrentSegment() {
 			currentSegment = segmentList[currentSegmentIndex];
-			Vector3 spawnPosition = new Vector3(0, player.transform.position.y, zPosition);
+			Vector3 spawnPosition = new Vector3(0, playerTransform.position.y, zPosition);
 			spawnPosition.y += currentSegment.GetSpawnWavelengthDelay() * WavelengthDuration * verticalSpeed;
-			Instantiate(currentSegment, spawnPosition, Quaternion.identity, gameObject.transform);
+			Instantiate(currentSegment, spawnPosition, Quaternion.identity, objectTransform);
 			readyToSpawn = false;
 		}
 

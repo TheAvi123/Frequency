@@ -13,15 +13,21 @@ namespace Collectables {
         [SerializeField] ParticleSystem coinCollectVFX = null;
 
         //State Variables
+        private Transform coinTransform;
         private Vector3 spawnPosition;
 
         //Internal Methods
         private void OnEnable() {
+            GetCoinTransform();
             GetSpawnPosition();
         }
 
+        private void GetCoinTransform() {
+            coinTransform = gameObject.transform;
+        }
+
         private void GetSpawnPosition() {
-            spawnPosition = transform.localPosition;
+            spawnPosition = coinTransform.localPosition;
         }
 
         private void OnTriggerEnter2D(Collider2D otherCollider) {
@@ -40,7 +46,7 @@ namespace Collectables {
         }
 
         private void SpawnCollectVFX() {
-            GameObject coinVFX = Instantiate(coinCollectVFX, transform.position, transform.rotation).gameObject;
+            GameObject coinVFX = Instantiate(coinCollectVFX, coinTransform.position, coinTransform.rotation).gameObject;
             Destroy(coinVFX, 1f);
         }
 
@@ -49,7 +55,7 @@ namespace Collectables {
         }
 
         private void ReturnToSpawnPosition() {
-            transform.localPosition = spawnPosition;
+            coinTransform.localPosition = spawnPosition;
         }
 
         //Public Methods

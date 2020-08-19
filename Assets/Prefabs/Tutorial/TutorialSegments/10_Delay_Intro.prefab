@@ -352,16 +352,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6696309718249213426}
-  - component: {fileID: 6696309718249213427}
   - component: {fileID: 6696309718249213437}
   - component: {fileID: 6696309718249213436}
   m_Layer: 9
-  m_Name: 03_Delay_Intro
+  m_Name: 10_Delay_Intro
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6696309718249213426
 Transform:
   m_ObjectHideFlags: 0
@@ -378,21 +377,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6696309718249213427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6696309718249213438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d563b09583b6e48bead0c1b31bc081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleID: 0
-  minCoins: 0
-  maxCoins: 0
 --- !u!114 &6696309718249213437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,9 +389,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43c9c8806fd43789f3ba670e47012e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  freezeDelay: 0
+  spawnWavelengthDelay: 1
   inputType: 3
+  freezeDelay: 0
   fadeTextArray: []
+  lockedSegment: 1
+  segmentSize: 0
+  focusColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeColor: {r: 0, g: 0, b: 0, a: 0.2}
 --- !u!61 &6696309718249213436
 BoxCollider2D:
   m_ObjectHideFlags: 0

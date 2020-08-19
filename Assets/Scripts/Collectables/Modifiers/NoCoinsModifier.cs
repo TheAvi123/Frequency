@@ -11,16 +11,16 @@ namespace Collectables.Modifiers {
         [SerializeField] GameObject coinDisablerPrefab = null;
 
         //State Variables
-        private GameObject disabler = null;
+        private Transform disabler = null;
 
         //Internal Methods
         protected override IEnumerator ModifierEffect() {
             gameObject.GetComponentInChildren<Coin>().gameObject.SetActive(false);
             Transform player = FindObjectOfType<PlayerWave>().transform;
-            disabler = Instantiate(coinDisablerPrefab).gameObject;
+            disabler = Instantiate(coinDisablerPrefab).gameObject.transform;
             float timer = 0f;
             while (timer <= modifierDuration) {
-                disabler.transform.position = new Vector2(0, player.position.y);
+                disabler.position = new Vector2(0, player.position.y);
                 timer += Time.deltaTime / Time.timeScale;
                 yield return null;
             }

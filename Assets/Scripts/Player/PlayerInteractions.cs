@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 using Systems;
 
@@ -18,13 +19,16 @@ namespace Player {
     public class PlayerInteractions : MonoBehaviour
     {
         //Reference Variables
+        private Transform player;
+
+        //Configuration Parameters
+        [Header("Death")]
+        [SerializeField] float deathFreezeTime = 0.75f;
+        [SerializeField] float playerDeathDelay = 2.5f;
+        
         [Header("Visual Effects")]
         [SerializeField] GameObject plusOneVFX = null;
         [SerializeField] ParticleSystem deathVFX = null;
-
-        //Configuration Parameters
-        [SerializeField] float deathFreezeTime = 0.75f;
-        [SerializeField] float playerDeathDelay = 2.5f;
 
         //State Variables
         private bool playerAlive = true;
@@ -33,6 +37,14 @@ namespace Player {
         private bool ghostMode = false;
 
         //Internal Methods
+        private void Awake() {
+            GetPlayerTransform();
+        }
+
+        private void GetPlayerTransform() {
+            player = gameObject.transform;
+        }
+
         private void OnTriggerEnter2D(Collider2D other) {
             switch (other.tag) {
                 case "ObstaclePart":
@@ -119,15 +131,15 @@ namespace Player {
 
         private IEnumerator WaitForDeathFreeze() {
             Time.timeScale = 0f;
-            Camera.main.gameObject.GetComponent<PlayerFollow>().DeathZoomAnimation(deathFreezeTime, transform.position);
+            Camera.main.gameObject.GetComponent<PlayerFollow>().DeathZoomAnimation(deathFreezeTime, player.position);
             yield return new WaitForSecondsRealtime(deathFreezeTime);
             Time.timeScale = 1f;
         }
 
         private void SpawnDeathVFX() {
-            Instantiate(deathVFX, transform.position, transform.rotation);
-            transform.GetChild(0).gameObject.SetActive(false);
-            transform.GetChild(1).gameObject.SetActive(false);
+            Instantiate(deathVFX, player.position, player.rotation);
+            player.GetChild(0).gameObject.SetActive(false);
+            player.GetChild(1).gameObject.SetActive(false);
         }
 
         private void ShakeScreen() {
@@ -149,7 +161,7 @@ namespace Player {
         }
         #region NearMiss Helper Functions
         private void SpawnPlusOneSprite() {
-            GameObject plusOne = Instantiate(plusOneVFX, transform.position, Quaternion.identity);
+            GameObject plusOne = Instantiate(plusOneVFX, player.position, Quaternion.identity);
             Destroy(plusOne, 2f);
         }
         #endregion

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 using CameraFeatures;
 
@@ -16,15 +17,26 @@ namespace Collectables {
         [SerializeField] protected ParticleSystem modifierCollectVFX = null;
         [SerializeField] protected float modifierDuration = 15f;
         [SerializeField] protected string modifierName = "!";
-
+        
+        //State Variables
+        private Transform modifier;
+        
         //Internal Methods
+        private void Awake() {
+            GetModifierTransform();
+        }
+
+        private void GetModifierTransform() {
+            modifier = gameObject.transform;
+        }
+
         protected void Start() {
             ResizeModifier();
         }
 
         private void ResizeModifier() {
             float aspectMultiplier = Camera.main.aspect * 16 / 9;
-            transform.localScale *= aspectMultiplier;
+            modifier.localScale *= aspectMultiplier;
         }
 
         protected void OnTriggerEnter2D(Collider2D otherCollider) {
@@ -52,7 +64,7 @@ namespace Collectables {
         }
 
         protected void SpawnCollectVFX() {
-            GameObject modifierVFX = Instantiate(modifierCollectVFX, transform.position, transform.rotation).gameObject;
+            GameObject modifierVFX = Instantiate(modifierCollectVFX, modifier.position, modifier.rotation).gameObject;
             Destroy(modifierVFX.gameObject, 1f);
         }
 

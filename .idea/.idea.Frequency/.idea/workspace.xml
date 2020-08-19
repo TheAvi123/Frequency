@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,70 +23,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0915abb8-f0be-4d19-8325-53001627f9b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Game_Intro.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Game_Intro.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Game_Movement.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Game_Movement.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Game_Objective.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Game_Objective.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Tap_Intro.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Tap_Intro.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Intro.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Intro.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Intro.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Intro.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/VersionControlSettings.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/contentModel.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/User Interface.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/User Interface/Buttons.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Fonts/BaseColorNumberSDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BaseColorNumberSDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Fonts/BaseColorTextSDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BaseColorTextSDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Materials/BaseColor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/BaseColor.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Overlays and Canvases/PlayScene/GameOverlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Overlays and Canvases/PlayScene/GameOverlay.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Overlays and Canvases/PlayScene/PauseOverlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Overlays and Canvases/PlayScene/PauseOverlay.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Overlays and Canvases/Statistics/AchievementCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Overlays and Canvases/Statistics/AchievementCanvas.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/GameSystems.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/GameSystems.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/TutorialSystems.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/TutorialSystems.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Tap_Intro.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Tap_Intro.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Dash_Intro.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Dash_Intro.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/03_Delay_Intro.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/03_Delay_Intro.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/GameBackgroundVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/GameBackgroundVFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/MenuBackgroundVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/MenuBackgroundVFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerDeathVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerDeathVFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerRespawnVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerRespawnVFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameOver.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Game_Intro.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Game_Intro.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Game_Movement.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Game_Movement.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Game_Objective.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Game_Objective.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Tap_Intro.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Tap_Intro.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Intro.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Intro.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Intro.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Intro.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Statistics.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Statistics.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ColorGradients/GradientMesh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ColorGradients/GradientMesh.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicPlayer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicPlayer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraFollow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraShaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraShaker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Coin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Coin.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/CoinMagnet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/CoinMagnet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/ModifierGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/ModifierGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/CoinMagnetModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/CoinMagnetModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/NoCoinsModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/NoCoinsModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/ShieldModifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/ShieldModifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstacleGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstacleGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstaclePooler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstaclePooler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAbilityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAbilityManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementInterface.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementInterface.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Statistics/CoinManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Statistics/CoinManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Statistics/ScoreManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Statistics/ScoreManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Statistics/StatsManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Statistics/StatsManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementInterface.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegment.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/OverlaySwitcher.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/OverlaySwitcher.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +96,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputControllers/InputController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputControllers/MouseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputControllers/TouchController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49F4E7E7-91CC-4FFF-ACD8-8F729E2B1E4C/8e/ae95487d/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputControllers/GameControllers/GameMouseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputControllers/GameControllers/GameTouchController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicPlayer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -137,6 +119,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/MenuButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/MuteButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/Shield.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49F4E7E7-91CC-4FFF-ACD8-8F729E2B1E4C/e7/d07b52b8/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/CoinMagnet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/VFXFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/NoCoinsModifier.cs" root0="FORCE_HIGHLIGHTING" />
@@ -174,41 +157,28 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Coin.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/CoinMagnet.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/CoinDisabler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/Shield.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/SlowDownModifier.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifier.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ColorGradients/BaseColorChanger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Music/MusicPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/Singleton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/StatsButton.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterface/ImageRotator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterface/OverlaySwitcher.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputControllers/MouseController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InputControllers/TouchController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstacleGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/SaveData.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAbilityManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/Achievement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/GameStateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/SpeedUpModifier.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraShaker.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/ModifierManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/ModifierGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstaclePooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/CoinManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/ScoreManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/StatsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/SceneChangeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterface/InfoDisplayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementInterface.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/PauseButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialPartSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/SettingsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/PersistenceManager.cs" />
@@ -216,11 +186,28 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialPopUp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ParticleSystems/RespawnParticleMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ColorGradients/GradientMesh.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/ScoreManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegment.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraFollow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraFeatures/CameraShaker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/CoinMagnet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/CoinMagnetModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/NoCoinsModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/ShieldModifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Coin.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifier.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/ModifierGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstacleGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstaclePooler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAbilityManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementInterface.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractions.cs" />
       </list>
     </option>
   </component>
@@ -288,7 +275,7 @@
       <workItem from="1597510459143" duration="37000" />
       <workItem from="1597510967106" duration="6264000" />
       <workItem from="1597560017590" duration="26313000" />
-      <workItem from="1597763272830" duration="3003000" />
+      <workItem from="1597763272830" duration="15534000" />
     </task>
     <servers />
   </component>
@@ -387,9 +374,13 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="93" y="93" width="1350" height="678" key="VCS.FileHistoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1597589912848" />
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1597027315936">
+    <state x="439" y="31" width="657" height="801" key="find.popup" timestamp="1597835603293">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="431" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1597027315936" />
+    <state x="439" y="31" width="657" height="801" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1597835603293" />
+    <state x="472" y="102" width="672" height="678" key="search.everywhere.popup" timestamp="1597832119836">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="472" y="102" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1597832119836" />
   </component>
 </project>

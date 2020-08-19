@@ -6,6 +6,8 @@ namespace CameraFeatures {
     {
         //Reference Variables
         private Camera cam = null;
+        private Transform cameraTransform = null;
+        private Transform objectTransform = null;
 
         //State Variables
         private Vector3 currentPosition;
@@ -28,20 +30,27 @@ namespace CameraFeatures {
         //Internal Methods
         private void Awake() {
             FindCameraObject();
+            GetObjectTransform();
             SetupPositionParameters();
             SetVerticalOffset();
         }
 
         private void FindCameraObject() {
             cam = Camera.main;
-            if (!cam) {
+            if (cam is null) {
                 Debug.LogError("No Main Camera Found!");
                 enabled = false;
+            } else {
+                cameraTransform = cam.transform;
             }
         }
 
+        private void GetObjectTransform() {
+            objectTransform = gameObject.transform;
+        }
+
         private void SetupPositionParameters() {
-            currentPosition = transform.position;
+            currentPosition = objectTransform.position;
         }
 
         private void SetVerticalOffset() {
@@ -53,8 +62,8 @@ namespace CameraFeatures {
         }
 
         private void UpdatePosition() {
-            currentPosition.y = cam.transform.position.y + yOffset;
-            transform.position = currentPosition;
+            currentPosition.y = cameraTransform.position.y + yOffset;
+            objectTransform.position = currentPosition;
         }
     }
 }

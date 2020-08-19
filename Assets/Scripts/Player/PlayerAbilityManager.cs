@@ -47,9 +47,9 @@ namespace Player {
         }
 
         private void FindCooldownDisplays() {
-            GameObject gameOverlay = GameObject.Find("GameOverlay");
-            dashDisplay = gameOverlay.transform.Find("DashDisplay").GetComponent<TextMeshProUGUI>();
-            delayDisplay = gameOverlay.transform.Find("DelayDisplay").GetComponent<TextMeshProUGUI>();
+            Transform gameOverlay = GameObject.Find("GameOverlay").transform;
+            dashDisplay = gameOverlay.Find("DashDisplay").GetComponent<TextMeshProUGUI>();
+            delayDisplay = gameOverlay.Find("DelayDisplay").GetComponent<TextMeshProUGUI>();
             dashCooldownBar = dashDisplay.transform.Find("DashCooldown").GetComponent<Image>();
             delayCooldownBar = delayDisplay.transform.Find("DelayCooldown").GetComponent<Image>();
         }

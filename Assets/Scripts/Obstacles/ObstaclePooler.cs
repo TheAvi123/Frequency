@@ -7,6 +7,9 @@ namespace Obstacles {
     public class ObstaclePooler : MonoBehaviour
     {
         public static ObstaclePooler sharedInstance;
+        
+        //Reference Variables
+        private Transform poolTransform;
 
         //Collections
         private Dictionary<int, Queue<Obstacle>> obstaclePools;
@@ -18,6 +21,7 @@ namespace Obstacles {
         private void Awake() {
             SetObstaclePoolerInstance();
             InstantiateDictionary();
+            GetPoolTransform();
         }
 
         private void SetObstaclePoolerInstance() {
@@ -28,6 +32,10 @@ namespace Obstacles {
             obstaclePools = new Dictionary<int, Queue<Obstacle>>();
         }
 
+        private void GetPoolTransform() {
+            poolTransform = gameObject.transform;
+        }
+
         //Public Methods
         public void CreateEmptyPool(Obstacle obstacle) {
             obstaclePools.Add(obstacle.obstacleID, new Queue<Obstacle>());
@@ -35,7 +43,7 @@ namespace Obstacles {
 
         public void AddToPool(Obstacle obstacle) {
             obstacle.gameObject.SetActive(false);
-            obstacle.transform.SetParent(gameObject.transform);
+            obstacle.transform.SetParent(poolTransform);
             try {
                 currentQueue = obstaclePools[obstacle.obstacleID];
                 currentQueue.Enqueue(obstacle);

@@ -13,13 +13,13 @@ namespace Collectables.Modifiers {
         [SerializeField] GameObject shieldPrefab = null;
 
         //State Variables
-        private GameObject shield = null;
+        private Transform shield = null;
 
         //Internal Methods
         protected override IEnumerator ModifierEffect() {
             Transform player = FindObjectOfType<PlayerWave>().transform;
-            shield = Instantiate(shieldPrefab, player.position, player.rotation).gameObject;
-            shield.transform.SetParent(player);
+            shield = Instantiate(shieldPrefab, player.position, player.rotation).gameObject.transform;
+            shield.SetParent(player);
             float timer = 0f;
             while (timer <= modifierDuration) {
                 timer += Time.deltaTime / Time.timeScale;

@@ -10,6 +10,8 @@ namespace Player {
     {
         //Reference Variables
         private PlayerWave player = null;
+        private Transform playerTransform;
+        private Transform follower;
 
         //Configuration Parameters
         [Header("Player")]
@@ -37,12 +39,22 @@ namespace Player {
 
         private void FindPlayerObject() {
             player = FindObjectOfType<PlayerWave>();
-            if (!player) {
+            if (player is null) {
                 Debug.LogError("No Player Object Found To Follow");
                 enabled = false;        //Disable This Component
+            } else {
+                playerTransform = player.transform;
             }
         }
+        
+        private void Awake() {
+            GetPlayerTransform();
+        }
 
+        private void GetPlayerTransform() {
+            follower = gameObject.transform;
+        }
+        
         private void Start() {
             playerAlive = true;
             followingPlayer = false;
@@ -51,14 +63,14 @@ namespace Player {
         }
 
         private void SetupPositionParameters() {
-            targetPosition = new Vector3(transform.position.x, 0, transform.position.z);
+            targetPosition = new Vector3(follower.position.x, 0, follower.position.z);
         }
 
         private void CalculatePlayerOffsets(Vector2 percentCoordinates) {
             currentOffset = percentCoordinates;
             Vector2 offsetVector = Camera.main.ViewportToWorldPoint(percentCoordinates);
             yOffset = offsetVector.y;
-            cameraOffset = transform.position.y - yOffset;
+            cameraOffset = follower.position.y - yOffset;
         }
 
         private IEnumerator ShiftPlayerOffset(Vector2 targetOffset, float duration) {
@@ -80,10 +92,10 @@ namespace Player {
         private void UpdatePosition() {
             if (playerAlive) {
                 if (followingPlayer) {
-                    targetPosition.y = player.transform.position.y + cameraOffset;
-                    transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+                    targetPosition.y = playerTransform.position.y + cameraOffset;
+                    follower.position = Vector3.Lerp(follower.position, targetPosition, followSpeed * Time.deltaTime);
                 } else {    //Create Initial Delay Before Following Player
-                    if (player.transform.position.y > yOffset) {
+                    if (playerTransform.position.y > yOffset) {
                         SetupCameraOffset();
                         followingPlayer = true;
                         ScoreManager.sharedInstance.StartIncreasingScore();
@@ -93,7 +105,7 @@ namespace Player {
         }
 
         private void SetupCameraOffset() {
-            cameraOffset = transform.position.y - player.transform.position.y;
+            cameraOffset = follower.position.y - playerTransform.position.y;
         }
 
         [SuppressMessage("ReSharper", "Unity.PerformanceCriticalCodeCameraMain")]
@@ -101,16 +113,16 @@ namespace Player {
         private IEnumerator ZoomAnimation(float freezeTime, Vector3 deathPosition) {
             Camera mainCam = Camera.main;
             float originalSize = mainCam.orthographicSize;
-            Vector3 originalPosition = transform.localPosition;
+            Vector3 originalPosition = follower.localPosition;
             deathPosition.z = originalPosition.z;
             float initialTime = Time.realtimeSinceStartup;
             while (Time.realtimeSinceStartup - initialTime < freezeTime) {
-                transform.localPosition = Vector3.Lerp(transform.localPosition, deathPosition, zoomLerpConstant / 3);
+                follower.localPosition = Vector3.Lerp(follower.localPosition, deathPosition, zoomLerpConstant / 3);
                 mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, originalSize * zoomFactor, zoomLerpConstant / 3);
                 yield return null;
             }
             while (Mathf.Abs(originalSize - mainCam.orthographicSize) > 0.01f) {
-                transform.localPosition = Vector3.Lerp(transform.localPosition, originalPosition, zoomLerpConstant);
+                follower.localPosition = Vector3.Lerp(follower.localPosition, originalPosition, zoomLerpConstant);
                 mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, originalSize, zoomLerpConstant);
                 yield return null;
             }

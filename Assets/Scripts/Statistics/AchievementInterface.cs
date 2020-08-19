@@ -20,11 +20,12 @@ namespace Statistics {
 
         //Internal Methods
         private void FindInterfaceFields() {
-            achievementName = transform.Find("Name").GetComponent<TextMeshProUGUI>();
-            description = transform.Find("Description").GetComponent<TextMeshProUGUI>();
-            coinReward = transform.Find("CoinAmount").GetComponent<TextMeshProUGUI>();
-            checkSprite = transform.Find("CheckSprite").GetComponent<Image>();
-            coinSprite = transform.Find("CoinSprite").GetComponent<Image>();
+            Transform interfaceTransform = gameObject.transform;
+            achievementName = interfaceTransform.Find("Name").GetComponent<TextMeshProUGUI>();
+            description = interfaceTransform.Find("Description").GetComponent<TextMeshProUGUI>();
+            coinReward = interfaceTransform.Find("CoinAmount").GetComponent<TextMeshProUGUI>();
+            checkSprite = interfaceTransform.Find("CheckSprite").GetComponent<Image>();
+            coinSprite = interfaceTransform.Find("CoinSprite").GetComponent<Image>();
         }
         
         private void SetParameters(bool completed) {

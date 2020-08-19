@@ -4,6 +4,9 @@ namespace Collectables {
     public class ModifierGenerator : MonoBehaviour
     {
         public static ModifierGenerator sharedInstance;
+        
+        //Reference Variables
+        private Transform generatorTransform;
 
         //Configuration Parameters
         [SerializeField] Modifier[] modifierArray = null;
@@ -17,6 +20,7 @@ namespace Collectables {
         private void Awake() {
             SetSharedInstance();
             CheckModifierArray();
+            GetGeneratorTransform();
             SetSpawnDelay();
         }
 
@@ -29,6 +33,10 @@ namespace Collectables {
                 enabled = false;
                 Debug.LogError("No Modifiers Specified in Manager Array");
             }
+        }
+        
+        private void GetGeneratorTransform() {
+            generatorTransform = gameObject.transform;
         }
 
         private void SetSpawnDelay() {
@@ -50,7 +58,7 @@ namespace Collectables {
             spawnTimer = modifierSpawnDelay;
             Modifier modifierToSpawn = modifierArray[Random.Range(0, modifierArray.Length)];
             Modifier modifier = Instantiate(modifierToSpawn, spawnPosition, Quaternion.identity);
-            modifier.gameObject.transform.SetParent(gameObject.transform);
+            modifier.transform.SetParent(generatorTransform);
         }
 
         private Vector3 CalculateSpawnPosition(Transform obstacle, Vector3 spawn) {

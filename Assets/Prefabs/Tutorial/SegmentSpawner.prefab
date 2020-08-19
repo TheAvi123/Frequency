@@ -43,10 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2310b28edde484fa4c29de08d8204e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentList:
-  - {fileID: 6547141440973221450, guid: f076f3a7396baa74195c87b082d47599, type: 3}
-  - {fileID: 7773800726108684937, guid: 4fcd3aa3825199b4397c4dbaba9fadb9, type: 3}
-  - {fileID: 189024386229629610, guid: 33b60a989dee77240afcece677674634, type: 3}
+  segmentList: []
   zPosition: 10
   lockedZoneOffset: {x: 0.5, y: 0.4}
   freeZoneOffset: {x: 0.5, y: 0.25}

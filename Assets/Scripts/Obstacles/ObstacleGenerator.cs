@@ -15,13 +15,14 @@ namespace Obstacles {
 
         //Reference Variables
         private PlayerWave player;
+        private Transform playerTransform;
         private ScoreManager scoreManager;
 
         //Obstacle Parent Folders
-        private GameObject easyFolder;
-        private GameObject mediumFolder;
-        private GameObject hardFolder;
-        private GameObject veryHardFolder;
+        private Transform easyFolder;
+        private Transform mediumFolder;
+        private Transform hardFolder;
+        private Transform veryHardFolder;
 
         [Header("Obstacle Prefabs")]
         [SerializeField] private Obstacle[] easyObstacles = null;
@@ -56,8 +57,8 @@ namespace Obstacles {
 
         //Obstacle State Variables
         private Obstacle[] currentObstacleList;
-        private GameObject currentObstacleFolder;
-        private GameObject currentObstacle;
+        private Transform currentObstacleFolder;
+        private Transform currentObstacle;
         private Vector3 lastEndPosition;
 
         //Internal Methods
@@ -70,9 +71,11 @@ namespace Obstacles {
 
         private void FindPlayerObject() {
             player = FindObjectOfType<PlayerWave>();
-            if (!player) {
+            if (player is null) {
                 Debug.LogError("No Player Object Found");
                 gameObject.SetActive(false);    //Disable Object
+            } else {
+                playerTransform = player.transform;
             }
         }
 
@@ -84,10 +87,11 @@ namespace Obstacles {
         }
 
         private void SetObstacleFolders() {
-            easyFolder = transform.GetChild(1).gameObject;
-            mediumFolder = transform.GetChild(2).gameObject;
-            hardFolder = transform.GetChild(3).gameObject;
-            veryHardFolder = transform.GetChild(4).gameObject;
+            Transform generator = gameObject.transform;
+            easyFolder = generator.GetChild(1);
+            mediumFolder = generator.GetChild(2);
+            hardFolder = generator.GetChild(3);
+            veryHardFolder = generator.GetChild(4);
         }
 
         private void PrefabChecks() {
@@ -128,9 +132,9 @@ namespace Obstacles {
 
         private void SpawnFirstObstacle() {
             currentIndex = Random.Range(0, easyObstacles.Length);       //Always Spawn Easy Obstacle First
-            GameObject obstacle = Instantiate(easyObstacles[currentIndex].gameObject, startSpawnPostion);
-            obstacle.transform.parent = easyFolder.transform;           //Set Parent as Easy Folder for Organization
-            lastEndPosition = obstacle.transform.Find("EndPosition").position;
+            Transform obstacle = Instantiate(easyObstacles[currentIndex].gameObject, startSpawnPostion).transform;
+            obstacle.parent = easyFolder;           //Set Parent as Easy Folder for Organization
+            lastEndPosition = obstacle.Find("EndPosition").position;
         }
 
         private void Update() {
@@ -139,7 +143,7 @@ namespace Obstacles {
         }
 
         private void SpawnTriggerCheck() {
-            if (lastEndPosition.y - player.transform.position.y <= spawnTriggerDistance) {
+            if (lastEndPosition.y - playerTransform.position.y <= spawnTriggerDistance) {
                 ChooseObstacleDifficulty();
                 SetObstacleListAndFolder();
                 AddRandomSpacing();
@@ -205,19 +209,19 @@ namespace Obstacles {
             currentIndex = Random.Range(0, currentObstacleList.Length);
             currentObstacle = currentObstacleList[currentIndex].GetInstanceFromPool();
             if (currentObstacle) {  //Instance Available in Obstacle Pool
-                currentObstacle.transform.position = lastEndPosition;
-                currentObstacle.SetActive(true);
+                currentObstacle.position = lastEndPosition;
+                currentObstacle.gameObject.SetActive(true);
                 SetObstacleProperties(currentObstacle);
             } else {  //No Instance Available in Obstacle Pool
-                currentObstacle = currentObstacleList[currentIndex].gameObject;
-                GameObject obstacle = Instantiate(currentObstacle, lastEndPosition, Quaternion.identity);
+                currentObstacle = currentObstacleList[currentIndex].gameObject.transform;
+                Transform obstacle = Instantiate(currentObstacle, lastEndPosition, Quaternion.identity);
                 SetObstacleProperties(obstacle);
             }
         }
 
-        private void SetObstacleProperties(GameObject obstacle) {
-            obstacle.transform.SetParent(currentObstacleFolder.transform);
-            lastEndPosition = obstacle.transform.Find("EndPosition").position;
+        private void SetObstacleProperties(Transform obstacle) {
+            obstacle.SetParent(currentObstacleFolder);
+            lastEndPosition = obstacle.Find("EndPosition").position;
         }
 
         private void UpdateMaxDifficulty() {

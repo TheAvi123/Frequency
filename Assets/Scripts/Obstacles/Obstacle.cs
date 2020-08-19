@@ -12,6 +12,9 @@ namespace Obstacles {
     {
         //Identity Variables
         [SerializeField] public int obstacleID = 0;
+        
+        //Reference Variables
+        private Transform obstacleTransform;
 
         //Configuration Parameters
         [SerializeField] private int minCoins = 0, maxCoins = 0;
@@ -26,6 +29,7 @@ namespace Obstacles {
         private void Awake() {
             FindCoinPrefabs();
             InitializeSpawnList();
+            GetObstacleTransform();
         }
 
         private void FindCoinPrefabs() {
@@ -35,6 +39,10 @@ namespace Obstacles {
 
         private void InitializeSpawnList() {
             coinsSpawned = new List<Coin>();
+        }
+
+        private void GetObstacleTransform() {
+            obstacleTransform = gameObject.transform;
         }
 
         private void OnEnable() {
@@ -57,8 +65,9 @@ namespace Obstacles {
         }
 
         private void EnableAllObstacleParts() {
-            for (int i = 0; i < transform.childCount; i++) {
-                transform.GetChild(i).gameObject.SetActive(true);
+            int childCount = obstacleTransform.childCount;
+            for (int i = 0; i < childCount; i++) {
+                obstacleTransform.GetChild(i).gameObject.SetActive(true);
             }
         }
 
@@ -70,9 +79,10 @@ namespace Obstacles {
         }
 
         private void SpawnModifiers() {
-            for (int i = 0; i < transform.childCount; i++) {
-                if (transform.GetChild(i).CompareTag("ModifierSpawn")) {
-                    ModifierGenerator.sharedInstance.SetAvailableSpawn(gameObject.transform, transform.GetChild(i).localPosition);
+            int childCount = obstacleTransform.childCount;
+            for (int i = 0; i < childCount; i++) {
+                if (obstacleTransform.GetChild(i).CompareTag("ModifierSpawn")) {
+                    ModifierGenerator.sharedInstance.SetAvailableSpawn(obstacleTransform, obstacleTransform.GetChild(i).localPosition);
                 }
             }
         }
@@ -111,7 +121,7 @@ namespace Obstacles {
 
         private void ResizeObstacle() {
             float aspectMultiplier = Camera.main.aspect * 16 / 9;
-            transform.localScale *= aspectMultiplier;
+            obstacleTransform.localScale *= aspectMultiplier;
         }
 
         //Collision Methods
@@ -122,9 +132,9 @@ namespace Obstacles {
         }
 
         //Public Methods
-        public GameObject GetInstanceFromPool() {
+        public Transform GetInstanceFromPool() {
             try {
-                return ObstaclePooler.sharedInstance.GetFromPool(this).gameObject;
+                return ObstaclePooler.sharedInstance.GetFromPool(this).transform;
             } catch (NullReferenceException) {
                 return null;
             }

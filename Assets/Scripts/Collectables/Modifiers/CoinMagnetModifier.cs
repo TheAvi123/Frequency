@@ -14,15 +14,15 @@ namespace Collectables.Modifiers {
 
         //State Variables
         private Transform player = null;
-        private GameObject magnet = null;
+        private Transform magnet = null;
 
         //Internal Methods
         protected override IEnumerator ModifierEffect() {
-            magnet = Instantiate(coinMagnetPrefab).gameObject;
+            magnet = Instantiate(coinMagnetPrefab).gameObject.transform;
             player = FindObjectOfType<PlayerWave>().transform;
             float timer = 0f;
             while (timer <= modifierDuration) {
-                magnet.transform.position = player.position;
+                magnet.position = player.position;
                 timer += Time.deltaTime / Time.timeScale;
                 yield return null;
             }
@@ -32,7 +32,7 @@ namespace Collectables.Modifiers {
         private IEnumerator EndMagnetEffects() {
             magnet.GetComponent<CoinMagnet>().StopAttracting();
             while (magnet) {
-                magnet.transform.position = player.position;
+                magnet.position = player.position;
                 yield return null;
             }
             ExpireModifier();

@@ -4,8 +4,6 @@ using InputControllers;
 
 using Player;
 
-using TMPro;
-
 using UnityEngine;
 
 namespace Tutorial {
@@ -92,8 +90,9 @@ namespace Tutorial {
 
         private IEnumerator DisableInterfaceElements() {
             yield return new WaitForEndOfFrame();
-            for (int i = 0; i < gameOverlay.transform.childCount; i++) {
-                gameOverlay.transform.GetChild(i).gameObject.SetActive(false);
+            Transform overlay = gameOverlay.transform;
+            for (int i = 0; i < overlay.childCount; i++) {
+                overlay.GetChild(i).gameObject.SetActive(false);
             }
         }
 
@@ -101,20 +100,13 @@ namespace Tutorial {
             player.SetFrequencyToOne();
         }
 
-        private IEnumerator LerpTime(float delay, float targetScale, TutorialSegment segment) {
+        private IEnumerator LerpTimeScale(float delay, float targetScale) {
             yield return new WaitForSecondsRealtime(delay);
             float initialScale = Time.timeScale;
             float startTime = Time.realtimeSinceStartup;
-            TextMeshProUGUI[] textArray = new TextMeshProUGUI[0];
-            if (segment) {
-                textArray = segment.GetFadeTextArray();
-            }
             while (Time.realtimeSinceStartup - startTime < lerpDuration) {
                 float lerpConstant = Mathf.Sqrt((Time.realtimeSinceStartup - startTime) / lerpDuration);
                 Time.timeScale = Mathf.Lerp(initialScale, targetScale, lerpConstant);
-                foreach (TextMeshProUGUI text in textArray) {
-                    text.color = Color.Lerp(Color.clear, Color.black, lerpConstant);
-                }
                 yield return null;
             }
             Time.timeScale = targetScale;
@@ -122,19 +114,23 @@ namespace Tutorial {
         }
 
         //Public Methods
-        public void FreezeTime(float delay, TutorialSegment segment) {
+        public void FreezeTime(float delay) {
             if (timeCoroutine == null) {
-                timeCoroutine = StartCoroutine(LerpTime(delay, 0f, segment));
+                timeCoroutine = StartCoroutine(LerpTimeScale(delay, 0f));
             } else {
                 Debug.LogWarning("Time Coroutine Already In Progress");
+                StopCoroutine(timeCoroutine);
+                timeCoroutine = StartCoroutine(LerpTimeScale(delay, 0f));
             }
         }
 
         public void ResumeTime() {
             if (timeCoroutine == null) {
-                timeCoroutine = StartCoroutine(LerpTime(0f, 1f, null));
+                timeCoroutine = StartCoroutine(LerpTimeScale(0f, 1f));
             } else {
                 Debug.LogWarning("Time Coroutine Already In Progress");
+                StopCoroutine(timeCoroutine);
+                timeCoroutine = StartCoroutine(LerpTimeScale(0f, 1f));
             }
         }
 

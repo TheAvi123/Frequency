@@ -4,6 +4,9 @@ namespace CameraFeatures {
     public class CameraShaker : MonoBehaviour
     {
         public static CameraShaker sharedInstance;
+        
+        //Reference Variables
+        private Transform cameraTransform = null;
 
         //Configuration Parameters
         [Header("Shake Parameters")]
@@ -20,10 +23,15 @@ namespace CameraFeatures {
         //Internal Methods
         private void Awake() {
             SetSharedInstance();
+            GetCameraTransform();
         }
 
         private void SetSharedInstance() {
             sharedInstance = this;
+        }
+
+        private void GetCameraTransform() {
+            cameraTransform = gameObject.transform;
         }
 
         private void Update() {
@@ -44,8 +52,8 @@ namespace CameraFeatures {
 
         private void MoveAndRotate() {
             Vector3 newPos = GeneratePerlinVector() * (distanceMultiplier * traumaLevel);
-            transform.localPosition = newPos;
-            transform.localRotation = Quaternion.Euler(newPos * rotationMultiplier);
+            cameraTransform.localPosition = newPos;
+            cameraTransform.localRotation = Quaternion.Euler(newPos * rotationMultiplier);
         }
 
         private void DecayTrauma() {
@@ -67,7 +75,6 @@ namespace CameraFeatures {
         }
 
         private void ResetPositionRotation() {
-            var cameraTransform = gameObject.transform;
             cameraTransform.localPosition = Vector3.zero;
             cameraTransform.localEulerAngles = Vector3.zero;
         }

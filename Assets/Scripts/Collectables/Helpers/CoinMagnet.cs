@@ -25,8 +25,9 @@ namespace Collectables.Helpers {
             coinCount++;
             coinObject.GetComponent<Animator>().enabled = false;
             Transform coin = coinObject.gameObject.transform;
+            Transform magnet = gameObject.transform;
             while (coinObject.activeInHierarchy) {
-                coin.position = Vector3.Lerp(coin.position, transform.position, magnetMultiplier * Time.deltaTime);
+                coin.position = Vector3.Lerp(coin.position, magnet.position, magnetMultiplier * Time.deltaTime);
                 yield return null;
             }
             coinCount--;
