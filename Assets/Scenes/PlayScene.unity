@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 1034866050}
   m_Layer: 0
   m_Name: Overlays
-  m_TagString: Untagged
+  m_TagString: OverlayFolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,6 +367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255143850851408841, guid: 833bc17d9587ccc46be287cb910b5fe5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7624605163622638333, guid: 833bc17d9587ccc46be287cb910b5fe5,
         type: 3}

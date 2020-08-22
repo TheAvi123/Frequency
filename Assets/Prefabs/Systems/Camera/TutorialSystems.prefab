@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followSpeed: 5
+  playerOffset: {x: 0.5, y: 0.25}
   zoomLerpConstant: 0.125
   zoomFactor: 0.25
 --- !u!114 &5424149764356864285
@@ -340,4 +341,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae72161d5c18bd24e968ec9f2fdb2387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpDuration: 0.5

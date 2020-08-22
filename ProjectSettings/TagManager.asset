@@ -28,6 +28,8 @@ TagManager:
   - PauseOverlay
   - Overlay
   - TutorialPopUp
+  - TutorialSegment
+  - OverlayFolder
   layers:
   - Default
   - TransparentFX

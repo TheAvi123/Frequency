@@ -67,7 +67,7 @@ namespace Statistics {
         private IEnumerator UpdateCoinDisplay() {
             coinDisplay.gameObject.SetActive(true);
             coinDisplay.text = coinsCollected.ToString();
-            yield return new WaitForSecondsRealtime(coinDisplayTime);
+            yield return new WaitForSeconds(coinDisplayTime);
             coinDisplay.gameObject.SetActive(false);
         }
 

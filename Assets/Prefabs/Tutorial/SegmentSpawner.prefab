@@ -43,8 +43,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2310b28edde484fa4c29de08d8204e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentList: []
   zPosition: 10
-  lockedZoneOffset: {x: 0.5, y: 0.4}
-  freeZoneOffset: {x: 0.5, y: 0.25}
-  offsetChangeDuration: 2.5
+  segmentList:
+  - {fileID: 6547141440973221450, guid: f076f3a7396baa74195c87b082d47599, type: 3}
+  - {fileID: 7773800726108684937, guid: 4fcd3aa3825199b4397c4dbaba9fadb9, type: 3}
+  - {fileID: 189024386229629610, guid: 33b60a989dee77240afcece677674634, type: 3}
+  - {fileID: 1697756126465767394, guid: fa51850ddab435a48864baf752a6ea60, type: 3}
+  - {fileID: 1697756126465767394, guid: dfcfdbaae83a206409e5d6d47c5a70cf, type: 3}
+  - {fileID: 2590026995487321588, guid: b0e47fc1cdaf7dd49a038ac37f1ad002, type: 3}
+  - {fileID: 1697756126465767394, guid: 38c117e546a75f1438bd4f057775c2d0, type: 3}
+  - {fileID: 8068367068241424969, guid: e27b7c47256401642b0962d42e81c389, type: 3}
+  - {fileID: 7773800726108684937, guid: 708d97d7ff3b6714a9b295ae69340104, type: 3}
+  - {fileID: 1697756126465767394, guid: 6ebcad5c4baf79e43b7aa11e07083c8b, type: 3}
+  - {fileID: 6696309718249213437, guid: 4a3865c2852b77e419db43b5ae386da7, type: 3}
+  - {fileID: 7773800726108684937, guid: d3ffb6f7fecb3314b94fb686cd7b2182, type: 3}
+  - {fileID: 189024386229629610, guid: 543c4447a6e33af40944ac6055dd1847, type: 3}
+  - {fileID: 6696309718249213437, guid: 48cb3a84908cef64e9843bfea9938093, type: 3}
+  - {fileID: 7773800726108684937, guid: 748c02f3ef581f14992da3d707d407bd, type: 3}
+  - {fileID: 1697756126465767394, guid: fe6dfbd893fc55142b699f219469bd90, type: 3}
+  - {fileID: 1697756126465767394, guid: dae084fe9c370b14ab5cba8b18b592ea, type: 3}
+  - {fileID: 189024386229629610, guid: 68c5c719b3c261843891adb7fce7ee3d, type: 3}
+  - {fileID: 7773800726108684937, guid: b8d915ff485c2df49b67fd353f25ec67, type: 3}
+  - {fileID: 1697756126465767394, guid: 72ef1307b70d166439cbb661d001dd5a, type: 3}
+  tutorialCameraOffset: {x: 0.5, y: 0.45}

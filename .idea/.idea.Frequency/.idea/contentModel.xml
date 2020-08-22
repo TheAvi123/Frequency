@@ -88,6 +88,14 @@
             <e p="Singleton.cs" t="Include" />
           </e>
           <e p="Tutorial" t="Include">
+            <e p="SegmentTriggers" t="Include">
+              <e p="Segment08Trigger.cs" t="Include" />
+              <e p="Segment11Trigger.cs" t="Include" />
+              <e p="Segment14Trigger.cs" t="Include" />
+              <e p="Segment16Trigger.cs" t="Include" />
+              <e p="SegmentEndTrigger.cs" t="Include" />
+            </e>
+            <e p="TimeFreezer.cs" t="Include" />
             <e p="TutorialManager.cs" t="Include" />
             <e p="TutorialPopUp.cs" t="Include" />
             <e p="TutorialSegment.cs" t="Include" />

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 
+using Systems;
+
 using InputControllers;
 
 using Player;
@@ -12,31 +14,19 @@ namespace Tutorial {
         public static TutorialManager sharedInstance;
 
         //Reference Variables
-        private GameObject gameOverlay;
-        private GameObject pauseOverlay;
+        private Canvas gameOverlay;
         private PlayerWave player;
         
-        //Configuration Parameters
-        [SerializeField] private float lerpDuration = 1.0f;
-
         //State Variables
         [Header("Time Variables")] 
         private Coroutine timeCoroutine;
+        private float lerpDuration = 0.5f;
 
         //Blocking Variables
-        [Header("Abilities")] 
-        private bool flipEnabled = false;
-        private bool dashEnabled = false;
-        private bool delayEnabled = false;
         private bool waitingOnTap = false;
         private bool waitingOnFlip = false;
         private bool waitingOnDash = false;
         private bool waitingOnDelay = false;
-        
-        [Header("User Interface")]
-        private bool scoreDisplayEnabled = false;
-        private bool dashDisplayEnabled = false;
-        private bool delayDisplayEnabled = false;
 
         //Internal Methods
         private void Awake() {
@@ -52,13 +42,11 @@ namespace Tutorial {
         private void FindOverlays() {
             Canvas[] canvasList = Resources.FindObjectsOfTypeAll<Canvas>();
             foreach (Canvas canvas in canvasList) {
-                if (canvas.CompareTag("GameOverlay")) {
-                    gameOverlay = canvas.gameObject;
-                } else if (canvas.CompareTag("PauseOverlay")) {
-                    pauseOverlay = canvas.gameObject;
+                if (canvas.CompareTag("GameOverlay") && canvas.gameObject.activeInHierarchy) {
+                    gameOverlay = canvas;
                 }
             }
-            if (!gameOverlay || !pauseOverlay) {
+            if (!gameOverlay) {
                 Debug.LogError("Canvas or Game Overlay Not Found In Tutorial Scene");
             }
         }
@@ -90,6 +78,7 @@ namespace Tutorial {
 
         private IEnumerator DisableInterfaceElements() {
             yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
             Transform overlay = gameOverlay.transform;
             for (int i = 0; i < overlay.childCount; i++) {
                 overlay.GetChild(i).gameObject.SetActive(false);
@@ -97,14 +86,14 @@ namespace Tutorial {
         }
 
         private void SetPlayerDirection() {
-            player.SetFrequencyToOne();
+            player.SetFrequencyDirection(false);
         }
 
         private IEnumerator LerpTimeScale(float delay, float targetScale) {
             yield return new WaitForSecondsRealtime(delay);
             float initialScale = Time.timeScale;
             float startTime = Time.realtimeSinceStartup;
-            while (Time.realtimeSinceStartup - startTime < lerpDuration) {
+            while (Time.realtimeSinceStartup - startTime <= lerpDuration) {
                 float lerpConstant = Mathf.Sqrt((Time.realtimeSinceStartup - startTime) / lerpDuration);
                 Time.timeScale = Mathf.Lerp(initialScale, targetScale, lerpConstant);
                 yield return null;
@@ -114,7 +103,8 @@ namespace Tutorial {
         }
 
         //Public Methods
-        public void FreezeTime(float delay) {
+        public void FreezeTime(float delay, float triggerLerpDuration) {
+            lerpDuration = triggerLerpDuration;
             if (timeCoroutine == null) {
                 timeCoroutine = StartCoroutine(LerpTimeScale(delay, 0f));
             } else {
@@ -133,32 +123,65 @@ namespace Tutorial {
                 timeCoroutine = StartCoroutine(LerpTimeScale(0f, 1f));
             }
         }
+        
+        public void EndTutorial() {
+            float endDuration = 5f;
+            float offsetDuration = endDuration - 1;
+            ChangeCameraOffset(new Vector2(0f, 1.1f), offsetDuration);
+            StartCoroutine(ReturnToMenu(endDuration, offsetDuration));
+        }
+        
+        //Helper Methods
+        private void ChangeCameraOffset(Vector2 offsetCoordinates, float changeDuration) {
+            PlayerFollow camFollow = Camera.main.GetComponent<PlayerFollow>();
+            if (camFollow) {
+                camFollow.ChangeCameraOffset(offsetCoordinates, changeDuration);
+            } else {
+                Debug.LogWarning("No PlayerFollow Script Found On Main Camera In Tutorial");
+            }
+        }
 
-        //Public Get & Set Methods
-        public void SetFlipEnabled(bool status) {
-            flipEnabled = status;
+        private IEnumerator ReturnToMenu(float endDuration, float offsetDuration) {
+            yield return new WaitForSeconds(offsetDuration);
+            PlayerFollow camFollow = Camera.main.GetComponent<PlayerFollow>();
+            if (camFollow) {
+                camFollow.StopFollowingPlayer();
+            } else {
+                Debug.LogWarning("No PlayerFollow Script Found On Main Camera In Tutorial");
+            }
+            yield return new WaitForSeconds(endDuration - offsetDuration);
+            GameStateManager.sharedInstance.PlayGame();
+        }
+
+        //Ability Methods
+        private void AttemptPlayerFlip() {
+            if (waitingOnTap && timeCoroutine == null) {
+                waitingOnTap = false;
+                ResumeTime();
+            } else if (waitingOnFlip && timeCoroutine == null) {
+                waitingOnFlip = false;
+                ResumeTime();
+                player.Flip();
+            }
+        }
+
+        private void AttemptPlayerDash() {
+            if (waitingOnDash && timeCoroutine == null) {
+                waitingOnDash = false;
+                ResumeTime();
+                player.Dash();
+            }
+        }
+
+        private void AttemptPlayerDelay() {
+            if (waitingOnDelay && timeCoroutine == null) {
+                waitingOnDelay = false;
+                player.Delay();
+                ResumeTime();
+            }
         }
         
-        public void SetDashEnabled(bool status) {
-            dashEnabled = status;
-        }
-        
-        public void SetDelayEnabled(bool status) {
-            delayEnabled = status;
-        }
-        
-        public void SetScoreDisplayEnabled(bool status) {
-            scoreDisplayEnabled = status;
-        }
-        
-        public void SetDashDisplayEnabled(bool status) {
-            dashDisplayEnabled = status;
-        }
-        
-        public void SetDelayDisplayEnabled(bool status) {
-            delayDisplayEnabled = status;
-        }
-        
+        //Public Segment Methods
         public void WaitForTap() {
             waitingOnTap = true;
         }
@@ -175,38 +198,20 @@ namespace Tutorial {
             waitingOnDelay = true;
         }
 
-        //Ability Methods
-        private void AttemptPlayerFlip() {
-            if (waitingOnTap && timeCoroutine == null) {
-                waitingOnTap = false;
-                ResumeTime();
-            } else if (waitingOnFlip && timeCoroutine == null) {
-                waitingOnFlip = false;
-                ResumeTime();
-                player.Flip();
-            } else if (flipEnabled) {
-                player.Flip();
-            }
+        public void EnableDashDisplay() {
+            gameOverlay.transform.Find("DashDisplay").gameObject.SetActive(true);
+        }
+        
+        public void EnableDelayDisplay() {
+            gameOverlay.transform.Find("DelayDisplay").gameObject.SetActive(true);
         }
 
-        private void AttemptPlayerDash() {
-            if (waitingOnDash && timeCoroutine == null) {
-                waitingOnDash = false;
-                ResumeTime();
-                player.Dash();
-            } else if (dashEnabled) {
-                player.Dash();
-            }
+        public void EnableScoreDisplay() {
+            gameOverlay.transform.Find("ScoreDisplay").gameObject.SetActive(true);
         }
-
-        private void AttemptPlayerDelay() {
-            if (waitingOnDelay && timeCoroutine == null) {
-                waitingOnDelay = false;
-                player.Delay();
-                ResumeTime();
-            } else if (delayEnabled) {
-                player.Delay();
-            }
+        
+        public void EnableCoinDisplay() {
+            gameOverlay.transform.Find("CoinDisplay").gameObject.SetActive(true);
         }
     }
 }

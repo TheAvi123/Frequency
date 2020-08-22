@@ -85,7 +85,9 @@ namespace UserInterface {
 
         //Public Methods
         public void DisplayInfo(string text) {
-            StartCoroutine(DisplayText(text));
+            if (gameObject.activeSelf) {
+                StartCoroutine(DisplayText(text));
+            }
         }
 
         public void ClearDisplays() {

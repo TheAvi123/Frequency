@@ -27,7 +27,9 @@ namespace Player {
         [Header("Position")]
         private float xPosition, yPosition;
 
-        [Header("Angle and Direction")]
+        [Header("Angle and Direction")] 
+        private bool trueAngle = true;
+        private float idealAngle = 0;
         private float currentAngle = 0;
         private const float ResetAngle = 2 * Mathf.PI;
 
@@ -100,24 +102,30 @@ namespace Player {
             UpdateAngle();
             SetPosition();
         }
-        
-        //TODO: START DELETE SECTION
-
-        private ArrayList positions = new ArrayList();
-
-        private void OnDrawGizmos() {
-            positions.Add(playerTransform.position);
-            foreach (Vector3 position in positions) {
-                Gizmos.DrawCube(position, new Vector3(0.2f, 0.2f, 0.2f));
-            }
-        }
-        
-        //TODO: END DELETE SECTION
 
         private void UpdateAngle() {
-            currentAngle += Time.deltaTime * frequencyMultiplier * frequencyDirection;
-            if (currentAngle >= ResetAngle) {
+            float tickAmount = Time.deltaTime * frequencyMultiplier * frequencyDirection;
+            currentAngle += tickAmount;
+            if (!trueAngle) {
+                idealAngle += tickAmount;
+                if (Mathf.Abs(currentAngle - ResetAngle) < 0.5f && idealAngle < 0.5f) {
+                    currentAngle -= ResetAngle;
+                }
+                currentAngle = Mathf.Lerp(currentAngle, idealAngle, 2.5f * Time.deltaTime);
+                if (Mathf.Abs(currentAngle - idealAngle) <= 0.01f) {
+                    trueAngle = true;
+                }
+            }
+            if (frequencyDirection == 1 && currentAngle >= ResetAngle) {
                 currentAngle -= ResetAngle;
+                if (!trueAngle) {
+                    idealAngle -= ResetAngle;
+                }
+            } else if (frequencyDirection == -1 && currentAngle <= 0) {
+                currentAngle += ResetAngle;
+                if (!trueAngle) {
+                    idealAngle += ResetAngle;
+                }
             }
         }
 
@@ -186,8 +194,17 @@ namespace Player {
         }
 
         //Public Methods
-        public void SetFrequencyToOne() {
-            frequencyDirection = 1;
+        public void SetFrequencyDirection(bool positive) {
+            if (positive) {
+                frequencyDirection = 1;
+            } else {
+                frequencyDirection = -1;
+            }
+        }
+
+        public void SetIdealAngle(float radianAngle) {
+            trueAngle = false;
+            idealAngle = radianAngle * Mathf.PI;
         }
 
         public float GetVerticalSpeed() {

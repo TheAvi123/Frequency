@@ -199,5 +199,34 @@ namespace Player {
         public void SetRemovedCooldown(bool status) {
             removedCooldown = status;
         }
+
+        public void ResetCooldowns() {
+            if (!removedCooldown) {
+                removedCooldown = true;
+                SetDashTicker();
+                SetDelayTicker();
+                removedCooldown = false;
+            }
+        }
+
+        public void TriggerCooldowns() {
+            //Dash Variables Set
+            SetDashTicker();
+            dashReady = false;
+            displayColor = dashDisplay.color;
+            displayColor.a = cooldownAlpha;
+            dashDisplay.color = displayColor;
+            dashCooldownBar.fillAmount = 0f;
+            dashCooldownBar.gameObject.SetActive(true);
+            //Delay Variables Set
+            SetDelayTicker();
+            delayReady = false;
+            displayColor = delayDisplay.color;
+            displayColor.a = cooldownAlpha;
+            delayDisplay.color = displayColor;
+            delayCooldownBar.fillAmount = 0f;
+            delayCooldownBar.gameObject.SetActive(true);
+
+        }
     }
 }

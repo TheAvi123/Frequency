@@ -141,5 +141,9 @@ namespace Player {
                 CalculatePlayerOffsets(offsetCoordinates);
             }
         }
+
+        public void StopFollowingPlayer() {
+            followingPlayer = false;
+        }
     }
 }

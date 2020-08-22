@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // ReSharper disable CompareOfFloatsByEqualityOperator
 namespace UserInterface.Buttons {
     public class PauseButton : MonoBehaviour
     {
         //Reference Variables
-        private Canvas gameOverlay;
-        private Canvas pauseOverlay;
+        private GameObject gameOverlay;
+        private GameObject pauseOverlay;
 
         //Configuration Parameter
         [SerializeField] bool pausePart = true;
@@ -21,20 +24,25 @@ namespace UserInterface.Buttons {
         }
 
         private void FindOverlays() {
-            Canvas[] canvasList = Resources.FindObjectsOfTypeAll<Canvas>();
-            foreach (Canvas canvas in canvasList) {
-                if (canvas.CompareTag("GameOverlay")) {
-                    gameOverlay = canvas;
-                } else if (canvas.CompareTag("PauseOverlay")) {
-                    pauseOverlay = canvas;
+            GameObject[] rootGameObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+            foreach (GameObject rootObject in rootGameObjects) {
+                if (rootObject.CompareTag("OverlayFolder")) {
+                    // ReSharper disable once PossibleInvalidCastExceptionInForeachLoop
+                    foreach (Canvas canvas in rootObject.GetComponentsInChildren(typeof(Canvas), true)) {
+                        if (canvas.CompareTag("GameOverlay")) {
+                            gameOverlay = canvas.gameObject;
+                        } else if (canvas.CompareTag("PauseOverlay")) {
+                            pauseOverlay = canvas.gameObject;
+                        }
+                    }
                 }
             }
         }
 
         private void InitializedOverlays() {
             if (pausePart) {
-                gameOverlay.gameObject.SetActive(true);
-                pauseOverlay.gameObject.SetActive(false);
+                gameOverlay.SetActive(true);
+                pauseOverlay.SetActive(false);
                 _paused = false;
                 if (Time.timeScale != 1f) {
                     Debug.LogError("Time Not At Regular Scale: " + Time.timeScale.ToString("F2"));
@@ -46,8 +54,8 @@ namespace UserInterface.Buttons {
         private void OnMouseDown() {
             if (pausePart) {
                 if (!_paused) {
-                    pauseOverlay.gameObject.SetActive(true);
-                    gameOverlay.gameObject.SetActive(false);
+                    pauseOverlay.SetActive(true);
+                    gameOverlay.SetActive(false);
                     _timeScale = Time.timeScale;
                     Time.timeScale = 0;
                     _paused = true;
@@ -56,8 +64,8 @@ namespace UserInterface.Buttons {
                 if (_paused) {
                     _paused = false;
                     Time.timeScale = _timeScale;
-                    gameOverlay.gameObject.SetActive(true);
-                    pauseOverlay.gameObject.SetActive(false);
+                    gameOverlay.SetActive(true);
+                    pauseOverlay.SetActive(false);
                 }
             }
         }
