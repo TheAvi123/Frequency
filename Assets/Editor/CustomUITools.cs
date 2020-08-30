@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Editor {
+namespace EditorScripts {
 	public class CustomUITools : MonoBehaviour {
 
 		[MenuItem("Custom Tools/UI/Set Anchors To Corners")]

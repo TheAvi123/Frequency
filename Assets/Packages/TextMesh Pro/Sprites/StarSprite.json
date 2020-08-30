@@ -1,0 +1,21 @@
+{"frames": [
+{
+	"filename": "StarSprite.png",
+	"frame": {"x":0,"y":0,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512},
+	"pivot": {"x":0.5,"y":0}
+}
+],
+"meta": {
+	"app": "N/A",
+	"version": "1.0",
+	"image": "StarSprite.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:196a26a2e149d875b91ffc8fa3581e76:fc928c7e275404b7e0649307410475cb:424723c3774975ddb2053fd5c4b85f6e$"
+}
+}

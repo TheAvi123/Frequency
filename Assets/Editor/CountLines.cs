@@ -4,7 +4,7 @@ using UnityEditor;
 
 using UnityEngine;
 
-namespace Editor {
+namespace EditorScripts {
 	public class CountLines : EditorWindow
 	{
 		System.Text.StringBuilder strStats;

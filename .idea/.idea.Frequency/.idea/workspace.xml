@@ -23,111 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0915abb8-f0be-4d19-8325-53001627f9b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Obstacles/FadingRectangle.anim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Obstacles/FadingRectangle.anim.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Obstacles/FadingRectangle.controller" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Animations/Obstacles/FadingRectangle.controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2009_SideSpikes.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2009_SideSpikes.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2010_FadingRectangle.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2010_FadingRectangle.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Intro_Welcome.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Intro_Welcome.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Intro_Movement.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Intro_Movement.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Intro_Objective.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Intro_Objective.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/03_Flip_Title.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/03_Flip_Title.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Flip_Single.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Flip_Single.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/05_Flip_Multiple.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/05_Flip_Multiple.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/06_Dash_Title.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/06_Dash_Title.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/07_Dash_Single.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/07_Dash_Single.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Cooldown.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Cooldown.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/09_Delay_Title.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/09_Delay_Title.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Single.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Single.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/11_Delay_Cooldown.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/11_Delay_Cooldown.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/12_Combo_Info.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/12_Combo_Info.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/13_Combo_DelayDash.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/13_Combo_DelayDash.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/14_Scoring_Score.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/14_Scoring_Score.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/15_Scoring_NearMiss.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/15_Scoring_NearMiss.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/16_Currency_Coins.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/16_Currency_Coins.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/17_Currency_Shop.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/17_Currency_Shop.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/18_Ending_Replay.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/18_Ending_Replay.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/19_Ending_Finish.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/19_Ending_Finish.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment08Trigger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment08Trigger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment11Trigger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment11Trigger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment14Trigger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment14Trigger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment16Trigger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/Segment16Trigger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/SegmentEndTrigger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/SegmentEndTrigger.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TimeFreezer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TimeFreezer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/ArrowOutline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sprites/UI/ArrowOutline.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Custom Assets/GameplaySprites/ArrowOutline.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Custom Assets/GameplaySprites/ArrowOutline.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/SpriteDestruction2D.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BaseColorNumberSDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BaseColorNumberSDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BaseColorTextSDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BaseColorTextSDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/BaseColor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/BaseColor.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2003_DashCenterBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2003_DashCenterBox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2003_DashCenterBox.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2003_DashCenterBox.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/TutorialSystems.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/TutorialSystems.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Game_Intro.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Game_Intro.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Game_Movement.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Game_Movement.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Game_Objective.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Game_Objective.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Tap_Intro.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Tap_Intro.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Intro.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Intro.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Intro.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Intro.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAbilityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAbilityManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Statistics/CoinManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Statistics/CoinManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegment.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegment.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/User Interface.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/User Interface/Buttons.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Tutorial.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/PauseButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/PauseButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UserInterface/InfoDisplayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UserInterface/InfoDisplayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/CountLines.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/CountLines.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/CustomUITools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/CustomUITools.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/SaveData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/Achievement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/GameStateManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/SpeedUpModifier.cs" />
@@ -272,6 +172,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/PauseButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/SpriteDestruction2D/Main/EditorScripts/ExplodableEditor.cs" />
       </list>
     </option>
   </component>
@@ -340,6 +241,8 @@
       <workItem from="1597560017590" duration="26313000" />
       <workItem from="1597763272830" duration="38337000" />
       <workItem from="1598006118514" duration="20900000" />
+      <workItem from="1598196303599" duration="8369000" />
+      <workItem from="1598819686104" duration="523000" />
     </task>
     <servers />
   </component>
