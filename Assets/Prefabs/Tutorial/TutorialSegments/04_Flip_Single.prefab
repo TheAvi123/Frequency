@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4364290293992507368}
   - component: {fileID: 4637832122619539363}
   - component: {fileID: 8110987273527668366}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputType: 1
+  freezeLerpDuration: 0.5
   freezeDelay: 0.8
 --- !u!61 &8110987273527668366
 BoxCollider2D:
@@ -83,7 +84,7 @@ GameObject:
   - component: {fileID: 935941262772415110}
   - component: {fileID: 1697756126465767394}
   - component: {fileID: 7395055849121118293}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 04_Flip_Single
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
@@ -120,8 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnWavelengthDelay: 0.5
+  entryAngle: 0
   fadeTextArray:
   - {fileID: 6826263360225844126}
+  fadeImageArray: []
   segmentSize: 20
   focusColor: {r: 0, g: 0, b: 0, a: 1}
   fadeColor: {r: 0, g: 0, b: 0, a: 0.2}
@@ -163,7 +166,7 @@ GameObject:
   - component: {fileID: 2518248958720205344}
   - component: {fileID: 3007218383165379447}
   - component: {fileID: 8371346215510573376}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +264,7 @@ GameObject:
   - component: {fileID: 2759398177769294026}
   - component: {fileID: 995642626753183607}
   - component: {fileID: 6826263360225844126}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,6 +399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RectanglePart
+      objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: 04055fa42c569d64cb657d6c858a7ac6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: 04055fa42c569d64cb657d6c858a7ac6,
         type: 3}

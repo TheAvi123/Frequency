@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6543649039801980604}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: StartPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 6543649039909394963}
   - component: {fileID: 2899539019417567570}
   - component: {fileID: -1301396981205854813}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: 1005_ZigZagRLR
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6543649040414041575}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: EndPosition
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -152,7 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3749888876563608586}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ModifierSpawn
   m_TagString: ModifierSpawn
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -769,6 +769,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690143364453488238, guid: ba1d5d9b91bcfec4e91a7c5407d1d666,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690143364981128657, guid: ba1d5d9b91bcfec4e91a7c5407d1d666,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1d5d9b91bcfec4e91a7c5407d1d666, type: 3}

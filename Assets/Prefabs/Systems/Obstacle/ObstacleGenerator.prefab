@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8940630264367128077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HardObstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8940630264606542324}
   - component: {fileID: 8940630264606542327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ObstacleGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,17 +81,26 @@ MonoBehaviour:
   easyObstacles:
   - {fileID: -6441996105282225598, guid: df52c51b71c7819408d3aa9ec66cc9b3, type: 3}
   - {fileID: 1487578412881687107, guid: a9434b5ecca8c2047aa195afa49dc0bc, type: 3}
+  - {fileID: -6017428159406102189, guid: 83418aca20773f84e8d961c922b0230a, type: 3}
   - {fileID: -1483146879235953626, guid: 118f721ee2696df4396b735cbc15bbb6, type: 3}
   - {fileID: -1301396981205854813, guid: ac834c7d4a4322a419f003db262a50f1, type: 3}
   - {fileID: 6216666950948097556, guid: b6bf00c2a0776354b969e02296e5f105, type: 3}
   - {fileID: 6552234736592600863, guid: f2e011a1dee8da544bd42b5d4adf6958, type: 3}
+  - {fileID: -7152885570534484568, guid: a0738f9728c9f834f84925f54bbc5ac6, type: 3}
+  - {fileID: -7152885570534484568, guid: 1c80091dc8a860c499970c1d74542fb8, type: 3}
+  - {fileID: -6441996105282225598, guid: ed2f5aaa8ede48744b7759dd19448d30, type: 3}
   mediumObstacles:
-  - {fileID: -6017428159406102189, guid: 83418aca20773f84e8d961c922b0230a, type: 3}
+  - {fileID: -7152885570534484568, guid: 784575d2c3b2cd243ae7af0dd401a270, type: 3}
+  - {fileID: -7152885570534484568, guid: 748593d375b93d14e8127515858b2651, type: 3}
   - {fileID: 7771630373512459890, guid: 17c8bb9142d7f364cb270ea6a7135fea, type: 3}
-  - {fileID: 7665965917130747585, guid: c42d8d9d026ac9441b05e81b18f3e65e, type: 3}
+  - {fileID: 7665965917130747585, guid: fd4d6b114ce8ddf459cd8e4e31fc1935, type: 3}
   - {fileID: 3234657952162905871, guid: 456f07f8ba884fe418b9facdc1cf7770, type: 3}
   - {fileID: 7444463290655333424, guid: 0825a7daed0ac25428a13dc2123934d2, type: 3}
   - {fileID: 7444463290655333424, guid: 306ff5175172a7345a545a07b78d9fc2, type: 3}
+  - {fileID: -7152885570534484568, guid: f7e95ea89b4be2b40b6c8ffc4a028310, type: 3}
+  - {fileID: 3234657952162905871, guid: c01aaa1237bd8b74a9397725b0c3fbfb, type: 3}
+  - {fileID: 3234657952162905871, guid: 3b079e2149dd0434485e9e94740ff60d, type: 3}
+  - {fileID: 7665965917130747585, guid: c42d8d9d026ac9441b05e81b18f3e65e, type: 3}
   hardObstacles:
   - {fileID: 7333183200851548147, guid: a74f87f4ec9df04429120afbd2726821, type: 3}
   - {fileID: 4245552618821028093, guid: 294696cc8dd5e2d4eb8d0dd6e73a07b4, type: 3}
@@ -114,7 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8940630264871714063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EasyObstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8940630264909078924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VeryHardObstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8940630265030878111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StartingSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8940630265385276793}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MediumObstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

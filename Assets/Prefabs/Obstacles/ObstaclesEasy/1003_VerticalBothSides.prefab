@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 146551129500516456}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: EndPosition
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 146551129977844531}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: StartPosition
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -71,8 +71,8 @@ GameObject:
   - component: {fileID: 146551130004651932}
   - component: {fileID: -8660399216462832733}
   - component: {fileID: -6017428159406102189}
-  m_Layer: 9
-  m_Name: 2001_VerticalBothSides
+  m_Layer: 10
+  m_Name: 1003_VerticalBothSides
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

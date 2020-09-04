@@ -44,7 +44,7 @@ namespace Obstacles {
         private void GetObstacleTransform() {
             obstacleTransform = gameObject.transform;
         }
-
+        
         private void OnEnable() {
             PrepareObstacle();
         }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3951461504507791510}
   - component: {fileID: 2935126496079901210}
   - component: {fileID: 5491126424034869899}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 6696309716981353836}
   - component: {fileID: 6696309716981353837}
   - component: {fileID: 6696309716981353838}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 6696309717080065678}
   - component: {fileID: 6696309717080065676}
   - component: {fileID: 6696309717080065677}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 6696309717530189817}
   - component: {fileID: 6696309717530189823}
   - component: {fileID: 1300565207147367088}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Rectangle
   m_TagString: ObstaclePart
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 6696309718249213426}
   - component: {fileID: 6696309718249213437}
   - component: {fileID: 6696309718249213436}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 10_Delay_Single
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}

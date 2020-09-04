@@ -49,7 +49,7 @@ namespace Player {
         //Internal Movement Methods
         private void Awake() {
             FindAbilityManager();
-            GetPlayerTransform();
+            GetPlayerComponents();
         }
 
         private void FindAbilityManager() {
@@ -60,7 +60,7 @@ namespace Player {
             }
         }
 
-        private void GetPlayerTransform() {
+        private void GetPlayerComponents() {
             playerTransform = gameObject.transform;
         }
 

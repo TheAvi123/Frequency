@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 625619243971729856}
   - component: {fileID: 5860980314336681907}
   - component: {fileID: 8818162001140279883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TouchInputController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 4741414880797809283}
   - component: {fileID: 4741414880797809281}
   - component: {fileID: -240622127877509078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UICamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 6973945002643034404}
   - component: {fileID: 6973945002643034403}
   - component: {fileID: 5267266411418005234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MouseInputController
   m_TagString: Untagged
   m_Icon: {fileID: 0}

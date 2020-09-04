@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Explodable : MonoBehaviour
@@ -12,7 +10,7 @@ public class Explodable : MonoBehaviour
     public int extraPoints = 0;
     public int subshatterSteps = 0;
 
-    public string fragmentLayer = "Default";
+    public string fragmentLayer = "Obstacles";
     public string sortingLayerName = "Default";
     public int orderInLayer = 0;
 

@@ -1,4 +1,7 @@
 ﻿using System.Collections;
+using System.Security.Cryptography;
+
+using Player;
 
 using UnityEngine;
 
@@ -15,7 +18,16 @@ namespace Collectables.Helpers {
         }
 
         private void DestroyObstacle(GameObject obstacleObject) {
+            Transform obstacleTransform = obstacleObject.transform;
+            GameObject newObstacle = Instantiate(obstacleObject, obstacleTransform.position, obstacleTransform.rotation);
             obstacleObject.SetActive(false);
+            Explodable explodable = newObstacle.GetComponent<Explodable>(); 
+            if (explodable) {
+                Vector2 scale = obstacleObject.transform.localScale;
+                explodable.extraPoints = (int) (explodable.extraPoints * scale.x * scale.y);
+                explodable.fragmentInEditor();
+                explodable.explode();
+            }
             //Spawn Particle Effects
             InfoDisplayer.sharedInstance.DisplayInfo("SHIELD DESTROYED");
             ModifierManager.sharedInstance.EndModifierEffects();

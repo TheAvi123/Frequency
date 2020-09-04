@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 272257564739830626}
   - component: {fileID: 2862081024408589460}
   - component: {fileID: 7463969100507774959}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ColorManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0740d315fb6c75a478e31c63c605e4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gradientSpeed: 0.5
   colorGradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
@@ -145,7 +146,6 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  gradientSpeed: 0.5
   baseMaterial: {fileID: 2100000, guid: e3b219bd0495b8341b768e25593ee524, type: 2}
   textAsset: {fileID: 11400000, guid: c559c33d09c474f4c8c53486df218b65, type: 2}
   numberAsset: {fileID: 11400000, guid: acc86b61cdc8a0f42aedb21d39aa5d69, type: 2}

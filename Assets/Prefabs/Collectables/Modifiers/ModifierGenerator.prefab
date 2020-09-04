@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2666506982265832155}
   - component: {fileID: 2666506982265832156}
   - component: {fileID: 8657023101113956122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ModifierGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}

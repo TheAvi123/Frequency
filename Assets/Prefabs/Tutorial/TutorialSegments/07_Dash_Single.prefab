@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 577113903620886629}
   - component: {fileID: 4762081746218588750}
   - component: {fileID: 50543493987137857}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 8068367068211167284}
   - component: {fileID: 8068367068211167291}
   - component: {fileID: 8068367068211167290}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8068367068241424964}
   - component: {fileID: 8068367068241424969}
   - component: {fileID: 8068367068241424970}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 07_Dash_Single
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 8068367068717510257}
   - component: {fileID: 8068367068717510259}
   - component: {fileID: 8068367068717510258}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,6 +401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RectanglePart1
       objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: 04055fa42c569d64cb657d6c858a7ac6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: 04055fa42c569d64cb657d6c858a7ac6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -485,6 +490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RectanglePart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: 04055fa42c569d64cb657d6c858a7ac6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: 04055fa42c569d64cb657d6c858a7ac6,
         type: 3}

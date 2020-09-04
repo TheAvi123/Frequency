@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5674877203554514456}
   - component: {fileID: 2047015583061845061}
   - component: {fileID: 4922738453964294681}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 2590026995487321590}
   - component: {fileID: 2590026995487321588}
   - component: {fileID: 1763375307720366097}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TutorialSegmentTemplate
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
@@ -185,6 +185,7 @@ MonoBehaviour:
   spawnWavelengthDelay: 1
   entryAngle: 0
   fadeTextArray: []
+  fadeImageArray: []
   segmentSize: 0
   focusColor: {r: 0, g: 0, b: 0, a: 1}
   fadeColor: {r: 0, g: 0, b: 0, a: 0.2}
@@ -225,7 +226,7 @@ GameObject:
   - component: {fileID: 6941296511069400582}
   - component: {fileID: 8197201138277807208}
   - component: {fileID: 538719282898655423}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Rectangle
   m_TagString: ObstaclePart
   m_Icon: {fileID: 0}
@@ -335,7 +336,7 @@ GameObject:
   - component: {fileID: 1758684364458680153}
   - component: {fileID: 5925349884247104203}
   - component: {fileID: 5218284246463607540}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +434,7 @@ GameObject:
   - component: {fileID: 2216321754913918422}
   - component: {fileID: 6223443750385986413}
   - component: {fileID: 3753220262056826200}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

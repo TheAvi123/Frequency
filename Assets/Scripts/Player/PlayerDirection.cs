@@ -17,10 +17,10 @@ namespace Player {
 
         //Internal Methods
         private void Awake() {
-            GetPlayerTransform();
+            GetPlayerComponents();
         }
 
-        private void GetPlayerTransform() {
+        private void GetPlayerComponents() {
             playerTransform = gameObject.transform;
         }
 

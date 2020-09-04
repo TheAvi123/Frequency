@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5674209932411094540}
   - component: {fileID: 5674209932411094541}
   - component: {fileID: 5674209932411094533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MouseInputController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 5674209932572276928}
   - component: {fileID: 5674209932572276929}
   - component: {fileID: 5674209932572277566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TouchInputController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 6791693109913446656}
   - component: {fileID: 5674209932536423102}
   - component: {fileID: 5424149764356864285}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 3585008517874644994}
   - component: {fileID: 5674209932192135981}
   - component: {fileID: 3718109718494857575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TutorialSystems
   m_TagString: Untagged
   m_Icon: {fileID: 0}

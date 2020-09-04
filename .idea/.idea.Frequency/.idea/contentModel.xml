@@ -12,6 +12,68 @@
           <e p="CustomUITools.cs" t="Include" />
           <e p="ExplodableEditor.cs" t="Include" />
         </e>
+        <e p="Packages" t="Include">
+          <e p="SpriteDestruction2D" t="Include">
+            <e p="ClipperLibrary" t="Include">
+              <e p="Clipper.cs" t="Include" />
+            </e>
+            <e p="Delaunay" t="Include">
+              <e p="DelaunayHelpers.cs" t="Include" />
+              <e p="Edge.cs" t="Include" />
+              <e p="EdgeList.cs" t="Include" />
+              <e p="EdgeReorderer.cs" t="Include" />
+              <e p="Geometry" t="Include">
+                <e p="Circle.cs" t="Include" />
+                <e p="LineSegment.cs" t="Include" />
+                <e p="Polygon.cs" t="Include" />
+                <e p="Winding.cs" t="Include" />
+              </e>
+              <e p="Halfedge.cs" t="Include" />
+              <e p="HalfedgePriorityQueue.cs" t="Include" />
+              <e p="ICoord.cs" t="Include" />
+              <e p="LR.cs" t="Include" />
+              <e p="Site.cs" t="Include" />
+              <e p="SiteList.cs" t="Include" />
+              <e p="Triangle.cs" t="Include" />
+              <e p="Utils" t="Include">
+                <e p="IDisposable.cs" t="Include" />
+              </e>
+              <e p="Vertex.cs" t="Include" />
+              <e p="Voronoi.cs" t="Include" />
+            </e>
+            <e p="Main" t="Include">
+              <e p="ClipperHelper.cs" t="Include" />
+              <e p="Explodable.cs" t="Include" />
+              <e p="ExplodableAddon.cs" t="Include" />
+              <e p="ExplodableFragments.cs" t="Include" />
+              <e p="ExplodeOnClick.cs" t="Include" />
+              <e p="ExplosionForce.cs" t="Include" />
+              <e p="SpriteExploder.cs" t="Include" />
+            </e>
+          </e>
+          <e p="TextMesh Pro" t="Include">
+            <e p="Resources" t="Include">
+              <e p="LineBreaking Following Characters.txt" t="Include" />
+              <e p="LineBreaking Leading Characters.txt" t="Include" />
+              <e p="Shaders" t="Include">
+                <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+                <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+                <e p="TMP_Bitmap.shader" t="Include" />
+                <e p="TMP_SDF Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface.shader" t="Include" />
+                <e p="TMP_SDF.shader" t="Include" />
+                <e p="TMP_Sprite.shader" t="Include" />
+                <e p="TMPro.cginc" t="Include" />
+                <e p="TMPro_Properties.cginc" t="Include" />
+                <e p="TMPro_Surface.cginc" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="CameraFeatures" t="Include">
             <e p="CameraFollow.cs" t="Include" />
@@ -59,9 +121,13 @@
             <e p="MusicPlayer.cs" t="Include" />
           </e>
           <e p="Obstacles" t="Include">
+            <e p="BreakableObstacle.cs" t="Include" />
             <e p="Obstacle.cs" t="Include" />
             <e p="ObstacleGenerator.cs" t="Include" />
             <e p="ObstaclePooler.cs" t="Include" />
+          </e>
+          <e p="Others" t="Include">
+            <e p="GarbageCollector.cs" t="Include" />
           </e>
           <e p="Persistence" t="Include">
             <e p="PersistenceManager.cs" t="Include" />
@@ -69,6 +135,7 @@
           </e>
           <e p="Player" t="Include">
             <e p="PlayerAbilityManager.cs" t="Include" />
+            <e p="PlayerCollider.cs" t="Include" />
             <e p="PlayerDirection.cs" t="Include" />
             <e p="PlayerFollow.cs" t="Include" />
             <e p="PlayerInteractions.cs" t="Include" />
@@ -120,66 +187,6 @@
             <e p="InfoDisplayer.cs" t="Include" />
             <e p="OverlayScaler.cs" t="Include" />
             <e p="OverlaySwitcher.cs" t="Include" />
-          </e>
-        </e>
-        <e p="SpriteDestruction2D" t="Include">
-          <e p="ClipperLibrary" t="Include">
-            <e p="Clipper.cs" t="Include" />
-          </e>
-          <e p="Delaunay" t="Include">
-            <e p="DelaunayHelpers.cs" t="Include" />
-            <e p="Edge.cs" t="Include" />
-            <e p="EdgeList.cs" t="Include" />
-            <e p="EdgeReorderer.cs" t="Include" />
-            <e p="Geometry" t="Include">
-              <e p="Circle.cs" t="Include" />
-              <e p="LineSegment.cs" t="Include" />
-              <e p="Polygon.cs" t="Include" />
-              <e p="Winding.cs" t="Include" />
-            </e>
-            <e p="Halfedge.cs" t="Include" />
-            <e p="HalfedgePriorityQueue.cs" t="Include" />
-            <e p="ICoord.cs" t="Include" />
-            <e p="LR.cs" t="Include" />
-            <e p="Site.cs" t="Include" />
-            <e p="SiteList.cs" t="Include" />
-            <e p="Triangle.cs" t="Include" />
-            <e p="Utils" t="Include">
-              <e p="IDisposable.cs" t="Include" />
-            </e>
-            <e p="Vertex.cs" t="Include" />
-            <e p="Voronoi.cs" t="Include" />
-          </e>
-          <e p="Main" t="Include">
-            <e p="ClipperHelper.cs" t="Include" />
-            <e p="Explodable.cs" t="Include" />
-            <e p="ExplodableAddon.cs" t="Include" />
-            <e p="ExplodableFragments.cs" t="Include" />
-            <e p="ExplodeOnClick.cs" t="Include" />
-            <e p="ExplosionForce.cs" t="Include" />
-            <e p="SpriteExploder.cs" t="Include" />
-          </e>
-        </e>
-        <e p="TextMesh Pro" t="Include">
-          <e p="Resources" t="Include">
-            <e p="LineBreaking Following Characters.txt" t="Include" />
-            <e p="LineBreaking Leading Characters.txt" t="Include" />
-            <e p="Shaders" t="Include">
-              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
-              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
-              <e p="TMP_Bitmap.shader" t="Include" />
-              <e p="TMP_SDF Overlay.shader" t="Include" />
-              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
-              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
-              <e p="TMP_SDF-Mobile.shader" t="Include" />
-              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
-              <e p="TMP_SDF-Surface.shader" t="Include" />
-              <e p="TMP_SDF.shader" t="Include" />
-              <e p="TMP_Sprite.shader" t="Include" />
-              <e p="TMPro.cginc" t="Include" />
-              <e p="TMPro_Properties.cginc" t="Include" />
-              <e p="TMPro_Surface.cginc" t="Include" />
-            </e>
           </e>
         </e>
       </e>

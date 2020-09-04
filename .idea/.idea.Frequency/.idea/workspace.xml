@@ -23,12 +23,176 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0915abb8-f0be-4d19-8325-53001627f9b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/SpriteDestruction2D.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/BreakableParts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/BreakableParts/BreakableRectanglePart.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/BreakableParts/BreakableRectanglePart.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1011_BreakBox.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1011_BreakBox.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Others.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Others/GarbageCollector.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Others/GarbageCollector.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerCollider.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerCollider.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/BreakableObstacle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/BreakableObstacle.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Others.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Others/GarbageCollector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Others/GarbageCollector.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollider.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Frequency/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/CountLines.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/CountLines.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/CustomUITools.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/CustomUITools.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/ExplodableEditor.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/ExplodableEditor.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BaseColorNumberSDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BaseColorNumberSDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/BaseColorTextSDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/BaseColorTextSDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/BaseColor.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/BaseColor.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/ClipperLibrary/Clipper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/ClipperLibrary/Clipper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/DelaunayHelpers.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/DelaunayHelpers.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Edge.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Edge.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/EdgeList.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/EdgeList.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/EdgeReorderer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/EdgeReorderer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/Circle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/Circle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/LineSegment.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/LineSegment.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/Polygon.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/Polygon.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/Winding.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Geometry/Winding.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Halfedge.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Halfedge.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/HalfedgePriorityQueue.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/HalfedgePriorityQueue.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/ICoord.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/ICoord.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/LR.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/LR.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Site.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Site.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/SiteList.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/SiteList.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Triangle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Triangle.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Utils/IDisposable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Utils/IDisposable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Vertex.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Vertex.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Voronoi.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Delaunay/Voronoi.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ClipperHelper.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ClipperHelper.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/Explodable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/Explodable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/Explodable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/Explodable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodableAddon.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodableAddon.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodableFragments.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodableFragments.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodeOnClick.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodeOnClick.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodeOnClick.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodeOnClick.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplosionForce.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplosionForce.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/SpriteExploder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/SpriteExploder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/LineBreaking Following Characters.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/LineBreaking Leading Characters.txt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Custom-Atlas.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Mobile.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Bitmap-Mobile.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Bitmap.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Bitmap.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF Overlay.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF Overlay.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Overlay.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface-Mobile.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface-Mobile.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF-Surface.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_SDF.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Sprite.shader.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMP_Sprite.shader.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMPro.cginc.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMPro.cginc.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMPro_Surface.cginc.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Packages/TextMesh Pro/Resources/Shaders/TMPro_Surface.cginc.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Collectables/Modifiers/Helpers/CoinMagnet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Collectables/Modifiers/Helpers/CoinMagnet.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Collectables/Modifiers/Helpers/Shield.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Collectables/Modifiers/Helpers/Shield.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Collectables/Modifiers/ModifierGenerator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Collectables/Modifiers/ModifierGenerator.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/ArrowPart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/ArrowPart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/CirclePart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/CirclePart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/EquilateralTrianglePart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/EquilateralTrianglePart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/HexagonPart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/HexagonPart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/HourglassPart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/HourglassPart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/ArrowNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/ArrowNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/CircleNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/CircleNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/EquilateralTriangleNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/EquilateralTriangleNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/HexagonNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/HexagonNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/HourglassNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/HourglassNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/RectangleNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/RectangleNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/RightTriangleNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/RightTriangleNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/SemiCircleNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/SemiCircleNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/SlashNMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/SlashNMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/Star4NMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/Star4NMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/Star5NMC.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Near Miss Colliders/Star5NMC.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/RectanglePart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/RectanglePart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/RightTrianglePart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/RightTrianglePart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/SemiCirclePart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/SemiCirclePart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/SlashPart.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/SlashPart.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Star4Part.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Star4Part.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Star5Part.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleParts/Star5Part.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleTemplate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstacleTemplate.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1001_VerticalLeft.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1001_VerticalLeft.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1002_VerticalRight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1002_VerticalRight.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1003_VerticalBothSides.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1003_VerticalBothSides.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1004_ZigZagLRL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1004_ZigZagLRL.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1005_ZigZagRLR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1005_ZigZagRLR.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1006_CenterCircle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1006_CenterCircle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1007_SideSemiCircles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1007_SideSemiCircles.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1009_OuterArrows.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1009_OuterArrows.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1010_InnerArrows.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesEasy/1010_InnerArrows.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesHard/3001_VerticalRectanglesConcave.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesHard/3001_VerticalRectanglesConcave.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesHard/3002_VerticalRectanglesConvex.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesHard/3002_VerticalRectanglesConvex.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2000_StaggeredArrowsLR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2000_StaggeredArrowsLR.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2001_StaggeredArrowsRL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2001_StaggeredArrowsRL.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2002_DashSideBoxes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2002_DashSideBoxes.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2003_DashCenterBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2003_DashCenterBox.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2004_MovingSquareLR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2004_MovingSquareLR.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2005_RotatingRectangleL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2005_RotatingRectangleL.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2006_RotatingRectangleR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2006_RotatingRectangleR.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2007_CenterX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2007_CenterX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2008_MovingVerticalSquares.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2008_MovingVerticalSquares.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2009_SideSpikes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2009_SideSpikes.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2010_FadingRectangle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesMedium/2010_FadingRectangle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesVeryHard/4001_DoubleDashCenterBoxes.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesVeryHard/4001_DoubleDashCenterBoxes.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesVeryHard/4002_DoubleDashLR.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesVeryHard/4002_DoubleDashLR.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesVeryHard/4003_DoubleDashRL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Obstacles/ObstaclesVeryHard/4003_DoubleDashRL.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Trails/BasicTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Trails/BasicTrail.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/GameCamera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/GameCamera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/GameSystems.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/GameSystems.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/TutorialSystems.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/TutorialSystems.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/UICamera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Camera/UICamera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Color/ColorManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Color/ColorManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Music/MusicPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Music/MusicPlayer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Obstacle/ObstacleGenerator.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Obstacle/ObstacleGenerator.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Obstacle/ObstaclePool.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Obstacle/ObstaclePool.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Scenes/GameManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Scenes/GameManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Systems/Scenes/SceneTransitioner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Systems/Scenes/SceneTransitioner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/SegmentSpawner.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Intro_Welcome.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/00_Intro_Welcome.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Intro_Movement.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/01_Intro_Movement.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Intro_Objective.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/02_Intro_Objective.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/03_Flip_Title.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/03_Flip_Title.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Flip_Single.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/04_Flip_Single.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/05_Flip_Multiple.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/05_Flip_Multiple.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/06_Dash_Title.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/06_Dash_Title.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/07_Dash_Single.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/07_Dash_Single.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Cooldown.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/08_Dash_Cooldown.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/09_Delay_Title.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/09_Delay_Title.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Single.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/10_Delay_Single.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/11_Delay_Cooldown.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/11_Delay_Cooldown.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/12_Combo_Info.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/12_Combo_Info.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/13_Combo_DelayDash.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/13_Combo_DelayDash.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/14_Scoring_Score.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/14_Scoring_Score.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/15_Scoring_NearMiss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/15_Scoring_NearMiss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/16_Currency_Coins.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/16_Currency_Coins.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/17_Currency_Shop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/17_Currency_Shop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/18_Ending_Replay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/18_Ending_Replay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/19_Ending_Finish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/19_Ending_Finish.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tutorial/TutorialSegments/TutorialSegmentTemplate.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/GameBackgroundVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/GameBackgroundVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/MenuBackgroundVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Background/MenuBackgroundVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Collectibles/CoinCollectVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Collectibles/CoinCollectVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Collectibles/ModifierCollectVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Collectibles/ModifierCollectVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Collectibles/NMPointVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Collectibles/NMPointVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Modifiers/SpeedUpVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Modifiers/SpeedUpVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerDeathVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerDeathVFX.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerRespawnVFX.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Visual Effects/Player/PlayerRespawnVFX.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/Shield.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/Shield.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +201,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/TheAvi123/Frequency" />
+      </set>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,6 +225,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Editor/CustomUITools.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ColorGradients/BaseColorChanger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/CountLines.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodeOnClick.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Obstacles/BreakableObstacle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49F4E7E7-91CC-4FFF-ACD8-8F729E2B1E4C/b8/aed3fe6d/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ColorGradients/GradientMesh.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,6 +259,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/Shield.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/49F4E7E7-91CC-4FFF-ACD8-8F729E2B1E4C/e7/d07b52b8/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/CoinMagnet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/ExplodableEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/VFXFade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/NoCoinsModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/OptionsButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -99,6 +273,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/GhostModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/NoCDModifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/DoubleCDModifier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/51/accec36f/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/SpeedUpModifier.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,13 +297,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/Achievement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Systems/GameStateManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/SpeedUpModifier.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/ModifierManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/StatsManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Systems/SceneChangeController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialPartSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/SettingsManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Persistence/PersistenceManager.cs" />
@@ -145,13 +313,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifiers/ShieldModifier.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Coin.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/ModifierGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstacleGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/ObstaclePooler.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Statistics/AchievementInterface.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TimeFreezer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerInteractions.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Modifier.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/CooldownTriggerer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/CooldownTrigger.cs" />
@@ -169,10 +335,19 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/SegmentTriggers/SegmentEndTrigger .cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialSegmentSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UserInterface/Buttons/PauseButton.cs" />
         <option value="$PROJECT_DIR$/Assets/SpriteDestruction2D/Main/EditorScripts/ExplodableEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/ExplodeOnClick.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/Obstacle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Editor/ExplodableEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Packages/SpriteDestruction2D/Main/Explodable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCollider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerWave.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerDirection.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Collectables/Helpers/Shield.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Others/GarbageCollector.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Obstacles/BreakableObstacle.cs" />
       </list>
     </option>
   </component>
@@ -242,7 +417,12 @@
       <workItem from="1597763272830" duration="38337000" />
       <workItem from="1598006118514" duration="20900000" />
       <workItem from="1598196303599" duration="8369000" />
-      <workItem from="1598819686104" duration="523000" />
+      <workItem from="1598819686104" duration="1297000" />
+      <workItem from="1598821406000" duration="3060000" />
+      <workItem from="1598825052013" duration="1958000" />
+      <workItem from="1598875448939" duration="4957000" />
+      <workItem from="1598912389107" duration="1076000" />
+      <workItem from="1598976138844" duration="9804000" />
     </task>
     <servers />
   </component>
@@ -349,9 +529,9 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="439" y="31" width="657" height="801" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1597836181270" />
-    <state x="472" y="102" width="672" height="678" key="search.everywhere.popup" timestamp="1597832119836">
+    <state x="472" y="102" width="672" height="678" key="search.everywhere.popup" timestamp="1598875789813">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="472" y="102" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1597832119836" />
+    <state x="472" y="102" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1598875789813" />
   </component>
 </project>

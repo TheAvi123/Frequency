@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8086281839225463302}
   - component: {fileID: 8086281839225463321}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SegmentSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

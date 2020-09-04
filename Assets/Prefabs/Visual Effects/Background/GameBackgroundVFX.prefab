@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1774301286058817505}
   - component: {fileID: 1774301286058817504}
   - component: {fileID: 8279797662145128617}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameBackgroundVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

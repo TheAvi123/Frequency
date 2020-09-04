@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3867557265606788132}
   - component: {fileID: 3867557265606788134}
   - component: {fileID: 3867557265606788133}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TapToContinue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 7009179623411211495}
   - component: {fileID: 3104831672918497653}
   - component: {fileID: 3550684202988597578}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,8 +246,8 @@ GameObject:
   - component: {fileID: 6547141440973221448}
   - component: {fileID: 6547141440973221450}
   - component: {fileID: 6547141440973221451}
-  m_Layer: 9
-  m_Name: 00_Game_Welcome
+  m_Layer: 0
+  m_Name: 00_Intro_Welcome
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 122969056756407447}
   - component: {fileID: 7827389827507379089}
   - component: {fileID: 899444734832803076}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 4029797081606993318}
   - component: {fileID: 7297507552388196347}
   - component: {fileID: 4430580156036385191}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}

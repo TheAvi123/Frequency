@@ -30,6 +30,9 @@ TagManager:
   - TutorialPopUp
   - TutorialSegment
   - OverlayFolder
+  - GarbageCollector
+  - BreakablePart
+  - PlayerCollider
   layers:
   - Default
   - TransparentFX
@@ -39,10 +42,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Systems
+  - Player
+  - Obstacles
+  - VFX
   - 
   - 
   - 

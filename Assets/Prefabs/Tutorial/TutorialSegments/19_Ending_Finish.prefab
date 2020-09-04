@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 935941262772415110}
   - component: {fileID: 1697756126465767394}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 19_Ending_Finish
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 1798411484399599923}
   - component: {fileID: 415738893399718193}
   - component: {fileID: 8231869785905501330}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

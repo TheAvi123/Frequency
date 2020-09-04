@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4874565719770399029}
   - component: {fileID: 3076977304601792225}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SlashNMC
   m_TagString: NMCollider
   m_Icon: {fileID: 0}

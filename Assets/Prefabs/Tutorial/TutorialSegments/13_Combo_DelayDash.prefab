@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3951461504507791510}
   - component: {fileID: 2935126496079901210}
   - component: {fileID: 5491126424034869899}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezerDelay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 7603697899668264784}
   - component: {fileID: 4449967612616018773}
   - component: {fileID: 4372279166193111726}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezerDash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 6696309716981353836}
   - component: {fileID: 6696309716981353837}
   - component: {fileID: 6696309716981353838}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 6696309717080065678}
   - component: {fileID: 6696309717080065676}
   - component: {fileID: 6696309717080065677}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 6696309718249213426}
   - component: {fileID: 6696309718249213437}
   - component: {fileID: 6696309718249213436}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 13_Combo_DelayDash
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
@@ -474,6 +474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RectanglePart
+      objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: 04055fa42c569d64cb657d6c858a7ac6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: 04055fa42c569d64cb657d6c858a7ac6,
         type: 3}

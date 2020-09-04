@@ -1708,7 +1708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3444177498062903265}
   - component: {fileID: 8636255392761401534}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InfoDisplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

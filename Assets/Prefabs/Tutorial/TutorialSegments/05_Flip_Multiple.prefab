@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8869994716334565870}
   - component: {fileID: 1843544898243931889}
   - component: {fileID: 8979688087811554585}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 5674877203554514456}
   - component: {fileID: 2047015583061845061}
   - component: {fileID: 4922738453964294681}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 2590026995487321590}
   - component: {fileID: 2590026995487321588}
   - component: {fileID: 1763375307720366097}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 05_Flip_Multiple
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 1758684364458680153}
   - component: {fileID: 5925349884247104203}
   - component: {fileID: 5218284246463607540}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 3981343115167692595}
   - component: {fileID: 864719236372155217}
   - component: {fileID: 5838994118621695691}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 3648748236682981064}
   - component: {fileID: 1627461392677012521}
   - component: {fileID: 3567810683373249599}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,10 +545,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2590026995487321590}
     m_Modifications:
+    - target: {fileID: 83926809800042519, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 551846891750646988, guid: 95576c8be116a684699768179e61b3eb,
         type: 3}
       propertyPath: m_Name
       value: EquilateralTrianglePart1
+      objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2934389159027314198, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: 95576c8be116a684699768179e61b3eb,
         type: 3}
@@ -615,6 +630,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7173639251519569866, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95576c8be116a684699768179e61b3eb, type: 3}
 --- !u!4 &7395662311687552148 stripped
@@ -630,10 +650,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2590026995487321590}
     m_Modifications:
+    - target: {fileID: 83926809800042519, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 551846891750646988, guid: 95576c8be116a684699768179e61b3eb,
         type: 3}
       propertyPath: m_Name
       value: EquilateralTrianglePart2
+      objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2934389159027314198, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: 95576c8be116a684699768179e61b3eb,
         type: 3}
@@ -700,6 +735,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7173639251519569866, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95576c8be116a684699768179e61b3eb, type: 3}
 --- !u!4 &8638150029962778597 stripped
@@ -715,10 +755,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2590026995487321590}
     m_Modifications:
+    - target: {fileID: 83926809800042519, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 551846891750646988, guid: 95576c8be116a684699768179e61b3eb,
         type: 3}
       propertyPath: m_Name
       value: EquilateralTrianglePart3
+      objectReference: {fileID: 0}
+    - target: {fileID: 551846891750646988, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2934389159027314198, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874565719770399029, guid: 95576c8be116a684699768179e61b3eb,
         type: 3}
@@ -784,6 +839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7173639251519569866, guid: 95576c8be116a684699768179e61b3eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95576c8be116a684699768179e61b3eb, type: 3}

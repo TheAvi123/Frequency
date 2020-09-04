@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 434077676254422773}
   - component: {fileID: 434077676254422771}
   - component: {fileID: 434077676254422770}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 5606881129877487592}
   - component: {fileID: 1813550518579782871}
   - component: {fileID: 8551324335221278079}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: CooldownTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 7773800725622055473}
   - component: {fileID: 7773800725622055475}
   - component: {fileID: 7773800725622055472}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 7773800726108684935}
   - component: {fileID: 7773800726108684937}
   - component: {fileID: 7773800726108684934}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 08_Dash_Cooldown
   m_TagString: TutorialSegment
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 7773800727162254975}
   - component: {fileID: 7773800727162254972}
   - component: {fileID: 7773800727162254973}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: InfoCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 5334510844931787555}
   - component: {fileID: 3721351322830889725}
   - component: {fileID: 3772647222772899538}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: TimeFreezer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +608,7 @@ GameObject:
   - component: {fileID: 8343529143854910938}
   - component: {fileID: 6905083023253517101}
   - component: {fileID: 7759693195319221995}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
