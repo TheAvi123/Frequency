@@ -121,7 +121,7 @@
             <e p="MusicPlayer.cs" t="Include" />
           </e>
           <e p="Obstacles" t="Include">
-            <e p="BreakableObstacle.cs" t="Include" />
+            <e p="FunObstacle.cs" t="Include" />
             <e p="Obstacle.cs" t="Include" />
             <e p="ObstacleGenerator.cs" t="Include" />
             <e p="ObstaclePooler.cs" t="Include" />

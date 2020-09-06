@@ -182,6 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   verticalSpeed: 10
+  initialSpeedMultiplier: 0.8
+  multiplierIncreaseRate: 0.001
   frequencyDirection: 1
   frequencyMultiplier: 4
   amplitudeMultiplier: 7.5

@@ -87,26 +87,38 @@ public class Explodable : MonoBehaviour
     private void generateFragments()
     {
         fragments = new List<GameObject>();
+        
+        Vector2 scale = transform.localScale;
+        int adjustedPoints = extraPoints * (int) scale.x * (int) scale.y;
+        
         switch (shatterType)
         {
             case ShatterType.Triangle:
-                fragments = SpriteExploder.GenerateTriangularPieces(gameObject, extraPoints, subshatterSteps);
+                fragments = SpriteExploder.GenerateTriangularPieces(gameObject, adjustedPoints, subshatterSteps);
                 break;
             case ShatterType.Voronoi:
-                fragments = SpriteExploder.GenerateVoronoiPieces(gameObject, extraPoints, subshatterSteps);
+                fragments = SpriteExploder.GenerateVoronoiPieces(gameObject, adjustedPoints, subshatterSteps);
                 break;
             default:
                 Debug.Log("invalid choice");
                 break;
         }
+
+        Material mat = GetComponent<SpriteRenderer>().material;
         //sets additional aspects of the fragments
         foreach (GameObject p in fragments)
         {
             if (p != null)
             {
                 p.layer = LayerMask.NameToLayer(fragmentLayer);
-                p.GetComponent<Renderer>().sortingLayerName = sortingLayerName;
-                p.GetComponent<Renderer>().sortingOrder = orderInLayer;
+                var renderer = p.GetComponent<Renderer>();
+                renderer.sortingLayerName = sortingLayerName;
+                renderer.sortingOrder = orderInLayer;
+                p.GetComponent<MeshRenderer>().material = mat;
+                var rigidBody = p.GetComponent<Rigidbody2D>();
+                rigidBody.useAutoMass = true;
+                rigidBody.drag = 2;
+                rigidBody.angularDrag = 2;
             }
         }
 
@@ -123,15 +135,17 @@ public class Explodable : MonoBehaviour
         polygons.Clear();
         List<Vector2> polygon;
 
+        Transform parentTransform = gameObject.transform;
         foreach (GameObject frag in fragments)
         {
             polygon = new List<Vector2>();
             foreach (Vector2 point in frag.GetComponent<PolygonCollider2D>().points)
             {
                 Vector2 offset = rotateAroundPivot((Vector2)frag.transform.position, (Vector2)transform.position, Quaternion.Inverse(transform.rotation)) - (Vector2)transform.position;
-                offset.x /= transform.localScale.x;
-                offset.y /= transform.localScale.y;
-                polygon.Add(point + offset);
+                Vector2 adjustedPoint = point + offset;
+                adjustedPoint.x /= parentTransform.localScale.x;
+                adjustedPoint.y /= parentTransform.localScale.y;
+                polygon.Add(adjustedPoint);
             }
             polygons.Add(polygon);
         }
@@ -153,7 +167,7 @@ public class Explodable : MonoBehaviour
                 setPolygonsForDrawing();
             }
 
-            Gizmos.color = Color.blue;
+            Gizmos.color = Color.yellow;
             Gizmos.matrix = transform.localToWorldMatrix;
             Vector2 offset = (Vector2)transform.position * 0;
             foreach (List<Vector2> polygon in polygons)

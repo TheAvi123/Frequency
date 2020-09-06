@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7631901106068565966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6402128489750899888}
+  m_Layer: 8
+  m_Name: FunObstacles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6402128489750899888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631901106068565966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8940630264606542324}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8940630264367128074
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +93,7 @@ Transform:
   - {fileID: 8940630265385276793}
   - {fileID: 8940630264367128077}
   - {fileID: 8940630264909078924}
+  - {fileID: 6402128489750899888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,7 +119,6 @@ MonoBehaviour:
   - {fileID: 6552234736592600863, guid: f2e011a1dee8da544bd42b5d4adf6958, type: 3}
   - {fileID: -7152885570534484568, guid: a0738f9728c9f834f84925f54bbc5ac6, type: 3}
   - {fileID: -7152885570534484568, guid: 1c80091dc8a860c499970c1d74542fb8, type: 3}
-  - {fileID: -6441996105282225598, guid: ed2f5aaa8ede48744b7759dd19448d30, type: 3}
   mediumObstacles:
   - {fileID: -7152885570534484568, guid: 784575d2c3b2cd243ae7af0dd401a270, type: 3}
   - {fileID: -7152885570534484568, guid: 748593d375b93d14e8127515858b2651, type: 3}
@@ -108,6 +138,10 @@ MonoBehaviour:
   - {fileID: 1041082256931098716, guid: b22ad2427852a21468a4969fad39e396, type: 3}
   - {fileID: 2161401072588005631, guid: f5a831f691b823449aebcfb9c40e4a8a, type: 3}
   - {fileID: 2648773161206682160, guid: 1e285655653c7c7419823dc5e2fcf2bc, type: 3}
+  funObstacles:
+  - {fileID: -6441996105282225598, guid: ed2f5aaa8ede48744b7759dd19448d30, type: 3}
+  - {fileID: -6441996105282225598, guid: 19f6b5d626c4aad468ea58fcc9566438, type: 3}
+  - {fileID: -6441996105282225598, guid: d03adbf8869af5242990df17617462ab, type: 3}
   startSpawnPostion: {fileID: 8940630265030878111}
   spawnTriggerDistance: 50
   minObstacleDistance: 6

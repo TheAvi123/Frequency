@@ -108,6 +108,7 @@ MonoBehaviour:
   obstacleID: 1001
   minCoins: 0
   maxCoins: 1
+  poolObstacle: 1
 --- !u!1 &4310841596724877836
 GameObject:
   m_ObjectHideFlags: 0

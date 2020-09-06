@@ -139,6 +139,7 @@ MonoBehaviour:
   obstacleID: 1003
   minCoins: 0
   maxCoins: 0
+  poolObstacle: 1
 --- !u!1001 &146551130219838809
 PrefabInstance:
   m_ObjectHideFlags: 0

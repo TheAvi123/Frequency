@@ -39,8 +39,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2200602423501076364}
-  - component: {fileID: 7444463290655333424}
   - component: {fileID: 3368641115623486281}
+  - component: {fileID: 7444463290655333424}
   - component: {fileID: 2200602423501076363}
   m_Layer: 10
   m_Name: 2006_RotatingRectangleR
@@ -68,21 +68,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7444463290655333424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2200602423501076365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d563b09583b6e48bead0c1b31bc081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacleID: 2006
-  minCoins: 0
-  maxCoins: 1
 --- !u!61 &3368641115623486281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -109,6 +94,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7444463290655333424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2200602423501076365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30d563b09583b6e48bead0c1b31bc081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleID: 2006
+  minCoins: 0
+  maxCoins: 1
+  poolObstacle: 1
 --- !u!95 &2200602423501076363
 Animator:
   serializedVersion: 3

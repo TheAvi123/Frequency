@@ -171,7 +171,7 @@ public static class SpriteExploder {
 
         //get transform information
         Vector3 origScale = source.transform.localScale;
-        source.transform.localScale = Vector3.one;
+        //source.transform.localScale = Vector3.one;
         Quaternion origRotation = source.transform.localRotation;
         source.transform.localRotation = Quaternion.identity;
 
@@ -183,29 +183,32 @@ public static class SpriteExploder {
         BoxCollider2D sourceBoxCollider = source.GetComponent<BoxCollider2D>();
         List<Vector2> points = new List<Vector2>();
         List<Vector2> borderPoints = new List<Vector2>();
-        if (sourcePolyCollider != null)
-        {
-            points = getPoints(sourcePolyCollider);
-            borderPoints = getPoints(sourcePolyCollider);
+        List<Vector2> colliderPoints = new List<Vector2>();
+        
+        if (sourcePolyCollider != null) {
+            colliderPoints = getPoints(sourcePolyCollider);
+        } else if (sourceBoxCollider != null) {
+            colliderPoints = getPoints(sourceBoxCollider);
         }
-        else if (sourceBoxCollider != null)
-        {
-            points = getPoints(sourceBoxCollider);
-            borderPoints = getPoints(sourceBoxCollider);
+        foreach (var point in colliderPoints) {
+            Vector2 adjustedPoint = new Vector2(point.x * origScale.x, point.y * origScale.y);
+            borderPoints.Add(adjustedPoint);
         }
 
         Rect rect = getRect(source);
 
-        for (int i = 0; i < extraPoints; i++)
-        {
-            points.Add(new Vector2(Random.Range(
-				rect.width / -2 + rect.center.x, rect.width / 2 + rect.center.x), 
-				Random.Range(rect.height / -2 + rect.center.y, rect.height / 2 + rect.center.y)
-				));
+        for (int i = 0; i < extraPoints; i++) {
+            float halfWidth = rect.width * origScale.x / 2;
+            float halfHeight = rect.height * origScale.y / 2;
+            Vector2 newPoint = new Vector2(
+                Random.Range(rect.center.x - halfWidth, rect.center.x + halfWidth),
+                Random.Range(rect.center.y - halfHeight, rect.center.y + halfHeight));
+            newPoint.x /= origScale.x;
+            newPoint.y /= origScale.y;
+            points.Add(newPoint);
 		}
 
-
-		Voronoi voronoi = new Delaunay.Voronoi(points, null, rect);
+		Voronoi voronoi = new Voronoi(points, null, rect);
         List<List<Vector2>> clippedRegions = new List<List<Vector2>>();
         foreach (List<Vector2> region in voronoi.Regions())
         {
@@ -215,7 +218,7 @@ public static class SpriteExploder {
                 pieces.Add(generateVoronoiPiece(source, clippedRegion, origVelocity, origScale, origRotation, mat));
             }
         }
-
+        
         List<GameObject> morePieces = new List<GameObject>();
         if (subshatterSteps > 0)
         {
@@ -245,7 +248,7 @@ public static class SpriteExploder {
         GameObject piece = new GameObject(source.name + " piece");
         piece.transform.position = source.transform.position;
         piece.transform.rotation = source.transform.rotation;
-        piece.transform.localScale = source.transform.localScale;
+        piece.transform.localScale = Vector3.one; //source.transform.localScale;
 
         //Create and Add Mesh Components
         MeshFilter meshFilter = (MeshFilter)piece.AddComponent(typeof(MeshFilter));
@@ -275,7 +278,7 @@ public static class SpriteExploder {
         }
 
         //set transform properties before fixing the pivot for easier rotation
-        piece.transform.localScale = origScale;
+        //piece.transform.localScale = origScale;
         piece.transform.localRotation = origRotation;
 
         Vector3 diff = calcPivotCenterDiff(piece);
@@ -285,7 +288,7 @@ public static class SpriteExploder {
 
         //setFragmentMaterial(piece, source);
         piece.GetComponent<MeshRenderer>().sharedMaterial = mat;
-
+        
         //assign mesh
         meshFilter.mesh = uMesh;
 
@@ -296,8 +299,6 @@ public static class SpriteExploder {
         //Create and Add Rigidbody
         Rigidbody2D rigidbody = piece.AddComponent<Rigidbody2D>();
         rigidbody.velocity = origVelocity;
-
-
 
         return piece;
     }

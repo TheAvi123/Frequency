@@ -1,7 +1,4 @@
 ﻿using System.Collections;
-using System.Security.Cryptography;
-
-using Player;
 
 using UnityEngine;
 
@@ -23,8 +20,6 @@ namespace Collectables.Helpers {
             obstacleObject.SetActive(false);
             Explodable explodable = newObstacle.GetComponent<Explodable>(); 
             if (explodable) {
-                Vector2 scale = obstacleObject.transform.localScale;
-                explodable.extraPoints = (int) (explodable.extraPoints * scale.x * scale.y);
                 explodable.fragmentInEditor();
                 explodable.explode();
             }

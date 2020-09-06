@@ -157,5 +157,5 @@ MonoBehaviour:
   fragmentLayer: Default
   sortingLayerName: Default
   orderInLayer: 0
-  shatterType: 0
+  shatterType: 1
   fragments: []

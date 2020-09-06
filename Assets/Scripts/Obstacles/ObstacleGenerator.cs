@@ -11,7 +11,7 @@ namespace Obstacles {
     [SuppressMessage("ReSharper", "UnusedMember.Local")]
     public class ObstacleGenerator : MonoBehaviour
     {
-        private enum Difficulty {Easy, Medium, Hard, VeryHard}
+        private enum Difficulty {Easy, Medium, Hard, VeryHard, Fun}
 
         //Reference Variables
         private PlayerWave player;
@@ -23,18 +23,21 @@ namespace Obstacles {
         private Transform mediumFolder;
         private Transform hardFolder;
         private Transform veryHardFolder;
+        private Transform funFolder;
 
         [Header("Obstacle Prefabs")]
-        [SerializeField] private Obstacle[] easyObstacles = null;
-        [SerializeField] private Obstacle[] mediumObstacles = null;
-        [SerializeField] private Obstacle[] hardObstacles = null;
+        [SerializeField] private Obstacle[] easyObstacles     = null;
+        [SerializeField] private Obstacle[] mediumObstacles   = null;
+        [SerializeField] private Obstacle[] hardObstacles     = null;
         [SerializeField] private Obstacle[] veryHardObstacles = null;
+        [SerializeField] private Obstacle[] funObstacles      = null;
 
-        [Header("Obstacle Probabilities")]
-        const float EasyProbability     = 0.45f;
-        const float MediumProbability   = 0.37f;
+        [Header("Obstacle Probabilities")] 
+        const float FunProbability      = 0.06f;
+        const float EasyProbability     = 0.42f;
+        const float MediumProbability   = 0.32f;
         const float HardProbability     = 0.15f;
-        const float VeryHardProbability = 0.03f;
+        const float VeryHardProbability = 0.05f;
 
         [Header("Distances")]
         [SerializeField] Transform startSpawnPostion = null;
@@ -92,6 +95,7 @@ namespace Obstacles {
             mediumFolder = generator.GetChild(2);
             hardFolder = generator.GetChild(3);
             veryHardFolder = generator.GetChild(4);
+            funFolder = generator.GetChild(5);
         }
 
         private void PrefabChecks() {
@@ -106,6 +110,9 @@ namespace Obstacles {
             }
             if (veryHardObstacles == null || veryHardObstacles.Length == 0) {
                 Debug.LogError("No Very Hard Difficulty Obstacles Set In Inspector");
+            }
+            if (funFolder == null || funObstacles.Length == 0) {
+                Debug.LogError("No Fun Difficulty Obstacles Set In Inspector");
             }
             if (startSpawnPostion == null) {
                 Debug.LogError("No Start Spawn Location Assigned To Generator");
@@ -153,11 +160,13 @@ namespace Obstacles {
 
         private void ChooseObstacleDifficulty() {
             currentRoll = Random.Range(0, GetMaxRollValue());     //Returns Value between 0 and 1
-            if (currentRoll < EasyProbability) {
+            if (currentRoll < FunProbability) {
+                currentDifficulty = Difficulty.Fun;
+            } else if (currentRoll < FunProbability + EasyProbability) {
                 currentDifficulty = Difficulty.Easy;
-            } else if (currentRoll < EasyProbability + MediumProbability) {
+            } else if (currentRoll < FunProbability + EasyProbability + MediumProbability) {
                 currentDifficulty = Difficulty.Medium;
-            } else if (currentRoll <= EasyProbability + MediumProbability + HardProbability) {
+            } else if (currentRoll <= FunProbability + EasyProbability + MediumProbability + HardProbability) {
                 currentDifficulty = Difficulty.Hard;
             } else {
                 currentDifficulty = Difficulty.VeryHard;
@@ -167,11 +176,11 @@ namespace Obstacles {
         private float GetMaxRollValue() {
             switch (currentMaxDifficulty) {
                 case Difficulty.Easy:
-                    return 0.45f;
+                    return 0.48f;
                 case Difficulty.Medium:
-                    return 0.82f;
+                    return 0.80f;
                 case Difficulty.Hard:
-                    return 0.97f;
+                    return 0.95f;
                 case Difficulty.VeryHard:
                     return 1.00f;
                 default:
@@ -197,6 +206,10 @@ namespace Obstacles {
                 case Difficulty.VeryHard:
                     currentObstacleList = veryHardObstacles;
                     currentObstacleFolder = veryHardFolder;
+                    break;
+                case Difficulty.Fun:
+                    currentObstacleList = funObstacles;
+                    currentObstacleFolder = funFolder;
                     break;
             }
         }

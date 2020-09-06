@@ -12,8 +12,10 @@ namespace Player {
         private Transform playerTransform;
 
         //Movement Configuration Parameters
-        [Header("Movement Parameters")]
+        [Header("Movement Parameters")] 
         [SerializeField] float verticalSpeed = 10f;
+        [SerializeField] float initialSpeedMultiplier = 0.75f;
+        [SerializeField] float multiplierIncreaseRate = 0.001f;
         [SerializeField] [Range(-1, 1)] int frequencyDirection;
         [SerializeField] [Range(0, 10f)] float frequencyMultiplier = 4f;
         [SerializeField] [Range(0, 15f)] float amplitudeMultiplier = 7.5f;
@@ -23,6 +25,7 @@ namespace Player {
         private float setVerticalSpeed;
         private float setFrequencyMultiplier;
         private float setAmplitudeMultiplier;
+        private float setDashDuration;
 
         [Header("Position")]
         private float xPosition, yPosition;
@@ -45,6 +48,10 @@ namespace Player {
         //Ability State Variables
         private Coroutine dashCoroutine = null;
         private Coroutine delayCoroutine = null;
+        
+        //Speed State Variables
+        private bool maxSpeedReached = false;
+        private float currentSpeedMultiplier = 1f;
 
         //Internal Movement Methods
         private void Awake() {
@@ -70,6 +77,7 @@ namespace Player {
             CalculateAmplitudeMultiplier();
             SaveCalculatedMovementVariables();
             SetRandomFrequencyDirection();
+            InitializeSpeedMultiplier();
             MoveToStartPosition();
         }
 
@@ -88,12 +96,21 @@ namespace Player {
             setVerticalSpeed = verticalSpeed;
             setFrequencyMultiplier = frequencyMultiplier;
             setAmplitudeMultiplier = amplitudeMultiplier;
+            setDashDuration = dashDuration;
         }
 
         private void SetRandomFrequencyDirection() {
             frequencyDirection = Random.Range(0, 2) * 2 - 1;    //Randomly Returns Either +1 or -1
         }
-        
+
+        private void InitializeSpeedMultiplier() {
+            maxSpeedReached = false;
+            currentSpeedMultiplier = initialSpeedMultiplier;
+            verticalSpeed = setVerticalSpeed * currentSpeedMultiplier;
+            frequencyMultiplier = setFrequencyMultiplier * currentSpeedMultiplier;
+            dashDuration = setDashDuration / currentSpeedMultiplier;
+        }
+
         private void MoveToStartPosition() {
             playerTransform.position = new Vector2(0f, -16.5f);
         }
@@ -101,6 +118,7 @@ namespace Player {
         private void Update() {    
             UpdateAngle();
             SetPosition();
+            UpdateSpeed();
         }
 
         private void UpdateAngle() {
@@ -133,6 +151,21 @@ namespace Player {
             xPosition = Mathf.Sin(currentAngle) * amplitudeMultiplier;
             yPosition = playerTransform.position.y + verticalSpeed * Time.deltaTime;
             playerTransform.position = new Vector3(xPosition, yPosition);
+        }
+
+        private void UpdateSpeed() {
+            if (!maxSpeedReached && dashCoroutine is null && delayCoroutine is null) {
+                currentSpeedMultiplier += multiplierIncreaseRate * Time.deltaTime;
+                verticalSpeed = setVerticalSpeed * currentSpeedMultiplier;
+                frequencyMultiplier = setFrequencyMultiplier * currentSpeedMultiplier;
+                dashDuration = setDashDuration / currentSpeedMultiplier;
+                if (currentSpeedMultiplier >= 1) {
+                    maxSpeedReached = true;
+                    verticalSpeed = setVerticalSpeed;
+                    frequencyMultiplier = setFrequencyMultiplier;
+                    dashDuration = setDashDuration;
+                }
+            }
         }
 
         //Ability Methods

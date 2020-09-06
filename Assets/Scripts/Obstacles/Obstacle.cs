@@ -18,6 +18,7 @@ namespace Obstacles {
 
         //Configuration Parameters
         [SerializeField] private int minCoins = 0, maxCoins = 0;
+        [SerializeField] private bool poolObstacle = true;
 
         //State Variables
         private Coin[] coinPrefabs;
@@ -133,15 +134,20 @@ namespace Obstacles {
 
         //Public Methods
         public Transform GetInstanceFromPool() {
-            try {
-                return ObstaclePooler.sharedInstance.GetFromPool(this).transform;
-            } catch (NullReferenceException) {
-                return null;
+            if (poolObstacle) {
+                try {
+                    return ObstaclePooler.sharedInstance.GetFromPool(this).transform;
+                } catch (NullReferenceException) {
+                    return null;
+                }
             }
+            return null;
         }
 
         public void SendBackToPool() {
-            ObstaclePooler.sharedInstance.AddToPool(this);
+            if (poolObstacle) {
+                ObstaclePooler.sharedInstance.AddToPool(this);
+            }
         }
     }
 }
